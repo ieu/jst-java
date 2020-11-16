@@ -1,5 +1,44 @@
 非官方聚水潭[开放平台](https://open.jushuitan.com/) SDK
 
+## 使用方式
+
+### 示例
+
+```java
+JstClient jstClient = new DefaultJstClient(
+        "Your Partner Id",
+        "Your Partner Key",
+        "Your Token",
+        JstEnvironment.PRODUCTION
+);
+
+// 查询店铺
+List<Shop> shops = jstClient.base().queryShops();
+
+// 查询订单
+List<Order> orders = jstClient.order().querySingleOrder();
+
+// 查询发货信息
+List<Logistic> logistics = jstClient.logistic().queryLogistic();
+```
+
+### Spring Boot 集成
+
+1. 配置 `application.yml`：
+
+```yaml
+jst:
+  partner-id: Your Partner Id
+  partner-key: Your Partner Key
+  token: Your Token
+```
+
+2. 注入 `JstClient`：
+
+```java
+@Inject JstClient jstClient;
+```
+
 ## 开发计划
 
 ### 消息推送
