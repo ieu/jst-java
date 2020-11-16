@@ -1,0 +1,13 @@
+package io.github.ieu.jst.base.model;
+
+import io.github.ieu.jst.PaginatedResult;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.util.List;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class LogisticsCompanyQueryResult extends PaginatedResult {
+    private List<LogisticsCompany> datas;
+}
