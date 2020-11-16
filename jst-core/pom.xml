@@ -8,7 +8,7 @@
         <groupId>io.github.ieu.jst</groupId>
         <artifactId>jst-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>jst-core</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -16,8 +16,6 @@
     <properties>
         <commons-codec.version>1.15</commons-codec.version>
         <jackson.version>2.11.3</jackson.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <lombok.version>1.18.16</lombok.version>
         <okhttp.version>4.9.0</okhttp.version>
         <testing.version>6.10</testing.version>
