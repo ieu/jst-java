@@ -7,7 +7,7 @@ public enum JstEnvironment {
     PRODUCTION,
 
     /**
-     * 正式环境
+     * 沙箱环境
      */
     SANDBOX
 }
