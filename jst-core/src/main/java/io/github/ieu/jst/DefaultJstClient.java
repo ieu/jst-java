@@ -21,6 +21,10 @@ public class DefaultJstClient implements JstClient {
         );
     }
 
+    public DefaultJstClient(String partnerId, String partnerKey, String token) {
+        this(partnerId, partnerKey, token, JstEnvironment.PRODUCTION);
+    }
+
     private volatile JstBaseClient jstBaseClient;
 
     @Override
