@@ -52,9 +52,18 @@ public class RequestHelper {
     }
 
 
+    public <R extends BaseResult, P> R request(String method, final P params, Class<R> rClass) {
+        return request(method, params, objectMapper.getTypeFactory().constructType(rClass));
+    }
+
     public <R extends BaseResult, P> R request(String method, final P params,
-                                                  TypeReference<R> typeRef) {
-        R r = doRequest(method, params, typeRef);
+                                               TypeReference<R> typeRef) {
+        return request(method, params, objectMapper.getTypeFactory().constructType(typeRef));
+    }
+
+    public <R extends BaseResult, P> R request(String method, final P params,
+                                               JavaType respType) {
+        R r = doRequest(method, params, respType);
 
         JstResultCode code = r.getCode();
         if (!JstResultCode.SUCCEEDED.equals(code)) {
@@ -66,7 +75,7 @@ public class RequestHelper {
     }
 
     private <R extends BaseResult, P> R doRequest(String method, final P params,
-                                                    TypeReference<R> typeRef) {
+                                                    JavaType respType) {
         long timestamp = System.currentTimeMillis() / 1000;
 
         HttpUrl url = HttpUrl.parse(endpoint).newBuilder()
@@ -99,7 +108,7 @@ public class RequestHelper {
 
         try {
             Response response = getOkHttpClient().newCall(req).execute();
-            return objectMapper.readValue(response.body().source().inputStream(), typeRef);
+            return objectMapper.readValue(response.body().source().inputStream(), respType);
         } catch (JsonProcessingException e) {
             throw new JstClientException("解析响应数据错误", e);
         } catch (IOException e) {
