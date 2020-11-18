@@ -1,6 +1,5 @@
 package io.github.ieu.jst.base;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.ieu.jst.MathUtils;
 import io.github.ieu.jst.RequestHelper;
 import io.github.ieu.jst.base.model.*;
@@ -21,8 +20,7 @@ public class DefaultJstBaseClient implements JstBaseClient {
         return requestHelper.request(
                 "shops.query",
                 Collections.singletonMap("nicks", nicks),
-                new TypeReference<ShopsQueryResult>() {
-                }
+                ShopsQueryResult.class
         ).getShops();
     }
 
@@ -44,8 +42,7 @@ public class DefaultJstBaseClient implements JstBaseClient {
         return requestHelper.request(
                 "logisticscompany.query",
                 param,
-                new TypeReference<LogisticsCompanyQueryResult>() {
-                }
+                LogisticsCompanyQueryResult.class
         ).getDatas();
     }
 
@@ -54,8 +51,7 @@ public class DefaultJstBaseClient implements JstBaseClient {
         return requestHelper.request(
                 "wms.partner.query",
                 Collections.emptyMap(),
-                new TypeReference<WmsPartnerQueryResult>() {
-                }
+                WmsPartnerQueryResult.class
         ).getDatas();
     }
 
@@ -64,8 +60,7 @@ public class DefaultJstBaseClient implements JstBaseClient {
         return requestHelper.request(
                 "refresh.token",
                 Collections.emptyMap(),
-                new TypeReference<RefreshTokenResult>() {
-                }
+                RefreshTokenResult.class
         ).getData().getExpiredDate();
     }
 }

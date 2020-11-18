@@ -1,6 +1,5 @@
 package io.github.ieu.jst.logistic;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.ieu.jst.MathUtils;
 import io.github.ieu.jst.RequestHelper;
 import io.github.ieu.jst.logistic.model.Logistic;
@@ -24,8 +23,7 @@ public class DefaultJstLogisticClient implements JstLogisticClient {
         return requestHelper.request(
                 "logistic.query",
                 param,
-                new TypeReference<LogisticQueryResult>() {
-                }
+                LogisticQueryResult.class
         ).getOrders();
     }
 }

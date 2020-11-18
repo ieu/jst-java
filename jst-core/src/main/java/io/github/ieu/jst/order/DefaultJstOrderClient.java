@@ -1,6 +1,5 @@
 package io.github.ieu.jst.order;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.ieu.jst.MathUtils;
 import io.github.ieu.jst.RequestHelper;
 import io.github.ieu.jst.order.model.Order;
@@ -24,8 +23,7 @@ public class DefaultJstOrderClient implements JstOrderClient {
         return requestHelper.request(
                 "orders.single.query",
                 param,
-                new TypeReference<OrdersSingleQueryResult>() {
-                }
+                OrdersSingleQueryResult.class
         ).getOrders();
     }
 }
