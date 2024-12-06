@@ -1,66 +1,62 @@
 package io.github.ieu.jst.base;
 
-import io.github.ieu.jst.MathUtils;
-import io.github.ieu.jst.RequestHelper;
-import io.github.ieu.jst.base.model.*;
+import io.github.ieu.jst.AbstractJstBizClient;
+import io.github.ieu.jst.JstConfiguration;
 
-import java.time.ZonedDateTime;
-import java.util.Collections;
-import java.util.List;
+/**
+ * 基础API
+ */
+public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBaseClient {
 
-public class DefaultJstBaseClient implements JstBaseClient {
-    private final RequestHelper requestHelper;
-
-    public DefaultJstBaseClient(RequestHelper requestHelper) {
-        this.requestHelper = requestHelper;
+    public DefaultJstBaseClient(JstConfiguration configuration) {
+        super(configuration);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=1">店铺查询</a>
+     */
     @Override
-    public List<Shop> queryShops(List<String> nicks) {
-        return requestHelper.request(
-                "shops.query",
-                Collections.singletonMap("nicks", nicks),
-                ShopsQueryResult.class
-        ).getShops();
+    public JstQueryShopsResponse queryShops(JstQueryShopsRequest request) {
+        return execute("/open/shops/query", request, JstQueryShopsResponse.class);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=2">物流公司查询</a>
+     */
     @Override
-    public List<Shop> queryShops() {
-        return queryShops(Collections.emptyList());
+    public JstQueryLogisticsCompanyResponse queryLogisticsCompany(JstQueryLogisticsCompanyRequest request) {
+        return execute("/open/logisticscompany/query", request, JstQueryLogisticsCompanyResponse.class);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=3">仓库查询</a>
+     */
     @Override
-    public List<LogisticsCompany> queryLogisticsCompany() {
-        return queryLogisticsCompany(new LogisticsCompanyQueryParam());
+    public JstQueryWmsPartnerResponse queryWmsPartner(JstQueryWmsPartnerRequest request) {
+        return execute("/open/wms/partner/query", request, JstQueryWmsPartnerResponse.class);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=430">供销商查询</a>
+     */
     @Override
-    public List<LogisticsCompany> queryLogisticsCompany(LogisticsCompanyQueryParam param) {
-        param.setPageIndex(Math.max(param.getPageIndex(), 1));
-        param.setPageSize(MathUtils.clamp(param.getPageSize(), 0, 50));
-
-        return requestHelper.request(
-                "logisticscompany.query",
-                param,
-                LogisticsCompanyQueryResult.class
-        ).getDatas();
+    public JstQueryMySupplierByPartnerChannelResponse queryMySupplierByPartnerChannel(JstQueryMySupplierByPartnerChannelRequest request) {
+        return execute("/open/api/company/inneropen/partner/channel/querymysupplier", request, JstQueryMySupplierByPartnerChannelResponse.class);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=611">商家用户信息</a>
+     */
     @Override
-    public List<Warehouse> queryPartnerWms() {
-        return requestHelper.request(
-                "wms.partner.query",
-                Collections.emptyMap(),
-                WmsPartnerQueryResult.class
-        ).getDatas();
+    public JstGetCompanyUsersResponse getCompanyUsers(JstGetCompanyUsersRequest request) {
+        return execute("/open/webapi/userapi/company/getcompanyusers", request, JstGetCompanyUsersResponse.class);
     }
 
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=955">分销商查询</a>
+     */
     @Override
-    public ZonedDateTime refreshToken() {
-        return requestHelper.request(
-                "refresh.token",
-                Collections.emptyMap(),
-                RefreshTokenResult.class
-        ).getData().getExpiredDate();
+    public JstQueryMyChannelBySupplierResponse queryMyChannelBySupplier(JstQueryMyChannelBySupplierRequest request) {
+        return execute("/open/api/drp/inneropen/partner/supplier/querymychannel", request, JstQueryMyChannelBySupplierResponse.class);
     }
 }

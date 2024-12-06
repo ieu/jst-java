@@ -1,6 +1,6 @@
 package io.github.ieu.jst;
 
-public class JstClientException extends RuntimeException {
+public class JstClientException extends JstException {
     public JstClientException() {
         super();
     }

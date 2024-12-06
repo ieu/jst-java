@@ -1,54 +1,37 @@
 package io.github.ieu.jst.base;
 
-import io.github.ieu.jst.base.model.LogisticsCompany;
-import io.github.ieu.jst.base.model.LogisticsCompanyQueryParam;
-import io.github.ieu.jst.base.model.Shop;
-import io.github.ieu.jst.base.model.Warehouse;
-
-import java.time.ZonedDateTime;
-import java.util.List;
-
+/**
+ * 基础API
+ */
 public interface JstBaseClient {
-    /**
-     * 店铺查询
-     *
-     * @param nicks 店铺主账号，不支持模糊查询
-     * @see <a href="https://open.jushuitan.com/document/14.html">https://open.jushuitan.com/document/14.html</a>
-     */
-    List<Shop> queryShops(List<String> nicks);
 
     /**
-     * 店铺查询
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=1">店铺查询</a>
      */
-    List<Shop> queryShops();
+    JstQueryShopsResponse queryShops(JstQueryShopsRequest request);
 
     /**
-     * 物流公司查询
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=2">物流公司查询</a>
      */
-    List<LogisticsCompany> queryLogisticsCompany();
+    JstQueryLogisticsCompanyResponse queryLogisticsCompany(JstQueryLogisticsCompanyRequest request);
 
     /**
-     * 物流公司查询
-     *
-     * @param queryParam 查询参数
-     * @see <a href="https://open.jushuitan.com/document/2036.html">https://open.jushuitan.com/document/2036.html</a>
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=3">仓库查询</a>
      */
-    List<LogisticsCompany> queryLogisticsCompany(LogisticsCompanyQueryParam queryParam);
+    JstQueryWmsPartnerResponse queryWmsPartner(JstQueryWmsPartnerRequest request);
 
     /**
-     * 分仓查询
-     * <p>
-     * wms.partner.query
-     *
-     * @see <a href="https://open.jushuitan.com/document/2064.html">https://open.jushuitan.com/document/2064.html</a>
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=430">供销商查询</a>
      */
-    List<Warehouse> queryPartnerWms();
+    JstQueryMySupplierByPartnerChannelResponse queryMySupplierByPartnerChannel(JstQueryMySupplierByPartnerChannelRequest request);
 
     /**
-     * 刷新token
-     *
-     * @return 有效期
-     * @see <a href="https://open.jushuitan.com/document/2064.html">https://open.jushuitan.com/document/2064.html</a>
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=611">商家用户信息</a>
      */
-    ZonedDateTime refreshToken();
+    JstGetCompanyUsersResponse getCompanyUsers(JstGetCompanyUsersRequest request);
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=955">分销商查询</a>
+     */
+    JstQueryMyChannelBySupplierResponse queryMyChannelBySupplier(JstQueryMyChannelBySupplierRequest request);
 }
