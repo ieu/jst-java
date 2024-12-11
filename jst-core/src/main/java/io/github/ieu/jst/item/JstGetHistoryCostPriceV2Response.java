@@ -17,13 +17,38 @@ public class JstGetHistoryCostPriceV2Response {
         /**
          * 商品历史成本价字典，keys是wmsCoId
          */
-        private SkuHistoryCostPriceMaps skuHistoryCostPriceMaps;
+        private java.util.Map<String, java.util.List<SkuHistoryCostPrice>> skuHistoryCostPriceMaps;
 
         /**
          * 商品历史成本价字典，keys是wmsCoId
          */
         @lombok.Data
-        public static class SkuHistoryCostPriceMaps {
+        public static class SkuHistoryCostPrice {
+
+            /**
+             * 商品编码
+             */
+            private String skuId;
+
+            /**
+             * 成本价
+             */
+            private String costPrice;
+
+            /**
+             * 开始日期
+             */
+            private String beginDate;
+
+            /**
+             * 结束日期
+             */
+            private String endDate;
+
+            /**
+             * 备注
+             */
+            private String remark;
         }
     }
 }
