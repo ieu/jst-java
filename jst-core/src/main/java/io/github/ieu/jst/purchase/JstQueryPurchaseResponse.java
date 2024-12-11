@@ -13,10 +13,10 @@ public class JstQueryPurchaseResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,7 +46,7 @@ public class JstQueryPurchaseResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/5f065926-3029-4e58-aecc-c1954e11a990_1636_291.png" target="_blank">运营云仓编码</a></div>（入参是否返回运营云仓信息字段传true才会返回）
@@ -54,7 +54,7 @@ public class JstQueryPurchaseResponse {
         private Number lockLwhId;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 采购日期
@@ -119,7 +119,7 @@ public class JstQueryPurchaseResponse {
             /**
              * 数据集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 多标签
@@ -167,7 +167,7 @@ public class JstQueryPurchaseResponse {
             private String mergePoId;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 商家sku

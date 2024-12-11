@@ -47,7 +47,7 @@ public class JstUploadOtherInOutRequest {
     /**
      * 商品列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 收件人姓名
@@ -113,7 +113,7 @@ public class JstUploadOtherInOutRequest {
      * 最大支持上传1000条
      */
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

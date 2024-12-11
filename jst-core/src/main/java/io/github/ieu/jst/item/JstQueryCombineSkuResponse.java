@@ -13,10 +13,10 @@ public class JstQueryCombineSkuResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryCombineSkuResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 组合装款式编码
@@ -224,10 +224,10 @@ public class JstQueryCombineSkuResponse {
             /**
              * 商品列表
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 子商品编码

@@ -31,10 +31,10 @@ public class JstQueryShengsuanPayableResponse {
     /**
      * 数据集合
      */
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * 应付单号
@@ -184,15 +184,15 @@ public class JstQueryShengsuanPayableResponse {
         /**
          * 应付明细
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         /**
          * 费用明细
          */
-        private java.util.List<FreeItems> freeItems;
+        private java.util.List<FreeItem> freeItems;
 
         @lombok.Data
-        public static class FreeItems {
+        public static class FreeItem {
 
             /**
              * 应付费用单号
@@ -221,7 +221,7 @@ public class JstQueryShengsuanPayableResponse {
         }
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 应付明细单号

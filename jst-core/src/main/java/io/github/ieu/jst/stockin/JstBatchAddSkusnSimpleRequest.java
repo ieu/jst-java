@@ -4,10 +4,10 @@ package io.github.ieu.jst.stockin;
 @lombok.Builder
 public class JstBatchAddSkusnSimpleRequest {
 
-    private java.util.List<SkuSnList> skuSnList;
+    private java.util.List<SkuSn> skuSnList;
 
     @lombok.Data
-    public static class SkuSnList {
+    public static class SkuSn {
 
         /**
          * 商品编码

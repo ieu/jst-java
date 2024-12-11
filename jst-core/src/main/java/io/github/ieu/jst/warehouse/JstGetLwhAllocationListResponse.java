@@ -96,7 +96,7 @@ public class JstGetLwhAllocationListResponse {
             /**
              * 商品明细
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 外部单号
@@ -109,7 +109,7 @@ public class JstGetLwhAllocationListResponse {
             private String type;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 款式编码

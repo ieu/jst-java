@@ -12,10 +12,10 @@ public class JstSplitDrpOrderRequest {
     /**
      * 拆分信息
      */
-    private java.util.List<java.util.List<SplitInfos>> splitInfos;
+    private java.util.List<java.util.List<SplitInfo>> splitInfos;
 
     @lombok.Data
-    public static class SplitInfos {
+    public static class SplitInfo {
 
         /**
          * 订单明细号，来源于订单查询接口的子订单号

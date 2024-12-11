@@ -7,21 +7,21 @@ public class JstLoadOrderChangeStatisticsResponse {
 
     private String act;
 
-    private Data data;
+    private Pagination data;
 
     private String msg;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         private Number totalItems;
 
         private Boolean hasNext;
 
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 操作人

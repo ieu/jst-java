@@ -19,10 +19,10 @@ public class JstUpdateWorkOrderRequest {
          */
         private String operateType;
 
-        private java.util.List<BusinessFieldList> businessFieldList;
+        private java.util.List<BusinessField> businessFieldList;
 
         @lombok.Data
-        public static class BusinessFieldList {
+        public static class BusinessField {
 
             private String fieldId;
 

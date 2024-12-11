@@ -13,10 +13,10 @@ public class JstQueryInventoryCountResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryInventoryCountResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 单据类型
@@ -104,17 +104,17 @@ public class JstQueryInventoryCountResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 批次集合，获取该节点系统中相关业务项需配置
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * 唯一码集合，获取该节点系统中相关业务项需配置
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             /**
              * 财审状态，WaitConfirm=待审核;Confirmed=已审核
@@ -137,7 +137,7 @@ public class JstQueryInventoryCountResponse {
             private String labels;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -151,7 +151,7 @@ public class JstQueryInventoryCountResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -190,7 +190,7 @@ public class JstQueryInventoryCountResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 盘点单号

@@ -13,10 +13,10 @@ public class JstQueryAllocateResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryAllocateResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 分仓编号，调拨出为发起方，调拨入为接收方
@@ -164,14 +164,14 @@ public class JstQueryAllocateResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 批次集合，获取该节点系统中相关业务项需配置（对应erp基础设置开启生产批次管理 如果是分仓数据 分仓也需要开启）
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             /**
              * 收货人
@@ -229,7 +229,7 @@ public class JstQueryAllocateResponse {
             private String unit;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -243,7 +243,7 @@ public class JstQueryAllocateResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -277,7 +277,7 @@ public class JstQueryAllocateResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 调拨单号

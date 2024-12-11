@@ -17,10 +17,10 @@ public class JstUploadCombineSkuRequest {
     /**
      * 一次最多上传50个
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/c73eef94-c221-404c-a0d8-f5f666a9f943_2002_402.png" target="_blank">商品编码</a></div>
@@ -77,7 +77,7 @@ public class JstUploadCombineSkuRequest {
          */
         private String enabled;
 
-        private java.util.List<childList> childlist;
+        private java.util.List<Child> childlist;
 
         /**
          * 是否追加标签；true追加，false全覆盖
@@ -95,7 +95,7 @@ public class JstUploadCombineSkuRequest {
         private String labels;
 
         @lombok.Data
-        public static class childList {
+        public static class Child {
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/6e143d05-8f09-4373-9c9b-df7112d55a43_2501_1092.png" target="_blank">商品编码</a></div>可更新

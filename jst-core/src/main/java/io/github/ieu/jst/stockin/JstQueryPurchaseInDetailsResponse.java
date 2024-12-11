@@ -7,12 +7,12 @@ public class JstQueryPurchaseInDetailsResponse {
 
     private Integer code;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         /**
          * 第几页
@@ -40,7 +40,7 @@ public class JstQueryPurchaseInDetailsResponse {
         private Number pageSize;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 采购单号
@@ -95,7 +95,7 @@ public class JstQueryPurchaseInDetailsResponse {
             /**
              * 商品明细信息
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 分仓编号
@@ -120,7 +120,7 @@ public class JstQueryPurchaseInDetailsResponse {
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/1480fd4b-f07f-4f6f-9099-51e459e1b772_1634_247.png"target="_blank">唯一码集合</a></div>获取该节点系统中相关业务项需配置（对应erp基础设置商品唯一码开关）
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             /**
              * 制单人 nvarchar(10)
@@ -140,7 +140,7 @@ public class JstQueryPurchaseInDetailsResponse {
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/6e7a0bbb-124e-457f-9b31-b9286c42d8ea_1558_310.png"target="_blank">生产批次集合</a></div>获取该节点系统中相关业务项需配置（对应erp基础设置开启生产批次管理 如果是分仓数据 分仓也需要开启）
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * 财审状态，WaitConfirm=待审核;Confirmed=已审核   varchar(20)
@@ -186,7 +186,7 @@ public class JstQueryPurchaseInDetailsResponse {
              * 批次节点
              */
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号 varchar(50)
@@ -225,7 +225,7 @@ public class JstQueryPurchaseInDetailsResponse {
             }
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 private String skuId;
 
@@ -233,7 +233,7 @@ public class JstQueryPurchaseInDetailsResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 入库子单号

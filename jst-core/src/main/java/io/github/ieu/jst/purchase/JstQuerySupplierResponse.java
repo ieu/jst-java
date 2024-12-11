@@ -13,10 +13,10 @@ public class JstQuerySupplierResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQuerySupplierResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/bf26d89f-d1f7-439e-b773-2f125e57764f_1534_487.png" target="_blank">供应商内部编码</a></div>

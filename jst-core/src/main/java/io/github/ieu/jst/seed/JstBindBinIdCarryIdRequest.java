@@ -22,10 +22,10 @@ public class JstBindBinIdCarryIdRequest {
     /**
      * 出库单播种柜号
      */
-    private java.util.List<BindBinIdCarryIds> bindBinIdCarryIds;
+    private java.util.List<BindBinIdCarryId> bindBinIdCarryIds;
 
     @lombok.Data
-    public static class BindBinIdCarryIds {
+    public static class BindBinIdCarryId {
 
         private Key key;
 
@@ -90,10 +90,10 @@ public class JstBindBinIdCarryIdRequest {
                 /**
                  * 虚拟仓百分比设置
                  */
-                private java.util.List<LockPercentages> lockPercentages;
+                private java.util.List<LockPercentage> lockPercentages;
 
                 @lombok.Data
-                public static class LockPercentages {
+                public static class LockPercentage {
 
                     /**
                      * 虚拟仓锁定ID

@@ -6,17 +6,17 @@ public class JstCallbackSeedRequest {
 
     private String waveId;
 
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         private Integer ioId;
 
-        private java.util.List<items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class items {
+        public static class Item {
 
             /**
              * 商品编码

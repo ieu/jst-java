@@ -57,7 +57,7 @@ public class JstUploadManufactureRequest {
     /**
      * 成品节点
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 是否自动确认单据（默认false待审核）
@@ -65,7 +65,7 @@ public class JstUploadManufactureRequest {
     private Boolean isConfirm;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/5ca7b0cf-48f6-4aa7-85bd-6f289b05927a_1185_171.png"target="_blank">商品编码</a></div>

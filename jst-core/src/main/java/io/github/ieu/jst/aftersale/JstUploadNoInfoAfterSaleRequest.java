@@ -69,10 +69,10 @@ public class JstUploadNoInfoAfterSaleRequest {
          */
         private Number freight;
 
-        private java.util.List<items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class items {
+        public static class Item {
 
             /**
              * 商家商品编码

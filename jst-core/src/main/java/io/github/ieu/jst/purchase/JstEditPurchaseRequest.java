@@ -102,10 +102,10 @@ public class JstEditPurchaseRequest {
     /**
      * 采购明细
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

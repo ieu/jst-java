@@ -12,10 +12,10 @@ public class JstUploadPurchaseInReceivedRequest {
     /**
      * 商品信息
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 实收数量

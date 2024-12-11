@@ -26,10 +26,10 @@ public class JstGetPageLockPurchasesResponse {
         /**
          * 采购明细信息
          */
-        private java.util.List<LockPurchaseItems> lockPurchaseItems;
+        private java.util.List<LockPurchaseItem> lockPurchaseItems;
 
         @lombok.Data
-        public static class LockPurchaseItems {
+        public static class LockPurchaseItem {
 
             /**
              * 虚拟仓采购单号

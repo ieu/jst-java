@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstQueryInOutWaterResponse {
 
-    private Datas datas;
+    private Data datas;
 
     /**
      * 提示信息
@@ -46,7 +46,7 @@ public class JstQueryInOutWaterResponse {
     private Integer pageSize;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * 公司编号，调拨业务时代表发起方
@@ -143,7 +143,7 @@ public class JstQueryInOutWaterResponse {
          */
         private String remark;
 
-        private Items items;
+        private Item items;
 
         /**
          * 单据类型
@@ -151,7 +151,7 @@ public class JstQueryInOutWaterResponse {
         private String type;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 商品明细ID

@@ -16,18 +16,18 @@ public class JstUploadOrdersResponse {
     /**
      * 数据集合
      */
-    private Data data;
+    private DataWrap data;
 
     /**
      * 数据集合
      */
     @lombok.Data
-    public static class Data {
+    public static class DataWrap {
 
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * ERP订单界面-内部单号

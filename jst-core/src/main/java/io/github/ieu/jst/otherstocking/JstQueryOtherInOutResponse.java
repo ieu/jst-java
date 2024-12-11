@@ -13,10 +13,10 @@ public class JstQueryOtherInOutResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryOtherInOutResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 出仓单号
@@ -194,20 +194,20 @@ public class JstQueryOtherInOutResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 批次集合，获取该节点系统中相关业务项需配置（对应erp基础设置开启生产批次管理 如果是分仓数据 分仓也需要开启）
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * 唯一码集合，获取该节点系统中相关业务项需配置（对应erp基础设置商品唯一码开关）
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -221,7 +221,7 @@ public class JstQueryOtherInOutResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -255,7 +255,7 @@ public class JstQueryOtherInOutResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 子单号

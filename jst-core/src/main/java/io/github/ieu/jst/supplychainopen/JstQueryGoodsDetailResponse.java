@@ -106,10 +106,10 @@ public class JstQueryGoodsDetailResponse {
 
         private ItemPhoto itemPhoto;
 
-        private java.util.List<ItemSkuList> itemSkuList;
+        private java.util.List<ItemSku> itemSkuList;
 
         @lombok.Data
-        public static class ItemSkuList {
+        public static class ItemSku {
 
             /**
              * skuId

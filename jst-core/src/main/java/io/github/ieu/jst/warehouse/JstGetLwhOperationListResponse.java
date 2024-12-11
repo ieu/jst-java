@@ -74,7 +74,7 @@ public class JstGetLwhOperationListResponse {
             /**
              * 商品明细
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 单据类型：虚拟仓分配，虚拟仓归还
@@ -87,7 +87,7 @@ public class JstGetLwhOperationListResponse {
             private String soId;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 款式编码

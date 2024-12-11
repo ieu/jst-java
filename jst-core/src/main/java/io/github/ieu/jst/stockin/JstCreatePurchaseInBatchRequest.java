@@ -94,10 +94,10 @@ public class JstCreatePurchaseInBatchRequest {
      */
     private Number packQty;
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 数量
@@ -122,7 +122,7 @@ public class JstCreatePurchaseInBatchRequest {
         /**
          * 上传该数据需要联系我们配置开关
          */
-        private java.util.List<SkuSnList> skuSnList;
+        private java.util.List<SkuSn> skuSnList;
 
         /**
          * 单价
@@ -150,7 +150,7 @@ public class JstCreatePurchaseInBatchRequest {
         private String remark;
 
         @lombok.Data
-        public static class SkuSnList {
+        public static class SkuSn {
 
             /**
              * 唯一码

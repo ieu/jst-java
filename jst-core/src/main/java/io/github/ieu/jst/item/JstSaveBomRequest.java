@@ -7,15 +7,15 @@ public class JstSaveBomRequest {
     /**
      * 商品主料集合
      */
-    private java.util.List<BomList> bomList;
+    private java.util.List<Bom> bomList;
 
     /**
      * 商品辅料集合
      */
-    private java.util.List<MinorList> minorList;
+    private java.util.List<Minor> minorList;
 
     @lombok.Data
-    public static class MinorList {
+    public static class Minor {
 
         /**
          * 辅料商品编码
@@ -34,7 +34,7 @@ public class JstSaveBomRequest {
     }
 
     @lombok.Data
-    public static class BomList {
+    public static class Bom {
 
         /**
          * 主料数量，不填，默认1

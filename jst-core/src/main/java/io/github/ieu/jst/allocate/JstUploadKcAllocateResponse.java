@@ -13,15 +13,15 @@ public class JstUploadKcAllocateResponse {
      */
     private String msg;
 
-    private Data data;
+    private DataWrap data;
 
     @lombok.Data
-    public static class Data {
+    public static class DataWrap {
 
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 线上订单号

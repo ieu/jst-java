@@ -31,10 +31,10 @@ public class JstGetVirtualStockResponse {
          */
         private String skuId;
 
-        private java.util.List<Stocks> stocks;
+        private java.util.List<Stock> stocks;
 
         @lombok.Data
-        public static class Stocks {
+        public static class Stock {
 
             /**
              * 虚拟仓编号

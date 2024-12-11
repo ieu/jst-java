@@ -61,10 +61,10 @@ public class JstGetJushuitanWaveResponse {
         /**
          * 出库单集合
          */
-        private java.util.List<Inouts> inouts;
+        private java.util.List<Inout> inouts;
 
         @lombok.Data
-        public static class Inouts {
+        public static class Inout {
 
             /**
              * 出库单号
@@ -104,10 +104,10 @@ public class JstGetJushuitanWaveResponse {
             /**
              * 播种商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 商品编码

@@ -125,7 +125,7 @@ public class JstUploadAfterSaleRequest {
     /**
      * 商品列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 卖家应退运费
@@ -133,7 +133,7 @@ public class JstUploadAfterSaleRequest {
     private Number freight;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 平台订单明细编号，存在则会按此作为唯一性判断，商品为组合装时需要上传订单的明细编号（开启售后单下载拦截订单，不传会整单退款，订单转取消）订单有组合装商品时必传

@@ -13,10 +13,10 @@ public class JstQueryInventoryResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -36,10 +36,10 @@ public class JstQueryInventoryResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Inventorys> inventorys;
+        private java.util.List<Inventory> inventorys;
 
         @lombok.Data
-        public static class Inventorys {
+        public static class Inventory {
 
             /**
              * 商品编码

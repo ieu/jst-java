@@ -34,10 +34,10 @@ public class JstCreateLwhAllocationRequest {
      */
     private String remark;
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

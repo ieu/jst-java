@@ -13,10 +13,10 @@ public class JstQuerySingleOrderResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQuerySingleOrderResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Orders> orders;
+        private java.util.List<Order> orders;
 
         @lombok.Data
-        public static class Orders {
+        public static class Order {
 
             /**
              * 是否货到付款
@@ -379,12 +379,12 @@ public class JstQuerySingleOrderResponse {
             /**
              * 支付信息
              */
-            private java.util.List<Pays> pays;
+            private java.util.List<Pay> pays;
 
             /**
              * 商品信息
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 商品（商品总数.sku_id*qty）
@@ -449,7 +449,7 @@ public class JstQuerySingleOrderResponse {
             /**
              * 跨境订单财务数据
              */
-            private CbFinances cbFinances;
+            private CbFinance cbFinances;
 
             /**
              * 是否合并后订单
@@ -465,7 +465,7 @@ public class JstQuerySingleOrderResponse {
              * 跨境订单财务数据
              */
             @lombok.Data
-            public static class CbFinances {
+            public static class CbFinance {
 
                 /**
                  * 内部订单号
@@ -524,7 +524,7 @@ public class JstQuerySingleOrderResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 是否赠品
@@ -673,7 +673,7 @@ public class JstQuerySingleOrderResponse {
             }
 
             @lombok.Data
-            public static class Pays {
+            public static class Pay {
 
                 /**
                  * 是否支付

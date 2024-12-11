@@ -37,7 +37,7 @@ public class JstUploadInAllocateRequest {
     /**
      * 商品集合
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 标记｜多标签
@@ -50,7 +50,7 @@ public class JstUploadInAllocateRequest {
     private Boolean isConfirm;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品数量

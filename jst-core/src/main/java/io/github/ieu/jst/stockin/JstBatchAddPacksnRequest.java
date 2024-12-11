@@ -4,7 +4,7 @@ package io.github.ieu.jst.stockin;
 @lombok.Builder
 public class JstBatchAddPacksnRequest {
 
-    private java.util.List<PackSnList> packSnList;
+    private java.util.List<PackSn> packSnList;
 
     /**
      * 1:待入库 2:入库 3:出库，其它值：待入库（不传默认是查询待入库单据）
@@ -12,7 +12,7 @@ public class JstBatchAddPacksnRequest {
     private Number status;
 
     @lombok.Data
-    public static class PackSnList {
+    public static class PackSn {
 
         /**
          * 商品编码

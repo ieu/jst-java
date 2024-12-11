@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstLoadSkusnResponse {
 
-    private Data data;
+    private Pagination data;
 
     private Integer code;
 
@@ -12,7 +12,7 @@ public class JstLoadSkusnResponse {
     private String msg;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 是否有下一页
@@ -22,7 +22,7 @@ public class JstLoadSkusnResponse {
         /**
          * 商品集合
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         /**
          * 当前页最大id
@@ -30,7 +30,7 @@ public class JstLoadSkusnResponse {
         private Number maxid;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 唯一码(快销采购标签)
@@ -45,7 +45,7 @@ public class JstLoadSkusnResponse {
             /**
              * 赠品数据
              */
-            private java.util.List<Gifts> gifts;
+            private java.util.List<Gift> gifts;
 
             /**
              * 到货时间：有到货时有值，未到货则为空
@@ -118,7 +118,7 @@ public class JstLoadSkusnResponse {
             private Number fromoiid;
 
             @lombok.Data
-            public static class Gifts {
+            public static class Gift {
 
                 /**
                  * 商品编码

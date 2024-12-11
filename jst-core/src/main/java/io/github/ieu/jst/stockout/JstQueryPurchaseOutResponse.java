@@ -13,10 +13,10 @@ public class JstQueryPurchaseOutResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryPurchaseOutResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 退货单号
@@ -204,20 +204,20 @@ public class JstQueryPurchaseOutResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/6e7a0bbb-124e-457f-9b31-b9286c42d8ea_1558_310.png" target="_blank">生产批次集合</a></div>，系统中需开启相关配置(对应erp基础设置开启生产批次管理 如果是分仓数据 分仓也需要开启)
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/1480fd4b-f07f-4f6f-9099-51e459e1b772_1634_247.png" target="_blank">唯一码集合</a></div>，获取该节点系统中相关业务项需配置（对应erp基础设置商品唯一码开关）
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -231,7 +231,7 @@ public class JstQueryPurchaseOutResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -265,7 +265,7 @@ public class JstQueryPurchaseOutResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 明细id

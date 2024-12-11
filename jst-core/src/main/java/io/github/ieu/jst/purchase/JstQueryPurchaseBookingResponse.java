@@ -31,7 +31,7 @@ public class JstQueryPurchaseBookingResponse {
     /**
      * 数据集合
      */
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     /**
      * 错误码
@@ -44,7 +44,7 @@ public class JstQueryPurchaseBookingResponse {
     private String msg;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * 预约单号
@@ -114,13 +114,13 @@ public class JstQueryPurchaseBookingResponse {
         /**
          * 创建人
          */
-        private java.util.List<items> items;
+        private java.util.List<item> items;
 
         /**
          * 商品明细
          */
         @lombok.Data
-        public static class items {
+        public static class item {
 
             /**
              * 入库子单号

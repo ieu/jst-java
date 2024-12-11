@@ -7,10 +7,10 @@ public class JstUploadSkuMapRequest {
     /**
      * 商品列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/af0e3965-d4ac-43cb-a3b6-04c2122b2376_2384_529.png" target="_blank">商品编码</a></div>可更新（线上商品编码）

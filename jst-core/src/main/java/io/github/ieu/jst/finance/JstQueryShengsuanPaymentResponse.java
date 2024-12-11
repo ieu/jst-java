@@ -18,7 +18,7 @@ public class JstQueryShengsuanPaymentResponse {
      */
     private Boolean hasNext;
 
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     /**
      * 错误码
@@ -36,7 +36,7 @@ public class JstQueryShengsuanPaymentResponse {
     private String msg;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * 付款编号
@@ -176,10 +176,10 @@ public class JstQueryShengsuanPaymentResponse {
         /**
          * 明细
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 付款明细编号

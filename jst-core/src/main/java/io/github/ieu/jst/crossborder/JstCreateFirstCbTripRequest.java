@@ -129,7 +129,7 @@ public class JstCreateFirstCbTripRequest {
      */
     private String remark5;
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 是否自动确认头程计划（默认true）
@@ -142,7 +142,7 @@ public class JstCreateFirstCbTripRequest {
     private Boolean isAutoCreateAllocate;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 普通商品资料商品编码

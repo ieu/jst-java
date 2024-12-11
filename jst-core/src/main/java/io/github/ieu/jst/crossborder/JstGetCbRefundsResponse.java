@@ -245,10 +245,10 @@ public class JstGetCbRefundsResponse {
             /**
              * 退款明细
              */
-            private java.util.List<RefundItems> refundItems;
+            private java.util.List<RefundItem> refundItems;
 
             @lombok.Data
-            public static class RefundItems {
+            public static class RefundItem {
 
                 /**
                  * 退款明细id

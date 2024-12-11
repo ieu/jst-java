@@ -54,13 +54,13 @@ public class JstUpdateGoodsRequest {
      */
     private ItemPhoto itemPhoto;
 
-    private java.util.List<ItemSkuList> itemSkuList;
+    private java.util.List<ItemSku> itemSkuList;
 
     /**
      * SKU列表,最多1500个
      */
     @lombok.Data
-    public static class ItemSkuList {
+    public static class ItemSku {
 
         /**
          * SKU列表,最多1500个

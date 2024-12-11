@@ -52,10 +52,10 @@ public class JstUploadWmsSentOrdersRequest {
     /**
      * 需要唯一码出库的商品节点
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

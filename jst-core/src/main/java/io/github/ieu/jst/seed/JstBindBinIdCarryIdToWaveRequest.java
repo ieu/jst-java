@@ -7,7 +7,7 @@ public class JstBindBinIdCarryIdToWaveRequest {
     /**
      * 出库单信息
      */
-    private java.util.List<IoIds> ioIds;
+    private java.util.List<IoId> ioIds;
 
     /**
      * 批次编码
@@ -20,7 +20,7 @@ public class JstBindBinIdCarryIdToWaveRequest {
     private String carryId;
 
     @lombok.Data
-    public static class IoIds {
+    public static class IoId {
 
         /**
          * 出库明细号

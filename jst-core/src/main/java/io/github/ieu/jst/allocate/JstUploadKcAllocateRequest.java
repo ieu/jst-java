@@ -44,7 +44,7 @@ public class JstUploadKcAllocateRequest {
      */
     private String remark;
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 收货人
@@ -92,7 +92,7 @@ public class JstUploadKcAllocateRequest {
     private java.util.List<String> labels;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

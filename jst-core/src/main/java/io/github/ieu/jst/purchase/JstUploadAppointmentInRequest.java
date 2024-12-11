@@ -47,7 +47,7 @@ public class JstUploadAppointmentInRequest {
     /**
      * 商品列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 是否自动确认；默认false
@@ -55,7 +55,7 @@ public class JstUploadAppointmentInRequest {
     private Boolean isConfirm;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

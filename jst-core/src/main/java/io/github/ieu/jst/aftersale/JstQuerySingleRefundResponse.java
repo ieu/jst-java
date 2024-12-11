@@ -13,10 +13,10 @@ public class JstQuerySingleRefundResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQuerySingleRefundResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 聚水潭售后单号
@@ -224,17 +224,17 @@ public class JstQuerySingleRefundResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/6e7a0bbb-124e-457f-9b31-b9286c42d8ea_1558_310.png" target="_blank">生产批次集合</a></div>
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/1480fd4b-f07f-4f6f-9099-51e459e1b772_1634_247.png" target="_blank">唯一码集合</a></div>
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             /**
              * 供销商编号
@@ -291,7 +291,7 @@ public class JstQuerySingleRefundResponse {
              */
             private String orderType;
 
-            private java.util.List<Images> images;
+            private java.util.List<Image> images;
 
             /**
              * 实退金额＋平台补贴（仅抖音）
@@ -302,7 +302,7 @@ public class JstQuerySingleRefundResponse {
              * 附件图片
              */
             @lombok.Data
-            public static class Images {
+            public static class Image {
 
                 /**
                  * 路径
@@ -316,7 +316,7 @@ public class JstQuerySingleRefundResponse {
             }
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -330,7 +330,7 @@ public class JstQuerySingleRefundResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -369,7 +369,7 @@ public class JstQuerySingleRefundResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 售后子单号

@@ -17,10 +17,10 @@ public class JstQueryMySupplierByPartnerChannelResponse {
          */
         private Number total;
 
-        private java.util.List<SupplierVos> supplierVos;
+        private java.util.List<SupplierVo> supplierVos;
 
         @lombok.Data
-        public static class SupplierVos {
+        public static class SupplierVo {
 
             /**
              * 合作状态-0:待授权；1:待审核；2:合作中;3:已拒绝；4:已终止

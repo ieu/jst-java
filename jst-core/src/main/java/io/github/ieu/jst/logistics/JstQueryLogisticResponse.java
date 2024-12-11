@@ -13,10 +13,10 @@ public class JstQueryLogisticResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryLogisticResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Orders> orders;
+        private java.util.List<Order> orders;
 
         @lombok.Data
-        public static class Orders {
+        public static class Order {
 
             /**
              * ERP订单号;唯一
@@ -99,10 +99,10 @@ public class JstQueryLogisticResponse {
             /**
              * 订单明细；商品信息
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 商家SKU，对应库存管理的SKU

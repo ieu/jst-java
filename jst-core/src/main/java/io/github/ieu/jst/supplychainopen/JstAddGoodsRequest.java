@@ -52,10 +52,10 @@ public class JstAddGoodsRequest {
     /**
      * SKU列表,最多1500个
      */
-    private java.util.List<ItemSkuList> itemSkuList;
+    private java.util.List<ItemSku> itemSkuList;
 
     @lombok.Data
-    public static class ItemSkuList {
+    public static class ItemSku {
 
         /**
          * 第一个规格值名称 长度最多100

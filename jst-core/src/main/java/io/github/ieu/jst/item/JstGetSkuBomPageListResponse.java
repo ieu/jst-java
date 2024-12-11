@@ -54,7 +54,7 @@ public class JstGetSkuBomPageListResponse {
             /**
              * 主料BOM信息
              */
-            private java.util.List<Boms> boms;
+            private java.util.List<Bom> boms;
 
             /**
              * 主料修改人
@@ -69,10 +69,10 @@ public class JstGetSkuBomPageListResponse {
             /**
              * 辅料BOM信息
              */
-            private java.util.List<BomMinors> bomMinors;
+            private java.util.List<BomMinor> bomMinors;
 
             @lombok.Data
-            public static class BomMinors {
+            public static class BomMinor {
 
                 /**
                  * 辅料商品编码
@@ -101,7 +101,7 @@ public class JstGetSkuBomPageListResponse {
             }
 
             @lombok.Data
-            public static class Boms {
+            public static class Bom {
 
                 /**
                  * 主料商品编码

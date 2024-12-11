@@ -31,7 +31,7 @@ public class JstQueryManufactureResponse {
     /**
      * 数据集合
      */
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     /**
      * 错误码
@@ -49,7 +49,7 @@ public class JstQueryManufactureResponse {
     private String msg;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * 加工单号
@@ -134,17 +134,17 @@ public class JstQueryManufactureResponse {
         /**
          * 成品集合
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         /**
          * 原料集合
          */
-        private java.util.List<Raws> raws;
+        private java.util.List<Raw> raws;
 
         /**
          * 批次集合
          */
-        private java.util.List<Batchs> batchs;
+        private java.util.List<Batch> batchs;
 
         /**
          * 拣货批次号
@@ -157,7 +157,7 @@ public class JstQueryManufactureResponse {
         private String remark;
 
         @lombok.Data
-        public static class Batchs {
+        public static class Batch {
 
             /**
              * 批次号
@@ -196,7 +196,7 @@ public class JstQueryManufactureResponse {
         }
 
         @lombok.Data
-        public static class Raws {
+        public static class Raw {
 
             /**
              * 图片
@@ -230,7 +230,7 @@ public class JstQueryManufactureResponse {
         }
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 图片

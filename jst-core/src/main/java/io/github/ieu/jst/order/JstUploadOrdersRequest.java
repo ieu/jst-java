@@ -187,7 +187,7 @@ public class JstUploadOrdersRequest {
     /**
      * <div><a href="https://cdn.erp321.cn/jst-fed/861f81c7-c4db-4634-bd51-61a50d4e9854_2298_1107.png" target="_blank">商品明细</a></div>
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * <div><a href="https://cdn.erp321.cn/jst-fed/18cfa79d-1249-4eaf-b4bd-564096038530_2075_1010.png" target="_blank">支付明细</a></div>shop_status=WAIT_BUYER_PAY 的时候可不传，如果Pay节点不传系统默认为等待买家支付状态，如果此时ERP设置了只下载已支付订单则未支付的订单会被拦截创建无效
@@ -270,10 +270,10 @@ public class JstUploadOrdersRequest {
     @lombok.Data
     public static class OrderExt {
 
-        private ExtDatas extDatas;
+        private ExtData extDatas;
 
         @lombok.Data
-        public static class ExtDatas {
+        public static class ExtData {
 
             /**
              * 门牌号，可更新
@@ -446,7 +446,7 @@ public class JstUploadOrdersRequest {
     }
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码，对应普通商品资料页面商品编码，ERP内商品编码长度<=40PS:设置预售标识订单，修改商品编码=商品编码+预售（或==）+预计发货日期（可选）比如:"A321232"修改为"A321232预售2015-12-12"或者"A321232"修改为"A321232==2015-12-12"当商品被购买后ERP将自动识别为预售订单并更正商品编码为正确商品编码

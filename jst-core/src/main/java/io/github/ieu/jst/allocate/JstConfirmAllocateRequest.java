@@ -27,10 +27,10 @@ public class JstConfirmAllocateRequest {
     /**
      * 商品集合
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

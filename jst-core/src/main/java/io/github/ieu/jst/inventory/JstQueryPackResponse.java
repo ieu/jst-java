@@ -13,10 +13,10 @@ public class JstQueryPackResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 总条数
@@ -33,10 +33,10 @@ public class JstQueryPackResponse {
          */
         private Integer pageSize;
 
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 类型

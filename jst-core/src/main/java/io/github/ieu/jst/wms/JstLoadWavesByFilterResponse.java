@@ -200,10 +200,10 @@ public class JstLoadWavesByFilterResponse {
         /**
          * 商品明细
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 批次明细编号

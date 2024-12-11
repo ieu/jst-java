@@ -7,7 +7,7 @@ public class JstUploadItemSkuRequest {
     /**
      * 商品列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 校验是否已经有了组合装商品编码，默认为false,入参为 true 则校验修改的sku 类型不得为组合装，否则跳过不处理并输出错误信息
@@ -15,7 +15,7 @@ public class JstUploadItemSkuRequest {
     private Boolean isNormal;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/ea2950e9-248e-494b-bb6a-68ac71140602_1822_674.png" target="_blank">商品编码</a></div>

@@ -21,10 +21,10 @@ public class JstLoadAllocateFeeResponse {
         /**
          * 调拨单头程费用集合
          */
-        private java.util.List<AllocatefeeDetailList> allocatefeeDetailList;
+        private java.util.List<AllocatefeeDetail> allocatefeeDetailList;
 
         @lombok.Data
-        public static class AllocatefeeDetailList {
+        public static class AllocatefeeDetail {
 
             /**
              * 调拨单号
@@ -39,10 +39,10 @@ public class JstLoadAllocateFeeResponse {
             /**
              * 商品费用集合
              */
-            private java.util.List<SkufeeDetailList> skufeeDetailList;
+            private java.util.List<SkufeeDetail> skufeeDetailList;
 
             @lombok.Data
-            public static class SkufeeDetailList {
+            public static class SkufeeDetail {
 
                 /**
                  * 商品编码

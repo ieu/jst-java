@@ -29,7 +29,7 @@ public class JstCreateLwhOperationRequest {
      */
     private String type;
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 是否超锁，examine = true 的时候这个入参才有效（true：允许超锁，false：不允许超锁）不传为默认值 false
@@ -37,7 +37,7 @@ public class JstCreateLwhOperationRequest {
     private Boolean isignoreCheckStock;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

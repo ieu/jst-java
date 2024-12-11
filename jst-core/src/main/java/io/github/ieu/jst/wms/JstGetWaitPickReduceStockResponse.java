@@ -48,10 +48,10 @@ public class JstGetWaitPickReduceStockResponse {
         /**
          * 明细信息
          */
-        private java.util.List<Items> items;
+        private java.util.List<Item> items;
 
         @lombok.Data
-        public static class Items {
+        public static class Item {
 
             /**
              * 生产批次号

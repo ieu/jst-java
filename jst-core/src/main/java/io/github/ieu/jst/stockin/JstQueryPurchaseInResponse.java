@@ -13,10 +13,10 @@ public class JstQueryPurchaseInResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryPurchaseInResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/b3020a08-adc9-4c03-bb19-420ac168a8de_1643_249.png" target="_blank">入库单号</a></div>
@@ -164,17 +164,17 @@ public class JstQueryPurchaseInResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 批次集合，获取该节点系统中相关业务项需配置
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
             /**
              * 唯一码集合，获取该节点系统中相关业务项需配置（对应erp基础设置开启商品唯一码）
              */
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             /**
              * 虚拟仓编码
@@ -187,7 +187,7 @@ public class JstQueryPurchaseInResponse {
             private String lockWhName;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -201,7 +201,7 @@ public class JstQueryPurchaseInResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -240,7 +240,7 @@ public class JstQueryPurchaseInResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 入库子单号

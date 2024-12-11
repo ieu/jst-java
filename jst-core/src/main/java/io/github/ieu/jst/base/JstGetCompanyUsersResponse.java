@@ -5,14 +5,14 @@ public class JstGetCompanyUsersResponse {
 
     private Integer code;
 
-    private Data data;
+    private Pagination data;
 
     private String msg;
 
     private String requestid;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 当前页
@@ -37,10 +37,10 @@ public class JstGetCompanyUsersResponse {
         /**
          * 用户数据
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 用户编码

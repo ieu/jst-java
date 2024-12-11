@@ -47,10 +47,10 @@ public class JstUploadInventoryV2Request {
     /**
      * 商品明细，最大500
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 数量

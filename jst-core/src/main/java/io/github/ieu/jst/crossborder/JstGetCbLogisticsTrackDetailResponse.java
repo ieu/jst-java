@@ -22,10 +22,10 @@ public class JstGetCbLogisticsTrackDetailResponse {
         /**
          * 轨迹详情
          */
-        private java.util.List<Details> details;
+        private java.util.List<Detail> details;
 
         @lombok.Data
-        public static class Details {
+        public static class Detail {
 
             /**
              * 轨迹明细

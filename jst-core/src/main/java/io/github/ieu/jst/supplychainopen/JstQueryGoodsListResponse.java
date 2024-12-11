@@ -76,7 +76,7 @@ public class JstQueryGoodsListResponse {
         /**
          * 各平台资料标识
          */
-        private java.util.List<PerfectPlatformList> perfectPlatformList;
+        private java.util.List<PerfectPlatform> perfectPlatformList;
 
         /**
          * 最小基本售价
@@ -109,7 +109,7 @@ public class JstQueryGoodsListResponse {
         private String distributorCoId;
 
         @lombok.Data
-        public static class PerfectPlatformList {
+        public static class PerfectPlatform {
 
             /**
              * 平台类型 taobao

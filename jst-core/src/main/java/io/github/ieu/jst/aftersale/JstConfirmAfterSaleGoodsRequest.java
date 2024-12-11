@@ -27,7 +27,7 @@ public class JstConfirmAfterSaleGoodsRequest {
     /**
      * 收货明细
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 收货仓编码
@@ -45,7 +45,7 @@ public class JstConfirmAfterSaleGoodsRequest {
     private String returnId;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

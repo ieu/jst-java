@@ -4,13 +4,13 @@ package io.github.ieu.jst.order;
 @lombok.Builder
 public class JstUploadOrderSentRequest {
 
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * data
      */
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/deab32f3-191d-43c8-b213-343bb82070e1_2161_433.png" target="_blank">内部订单号</a></div>

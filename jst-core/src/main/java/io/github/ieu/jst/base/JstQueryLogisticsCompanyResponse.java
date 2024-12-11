@@ -13,10 +13,10 @@ public class JstQueryLogisticsCompanyResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 第几页
@@ -46,10 +46,10 @@ public class JstQueryLogisticsCompanyResponse {
         /**
          * 店铺列表
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/c1b67c08-a75c-4227-8385-1a0e048bee04_1583_732.png" target="_blank">快递公司编码</a></div>ERP唯一

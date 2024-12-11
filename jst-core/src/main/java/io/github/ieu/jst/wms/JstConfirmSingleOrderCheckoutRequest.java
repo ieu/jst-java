@@ -17,10 +17,10 @@ public class JstConfirmSingleOrderCheckoutRequest {
     /**
      * 商品数量
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 批次号

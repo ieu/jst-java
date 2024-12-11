@@ -4,10 +4,10 @@ package io.github.ieu.jst.item;
 @lombok.Builder
 public class JstUploadItemSkuCostPriceRequest {
 
-    private java.util.List<Datas> datas;
+    private java.util.List<Data> datas;
 
     @lombok.Data
-    public static class Datas {
+    public static class Data {
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/ea2950e9-248e-494b-bb6a-68ac71140602_1822_674.png" target="_blank">商品编码</a></div>

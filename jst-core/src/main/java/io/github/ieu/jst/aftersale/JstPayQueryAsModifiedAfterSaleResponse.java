@@ -5,7 +5,7 @@ public class JstPayQueryAsModifiedAfterSaleResponse {
 
     private Integer code;
 
-    private Data data;
+    private Pagination data;
 
     /**
      * 返回信息
@@ -18,7 +18,7 @@ public class JstPayQueryAsModifiedAfterSaleResponse {
     private String requestId;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         private Integer pageSize;
 
@@ -28,10 +28,10 @@ public class JstPayQueryAsModifiedAfterSaleResponse {
 
         private Integer dataCount;
 
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 店铺编码

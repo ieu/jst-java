@@ -13,10 +13,10 @@ public class JstQueryWmsPartnerResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 总条数
@@ -46,10 +46,10 @@ public class JstQueryWmsPartnerResponse {
         /**
          * 店铺列表
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/a18a6acc-60b6-46f9-ae8c-5e88876f232d_2213_383.png" target="_blank">分仓名称</a></div>

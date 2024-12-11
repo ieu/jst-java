@@ -13,10 +13,10 @@ public class JstQueryShopsResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 第几页
@@ -36,10 +36,10 @@ public class JstQueryShopsResponse {
         /**
          * 店铺列表
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 店铺编号

@@ -67,7 +67,7 @@ public class JstUploadPurchaseRequest {
     /**
      * 明细列表
      */
-    private java.util.List<Items> items;
+    private java.util.List<Item> items;
 
     /**
      * 物流单号；可更新非作废、非完成状态的采购单
@@ -115,7 +115,7 @@ public class JstUploadPurchaseRequest {
     private Boolean isEdit;
 
     @lombok.Data
-    public static class Items {
+    public static class Item {
 
         /**
          * 商品编码

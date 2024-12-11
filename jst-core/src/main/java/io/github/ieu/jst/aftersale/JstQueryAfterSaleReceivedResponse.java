@@ -13,10 +13,10 @@ public class JstQueryAfterSaleReceivedResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryAfterSaleReceivedResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 退仓单号
@@ -159,17 +159,17 @@ public class JstQueryAfterSaleReceivedResponse {
             /**
              * 商品集合
              */
-            private java.util.List<Items> items;
+            private java.util.List<Item> items;
 
             /**
              * 批次信息集合
              */
-            private java.util.List<Batchs> batchs;
+            private java.util.List<Batch> batchs;
 
-            private java.util.List<Sns> sns;
+            private java.util.List<Sn> sns;
 
             @lombok.Data
-            public static class Sns {
+            public static class Sn {
 
                 /**
                  * 商品编码
@@ -183,7 +183,7 @@ public class JstQueryAfterSaleReceivedResponse {
             }
 
             @lombok.Data
-            public static class Batchs {
+            public static class Batch {
 
                 /**
                  * 批次号
@@ -227,7 +227,7 @@ public class JstQueryAfterSaleReceivedResponse {
             }
 
             @lombok.Data
-            public static class Items {
+            public static class Item {
 
                 /**
                  * 退仓单号

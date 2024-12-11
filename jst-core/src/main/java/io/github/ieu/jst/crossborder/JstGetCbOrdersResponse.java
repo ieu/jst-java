@@ -5,7 +5,7 @@ public class JstGetCbOrdersResponse {
 
     private Integer code;
 
-    private Data data;
+    private Pagination data;
 
     private String msg;
 
@@ -16,7 +16,7 @@ public class JstGetCbOrdersResponse {
     private String cookie;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 页码
@@ -485,15 +485,15 @@ public class JstGetCbOrdersResponse {
             /**
              * 订单明细
              */
-            private java.util.List<OrderItems> orderItems;
+            private java.util.List<OrderItem> orderItems;
 
             /**
              * 支付单
              */
-            private java.util.List<OrderPays> orderPays;
+            private java.util.List<OrderPay> orderPays;
 
             @lombok.Data
-            public static class OrderPays {
+            public static class OrderPay {
 
                 /**
                  * 支付id
@@ -542,7 +542,7 @@ public class JstGetCbOrdersResponse {
             }
 
             @lombok.Data
-            public static class OrderItems {
+            public static class OrderItem {
 
                 /**
                  * 明细id

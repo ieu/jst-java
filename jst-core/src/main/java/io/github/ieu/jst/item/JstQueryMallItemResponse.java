@@ -13,10 +13,10 @@ public class JstQueryMallItemResponse {
      */
     private String msg;
 
-    private Data data;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
          * 每页多少条
@@ -46,10 +46,10 @@ public class JstQueryMallItemResponse {
         /**
          * 数据集合
          */
-        private java.util.List<Datas> datas;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Datas {
+        public static class Data {
 
             /**
              * 款式编码
@@ -154,12 +154,12 @@ public class JstQueryMallItemResponse {
             /**
              * sku列表
              */
-            private java.util.List<Skus> skus;
+            private java.util.List<Sku> skus;
 
             /**
              * 商品属性集合，对应款式明细里面的类目属性
              */
-            private java.util.List<Ups> ups;
+            private java.util.List<Up> ups;
 
             /**
              * 生产批次信息
@@ -177,7 +177,7 @@ public class JstQueryMallItemResponse {
             private String unit;
 
             @lombok.Data
-            public static class Ups {
+            public static class Up {
 
                 /**
                  * 属性编号
@@ -201,7 +201,7 @@ public class JstQueryMallItemResponse {
             }
 
             @lombok.Data
-            public static class Skus {
+            public static class Sku {
 
                 /**
                  * 公司编号
