@@ -6,7 +6,7 @@ public class JstUploadInventoryV2Response {
     /**
      * 状态码；0表示成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 执行结果

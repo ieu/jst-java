@@ -6,7 +6,7 @@ public class JstCreatePurchaseOutBatchResponse {
     /**
      * 状态码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 消息

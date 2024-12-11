@@ -2,6 +2,8 @@ package io.github.ieu.jst.supplychainopen;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 供应链对外开放API
@@ -17,7 +19,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstQueryCategoryByPidResponse queryCategoryByPid(JstQueryCategoryByPidRequest request) {
-        return execute("/open/api/goods/inneropen/category/querycategorybypid", request, JstQueryCategoryByPidResponse.class);
+        JstQueryCategoryByPidResponse response = execute("/open/api/goods/inneropen/category/querycategorybypid", request, JstQueryCategoryByPidResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstQueryDiserpGoodsDataResponse queryDiserpGoodsData(JstQueryDiserpGoodsDataRequest request) {
-        return execute("/open/api/goods/inneropen/supplier/goods/querydiserpgoodsdata", request, JstQueryDiserpGoodsDataResponse.class);
+        JstQueryDiserpGoodsDataResponse response = execute("/open/api/goods/inneropen/supplier/goods/querydiserpgoodsdata", request, JstQueryDiserpGoodsDataResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstUploadImageToOssResponse uploadImageToOss(JstUploadImageToOssRequest request) {
-        return execute("/open/api/goods/inneropen/oss/uploadimage", request, JstUploadImageToOssResponse.class);
+        JstUploadImageToOssResponse response = execute("/open/api/goods/inneropen/oss/uploadimage", request, JstUploadImageToOssResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstBatchUpdateDistributionStatusResponse batchUpdateDistributionStatus(JstBatchUpdateDistributionStatusRequest request) {
-        return execute("/open/api/goods/inneropen/goods/batchupdatedistributionstatus", request, JstBatchUpdateDistributionStatusResponse.class);
+        JstBatchUpdateDistributionStatusResponse response = execute("/open/api/goods/inneropen/goods/batchupdatedistributionstatus", request, JstBatchUpdateDistributionStatusResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstUpdateGoodsResponse updateGoods(JstUpdateGoodsRequest request) {
-        return execute("/open/api/goods/inneropen/goods/updategoods", request, JstUpdateGoodsResponse.class);
+        JstUpdateGoodsResponse response = execute("/open/api/goods/inneropen/goods/updategoods", request, JstUpdateGoodsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstQueryGoodsListResponse queryGoodsList(JstQueryGoodsListRequest request) {
-        return execute("/open/api/goods/inneropen/goods/querygoodslist", request, JstQueryGoodsListResponse.class);
+        JstQueryGoodsListResponse response = execute("/open/api/goods/inneropen/goods/querygoodslist", request, JstQueryGoodsListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstQueryGoodsDetailResponse queryGoodsDetail(JstQueryGoodsDetailRequest request) {
-        return execute("/open/api/goods/inneropen/goods/querygoodsdetail", request, JstQueryGoodsDetailResponse.class);
+        JstQueryGoodsDetailResponse response = execute("/open/api/goods/inneropen/goods/querygoodsdetail", request, JstQueryGoodsDetailResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstAddGoodsResponse addGoods(JstAddGoodsRequest request) {
-        return execute("/open/api/goods/inneropen/goods/addgoods", request, JstAddGoodsResponse.class);
+        JstAddGoodsResponse response = execute("/open/api/goods/inneropen/goods/addgoods", request, JstAddGoodsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,6 +115,10 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
      */
     @Override
     public JstQueryOssSignatureResponse queryOssSignature(JstQueryOssSignatureRequest request) {
-        return execute("/open/api/goods/inneropen/oss/queryosssignature", request, JstQueryOssSignatureResponse.class);
+        JstQueryOssSignatureResponse response = execute("/open/api/goods/inneropen/oss/queryosssignature", request, JstQueryOssSignatureResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

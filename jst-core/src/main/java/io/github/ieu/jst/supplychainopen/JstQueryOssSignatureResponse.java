@@ -6,7 +6,7 @@ public class JstQueryOssSignatureResponse {
     /**
      * 返回码,0表示业务处理成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 错误信息

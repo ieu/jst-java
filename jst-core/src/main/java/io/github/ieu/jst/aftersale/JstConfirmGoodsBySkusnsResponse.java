@@ -6,7 +6,7 @@ public class JstConfirmGoodsBySkusnsResponse {
     /**
      * 0表示成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 执行返回信息
@@ -59,7 +59,7 @@ public class JstConfirmGoodsBySkusnsResponse {
             /**
              * 返回码
              */
-            private String code;
+            private Integer code;
 
             /**
              * 返回信息
@@ -98,7 +98,7 @@ public class JstConfirmGoodsBySkusnsResponse {
             /**
              * 返回码
              */
-            private String code;
+            private Integer code;
 
             /**
              * 返回信息

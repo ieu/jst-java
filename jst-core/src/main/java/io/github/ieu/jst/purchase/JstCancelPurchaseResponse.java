@@ -3,7 +3,7 @@ package io.github.ieu.jst.purchase;
 @lombok.Data
 public class JstCancelPurchaseResponse {
 
-    private Number code;
+    private Integer code;
 
     private String data;
 

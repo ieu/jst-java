@@ -2,6 +2,8 @@ package io.github.ieu.jst.base;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 基础API
@@ -17,7 +19,11 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstQueryShopsResponse queryShops(JstQueryShopsRequest request) {
-        return execute("/open/shops/query", request, JstQueryShopsResponse.class);
+        JstQueryShopsResponse response = execute("/open/shops/query", request, JstQueryShopsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstQueryLogisticsCompanyResponse queryLogisticsCompany(JstQueryLogisticsCompanyRequest request) {
-        return execute("/open/logisticscompany/query", request, JstQueryLogisticsCompanyResponse.class);
+        JstQueryLogisticsCompanyResponse response = execute("/open/logisticscompany/query", request, JstQueryLogisticsCompanyResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstQueryWmsPartnerResponse queryWmsPartner(JstQueryWmsPartnerRequest request) {
-        return execute("/open/wms/partner/query", request, JstQueryWmsPartnerResponse.class);
+        JstQueryWmsPartnerResponse response = execute("/open/wms/partner/query", request, JstQueryWmsPartnerResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstQueryMySupplierByPartnerChannelResponse queryMySupplierByPartnerChannel(JstQueryMySupplierByPartnerChannelRequest request) {
-        return execute("/open/api/company/inneropen/partner/channel/querymysupplier", request, JstQueryMySupplierByPartnerChannelResponse.class);
+        JstQueryMySupplierByPartnerChannelResponse response = execute("/open/api/company/inneropen/partner/channel/querymysupplier", request, JstQueryMySupplierByPartnerChannelResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstGetCompanyUsersResponse getCompanyUsers(JstGetCompanyUsersRequest request) {
-        return execute("/open/webapi/userapi/company/getcompanyusers", request, JstGetCompanyUsersResponse.class);
+        JstGetCompanyUsersResponse response = execute("/open/webapi/userapi/company/getcompanyusers", request, JstGetCompanyUsersResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,6 +79,10 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
      */
     @Override
     public JstQueryMyChannelBySupplierResponse queryMyChannelBySupplier(JstQueryMyChannelBySupplierRequest request) {
-        return execute("/open/api/drp/inneropen/partner/supplier/querymychannel", request, JstQueryMyChannelBySupplierResponse.class);
+        JstQueryMyChannelBySupplierResponse response = execute("/open/api/drp/inneropen/partner/supplier/querymychannel", request, JstQueryMyChannelBySupplierResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

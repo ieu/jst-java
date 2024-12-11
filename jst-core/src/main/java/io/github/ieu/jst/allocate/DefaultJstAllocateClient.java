@@ -2,6 +2,8 @@ package io.github.ieu.jst.allocate;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 调拨API
@@ -17,7 +19,11 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryAllocateResponse queryAllocate(JstQueryAllocateRequest request) {
-        return execute("/open/allocate/query", request, JstQueryAllocateResponse.class);
+        JstQueryAllocateResponse response = execute("/open/allocate/query", request, JstQueryAllocateResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadKcAllocateResponse uploadKcAllocate(java.util.List<JstUploadKcAllocateRequest> request) {
-        return execute("/open/allocate/kc/upload", request, JstUploadKcAllocateResponse.class);
+        JstUploadKcAllocateResponse response = execute("/open/allocate/kc/upload", request, JstUploadKcAllocateResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadInAllocateResponse uploadInAllocate(JstUploadInAllocateRequest request) {
-        return execute("/open/jushuitan/allocate/in/upload", request, JstUploadInAllocateResponse.class);
+        JstUploadInAllocateResponse response = execute("/open/jushuitan/allocate/in/upload", request, JstUploadInAllocateResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstConfirmAllocateResponse confirmAllocate(JstConfirmAllocateRequest request) {
-        return execute("/open/jushuitan/allocate/confirm", request, JstConfirmAllocateResponse.class);
+        JstConfirmAllocateResponse response = execute("/open/jushuitan/allocate/confirm", request, JstConfirmAllocateResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstCancelAllocateV2Response cancelAllocateV2(JstCancelAllocateV2Request request) {
-        return execute("/open/jushuitan/allocate/cancel/v2", request, JstCancelAllocateV2Response.class);
+        JstCancelAllocateV2Response response = execute("/open/jushuitan/allocate/cancel/v2", request, JstCancelAllocateV2Response.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,6 +79,10 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstCreateDiffAllocateResponse createDiffAllocate(JstCreateDiffAllocateRequest request) {
-        return execute("/open/jushuitan/diffallocate/create", request, JstCreateDiffAllocateResponse.class);
+        JstCreateDiffAllocateResponse response = execute("/open/jushuitan/diffallocate/create", request, JstCreateDiffAllocateResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

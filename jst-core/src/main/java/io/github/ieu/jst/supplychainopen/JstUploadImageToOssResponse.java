@@ -6,7 +6,7 @@ public class JstUploadImageToOssResponse {
     /**
      * 返回码
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 错误信息

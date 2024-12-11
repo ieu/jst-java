@@ -2,6 +2,8 @@ package io.github.ieu.jst.crossborder;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 跨境API
@@ -17,7 +19,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstGetCbRefundsResponse getCbRefunds(JstGetCbRefundsRequest request) {
-        return execute("/open/webapi/cb/cborder/getrefunds", request, JstGetCbRefundsResponse.class);
+        JstGetCbRefundsResponse response = execute("/open/webapi/cb/cborder/getrefunds", request, JstGetCbRefundsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstGetCbOrdersResponse getCbOrders(JstGetCbOrdersRequest request) {
-        return execute("/open/webapi/cb/cborder/getorders", request, JstGetCbOrdersResponse.class);
+        JstGetCbOrdersResponse response = execute("/open/webapi/cb/cborder/getorders", request, JstGetCbOrdersResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstCreateFirstCbTripResponse createFirstCbTrip(JstCreateFirstCbTripRequest request) {
-        return execute("/open/webapi/cb/cbfirsttrip/createfirsttrip", request, JstCreateFirstCbTripResponse.class);
+        JstCreateFirstCbTripResponse response = execute("/open/webapi/cb/cbfirsttrip/createfirsttrip", request, JstCreateFirstCbTripResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstGetCbLogisticsTrackDetailResponse getCbLogisticsTrackDetail(JstGetCbLogisticsTrackDetailRequest request) {
-        return execute("/open/webapi/cblogisticsapi/cblogistics/gettrackdetail", request, JstGetCbLogisticsTrackDetailResponse.class);
+        JstGetCbLogisticsTrackDetailResponse response = execute("/open/webapi/cblogisticsapi/cblogistics/gettrackdetail", request, JstGetCbLogisticsTrackDetailResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstMapSkuMapResponse mapSkuMap(JstMapSkuMapRequest request) {
-        return execute("/open/webapi/globalapi/skumap/mapping", request, JstMapSkuMapResponse.class);
+        JstMapSkuMapResponse response = execute("/open/webapi/globalapi/skumap/mapping", request, JstMapSkuMapResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstSaveCbExpressStatementFeeResponse saveCbExpressStatementFee(JstSaveCbExpressStatementFeeRequest request) {
-        return execute("/open/webapi/cblogisticsapi/cbexpressstatement/savefee", request, JstSaveCbExpressStatementFeeResponse.class);
+        JstSaveCbExpressStatementFeeResponse response = execute("/open/webapi/cblogisticsapi/cbexpressstatement/savefee", request, JstSaveCbExpressStatementFeeResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,6 +91,10 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
      */
     @Override
     public JstLoadAllocateFeeResponse loadAllocateFee(JstLoadAllocateFeeRequest request) {
-        return execute("/open/webapi/wmsapi/allocate/loadallocatefee", request, JstLoadAllocateFeeResponse.class);
+        JstLoadAllocateFeeResponse response = execute("/open/webapi/wmsapi/allocate/loadallocatefee", request, JstLoadAllocateFeeResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

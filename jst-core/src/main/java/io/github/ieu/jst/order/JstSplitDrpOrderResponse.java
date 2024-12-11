@@ -11,7 +11,7 @@ public class JstSplitDrpOrderResponse {
     /**
      * 返回码0表示成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否执行成功

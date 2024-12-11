@@ -6,7 +6,7 @@ public class JstConfirmAfterSaleGoodsResponse {
     /**
      * 返回代码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 失败消息

@@ -2,6 +2,8 @@ package io.github.ieu.jst.stockin;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 入库API
@@ -17,7 +19,11 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstQueryPurchaseInResponse queryPurchaseIn(JstQueryPurchaseInRequest request) {
-        return execute("/open/purchasein/query", request, JstQueryPurchaseInResponse.class);
+        JstQueryPurchaseInResponse response = execute("/open/purchasein/query", request, JstQueryPurchaseInResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstUploadPurchaseInReceivedResponse uploadPurchaseInReceived(java.util.List<JstUploadPurchaseInReceivedRequest> request) {
-        return execute("/open/purchasein/received/upload", request, JstUploadPurchaseInReceivedResponse.class);
+        JstUploadPurchaseInReceivedResponse response = execute("/open/purchasein/received/upload", request, JstUploadPurchaseInReceivedResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstCreatePurchaseInBatchResponse createPurchaseInBatch(java.util.List<JstCreatePurchaseInBatchRequest> request) {
-        return execute("/open/webapi/wmsapi/purchasein/createbatch", request, JstCreatePurchaseInBatchResponse.class);
+        JstCreatePurchaseInBatchResponse response = execute("/open/webapi/wmsapi/purchasein/createbatch", request, JstCreatePurchaseInBatchResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstBatchAddSkusnSimpleResponse batchAddSkusnSimple(JstBatchAddSkusnSimpleRequest request) {
-        return execute("/open/webapi/wmsapi/skusn/batchadd/simple", request, JstBatchAddSkusnSimpleResponse.class);
+        JstBatchAddSkusnSimpleResponse response = execute("/open/webapi/wmsapi/skusn/batchadd/simple", request, JstBatchAddSkusnSimpleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstBatchAddPacksnResponse batchAddPacksn(JstBatchAddPacksnRequest request) {
-        return execute("/open/webapi/wmsapi/packsn/batchadd", request, JstBatchAddPacksnResponse.class);
+        JstBatchAddPacksnResponse response = execute("/open/webapi/wmsapi/packsn/batchadd", request, JstBatchAddPacksnResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,6 +79,10 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstQueryPurchaseInDetailsResponse queryPurchaseInDetails(JstQueryPurchaseInDetailsRequest request) {
-        return execute("/open/webapi/wmsapi/purchasein/purchaseinquery", request, JstQueryPurchaseInDetailsResponse.class);
+        JstQueryPurchaseInDetailsResponse response = execute("/open/webapi/wmsapi/purchasein/purchaseinquery", request, JstQueryPurchaseInDetailsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

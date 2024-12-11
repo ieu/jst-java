@@ -6,7 +6,7 @@ public class JstQueryGoodsDetailResponse {
     /**
      * 返回码 0表示业务处理成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 错误信息 未获取到商品信息

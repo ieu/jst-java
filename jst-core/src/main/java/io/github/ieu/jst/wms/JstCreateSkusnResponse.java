@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstCreateSkusnResponse {
 
-    private Number code;
+    private Integer code;
 
     private String msg;
 

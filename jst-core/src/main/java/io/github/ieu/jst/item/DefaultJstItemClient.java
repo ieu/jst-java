@@ -2,6 +2,8 @@ package io.github.ieu.jst.item;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 商品API
@@ -17,7 +19,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstGetSupplierSkuListResponse getSupplierSkuList(JstGetSupplierSkuListRequest request) {
-        return execute("/open/webapi/itemapi/suppliersku/getsupplierskulist", request, JstGetSupplierSkuListResponse.class);
+        JstGetSupplierSkuListResponse response = execute("/open/webapi/itemapi/suppliersku/getsupplierskulist", request, JstGetSupplierSkuListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstSetSkuBinsResponse setSkuBins(java.util.List<JstSetSkuBinsRequest> request) {
-        return execute("/open/webapi/itemapi/itemsku/setskubins", request, JstSetSkuBinsResponse.class);
+        JstSetSkuBinsResponse response = execute("/open/webapi/itemapi/itemsku/setskubins", request, JstSetSkuBinsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstUploadItemSkuCostPriceResponse uploadItemSkuCostPrice(JstUploadItemSkuCostPriceRequest request) {
-        return execute("/open/jushuitan/itemsku/costprice/upload", request, JstUploadItemSkuCostPriceResponse.class);
+        JstUploadItemSkuCostPriceResponse response = execute("/open/jushuitan/itemsku/costprice/upload", request, JstUploadItemSkuCostPriceResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstSaveBomResponse saveBom(JstSaveBomRequest request) {
-        return execute("/open/webapi/itemapi/bom/save", request, JstSaveBomResponse.class);
+        JstSaveBomResponse response = execute("/open/webapi/itemapi/bom/save", request, JstSaveBomResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstAddOrUpdateCategoryResponse addOrUpdateCategory(JstAddOrUpdateCategoryRequest request) {
-        return execute("/open/webapi/itemapi/category/addorupdate", request, JstAddOrUpdateCategoryResponse.class);
+        JstAddOrUpdateCategoryResponse response = execute("/open/webapi/itemapi/category/addorupdate", request, JstAddOrUpdateCategoryResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstSaveSupplierSkuResponse saveSupplierSku(JstSaveSupplierSkuRequest request) {
-        return execute("/open/webapi/itemapi/suppliersku/save", request, JstSaveSupplierSkuResponse.class);
+        JstSaveSupplierSkuResponse response = execute("/open/webapi/itemapi/suppliersku/save", request, JstSaveSupplierSkuResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstUploadItemSkuResponse uploadItemSku(JstUploadItemSkuRequest request) {
-        return execute("/open/jushuitan/itemsku/upload", request, JstUploadItemSkuResponse.class);
+        JstUploadItemSkuResponse response = execute("/open/jushuitan/itemsku/upload", request, JstUploadItemSkuResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstGetHistoryCostPriceV2Response getHistoryCostPriceV2(JstGetHistoryCostPriceV2Request request) {
-        return execute("/open/webapi/itemapi/itemsku/gethistorycostpricev2", request, JstGetHistoryCostPriceV2Response.class);
+        JstGetHistoryCostPriceV2Response response = execute("/open/webapi/itemapi/itemsku/gethistorycostpricev2", request, JstGetHistoryCostPriceV2Response.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,7 +115,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstGetSkuBomPageListResponse getSkuBomPageList(JstGetSkuBomPageListRequest request) {
-        return execute("/open/webapi/itemapi/bom/getskubompagelist", request, JstGetSkuBomPageListResponse.class);
+        JstGetSkuBomPageListResponse response = execute("/open/webapi/itemapi/bom/getskubompagelist", request, JstGetSkuBomPageListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -89,7 +127,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstUploadCombineSkuResponse uploadCombineSku(JstUploadCombineSkuRequest request) {
-        return execute("/open/item/combinesku/upload", request, JstUploadCombineSkuResponse.class);
+        JstUploadCombineSkuResponse response = execute("/open/item/combinesku/upload", request, JstUploadCombineSkuResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -97,7 +139,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstQuerySkuResponse querySku(JstQuerySkuRequest request) {
-        return execute("/open/sku/query", request, JstQuerySkuResponse.class);
+        JstQuerySkuResponse response = execute("/open/sku/query", request, JstQuerySkuResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -105,7 +151,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstQueryMallItemResponse queryMallItem(JstQueryMallItemRequest request) {
-        return execute("/open/mall/item/query", request, JstQueryMallItemResponse.class);
+        JstQueryMallItemResponse response = execute("/open/mall/item/query", request, JstQueryMallItemResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -113,7 +163,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstQueryCategoryResponse queryCategory(JstQueryCategoryRequest request) {
-        return execute("/open/category/query", request, JstQueryCategoryResponse.class);
+        JstQueryCategoryResponse response = execute("/open/category/query", request, JstQueryCategoryResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -121,7 +175,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstQueryCombineSkuResponse queryCombineSku(JstQueryCombineSkuRequest request) {
-        return execute("/open/combine/sku/query", request, JstQueryCombineSkuResponse.class);
+        JstQueryCombineSkuResponse response = execute("/open/combine/sku/query", request, JstQueryCombineSkuResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -129,7 +187,11 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstQuerySkuMapResponse querySkuMap(JstQuerySkuMapRequest request) {
-        return execute("/open/skumap/query", request, JstQuerySkuMapResponse.class);
+        JstQuerySkuMapResponse response = execute("/open/skumap/query", request, JstQuerySkuMapResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -137,6 +199,10 @@ public class DefaultJstItemClient extends AbstractJstBizClient implements JstIte
      */
     @Override
     public JstUploadSkuMapResponse uploadSkuMap(JstUploadSkuMapRequest request) {
-        return execute("/open/jushuitan/skumap/upload", request, JstUploadSkuMapResponse.class);
+        JstUploadSkuMapResponse response = execute("/open/jushuitan/skumap/upload", request, JstUploadSkuMapResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

@@ -5,7 +5,7 @@ public class JstLoadSkusnResponse {
 
     private Data data;
 
-    private String code;
+    private Integer code;
 
     private String issuccess;
 

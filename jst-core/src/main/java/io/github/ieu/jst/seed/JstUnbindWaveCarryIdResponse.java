@@ -3,7 +3,7 @@ package io.github.ieu.jst.seed;
 @lombok.Data
 public class JstUnbindWaveCarryIdResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

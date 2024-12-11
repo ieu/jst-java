@@ -8,7 +8,7 @@ public class JstQueryPickWaveResponse {
     /**
      * 错误码，0代表成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * true代表成功

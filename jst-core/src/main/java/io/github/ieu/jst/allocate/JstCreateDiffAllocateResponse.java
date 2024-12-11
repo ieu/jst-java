@@ -6,7 +6,7 @@ public class JstCreateDiffAllocateResponse {
     /**
      * 状态码，0 代表成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 是否调用成功，true是；false否

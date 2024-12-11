@@ -6,7 +6,7 @@ public class JstQueryDiserpGoodsDataResponse {
     /**
      * 状态码: 0成功,其他都是异常
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 信息

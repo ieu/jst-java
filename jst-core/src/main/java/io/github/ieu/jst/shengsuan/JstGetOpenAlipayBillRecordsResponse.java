@@ -6,7 +6,7 @@ public class JstGetOpenAlipayBillRecordsResponse {
     /**
      * code对应一种特定的错误码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 接口信息

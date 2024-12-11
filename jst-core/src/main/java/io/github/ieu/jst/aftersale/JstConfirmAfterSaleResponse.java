@@ -3,7 +3,7 @@ package io.github.ieu.jst.aftersale;
 @lombok.Data
 public class JstConfirmAfterSaleResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

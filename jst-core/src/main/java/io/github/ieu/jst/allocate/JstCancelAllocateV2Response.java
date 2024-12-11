@@ -6,7 +6,7 @@ public class JstCancelAllocateV2Response {
     /**
      * 返回码；0表示成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 是否执行成功

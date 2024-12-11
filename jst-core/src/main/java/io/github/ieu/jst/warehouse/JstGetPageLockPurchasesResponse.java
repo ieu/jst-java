@@ -3,6 +3,16 @@ package io.github.ieu.jst.warehouse;
 @lombok.Data
 public class JstGetPageLockPurchasesResponse {
 
+    /**
+     * 错误码
+     */
+    private Integer code;
+
+    /**
+     * 错误描述
+     */
+    private String msg;
+
     private java.util.List<Data> data;
 
     @lombok.Data

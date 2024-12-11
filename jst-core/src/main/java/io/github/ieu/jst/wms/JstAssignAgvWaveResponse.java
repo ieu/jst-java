@@ -6,7 +6,7 @@ public class JstAssignAgvWaveResponse {
     /**
      * 状态码
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 是否成功

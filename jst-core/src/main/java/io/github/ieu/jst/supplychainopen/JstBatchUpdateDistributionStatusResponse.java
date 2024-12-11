@@ -6,7 +6,7 @@ public class JstBatchUpdateDistributionStatusResponse {
     /**
      * 返回码 0表示业务处理成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 错误信息

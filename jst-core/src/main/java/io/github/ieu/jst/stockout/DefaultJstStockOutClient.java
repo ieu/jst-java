@@ -2,6 +2,8 @@ package io.github.ieu.jst.stockout;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 出库API
@@ -17,7 +19,11 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryOrderOutSimpleResponse queryOrderOutSimple(JstQueryOrderOutSimpleRequest request) {
-        return execute("/open/orders/out/simple/query", request, JstQueryOrderOutSimpleResponse.class);
+        JstQueryOrderOutSimpleResponse response = execute("/open/orders/out/simple/query", request, JstQueryOrderOutSimpleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadWmsSentOrdersResponse uploadWmsSentOrders(java.util.List<JstUploadWmsSentOrdersRequest> request) {
-        return execute("/open/orders/wms/sent/upload", request, JstUploadWmsSentOrdersResponse.class);
+        JstUploadWmsSentOrdersResponse response = execute("/open/orders/wms/sent/upload", request, JstUploadWmsSentOrdersResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryPurchaseOutResponse queryPurchaseOut(JstQueryPurchaseOutRequest request) {
-        return execute("/open/purchaseout/query", request, JstQueryPurchaseOutResponse.class);
+        JstQueryPurchaseOutResponse response = execute("/open/purchaseout/query", request, JstQueryPurchaseOutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstCancelPurchaseOutResponse cancelPurchaseOut(JstCancelPurchaseOutRequest request) {
-        return execute("/open/jushuitan/purchaseout/cancel", request, JstCancelPurchaseOutResponse.class);
+        JstCancelPurchaseOutResponse response = execute("/open/jushuitan/purchaseout/cancel", request, JstCancelPurchaseOutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,6 +67,10 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstCreatePurchaseOutBatchResponse createPurchaseOutBatch(java.util.List<JstCreatePurchaseOutBatchRequest> request) {
-        return execute("/open/webapi/wmsapi/purchaseout/createbatch", request, JstCreatePurchaseOutBatchResponse.class);
+        JstCreatePurchaseOutBatchResponse response = execute("/open/webapi/wmsapi/purchaseout/createbatch", request, JstCreatePurchaseOutBatchResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

@@ -2,6 +2,8 @@ package io.github.ieu.jst.seed;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 播种API
@@ -17,7 +19,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstBindBinIdCarryIdToWaveResponse bindBinIdCarryIdToWave(JstBindBinIdCarryIdToWaveRequest request) {
-        return execute("/open/webapi/wmsapi/wave/bindbinidcarryid", request, JstBindBinIdCarryIdToWaveResponse.class);
+        JstBindBinIdCarryIdToWaveResponse response = execute("/open/webapi/wmsapi/wave/bindbinidcarryid", request, JstBindBinIdCarryIdToWaveResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstGetJushuitanWaveResponse getJushuitanWave(JstGetJushuitanWaveRequest request) {
-        return execute("/open/jushuitan/wave/get", request, JstGetJushuitanWaveResponse.class);
+        JstGetJushuitanWaveResponse response = execute("/open/jushuitan/wave/get", request, JstGetJushuitanWaveResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstCallbackSeedResponse callbackSeed(JstCallbackSeedRequest request) {
-        return execute("/open/jushuitan/seed/callback", request, JstCallbackSeedResponse.class);
+        JstCallbackSeedResponse response = execute("/open/jushuitan/seed/callback", request, JstCallbackSeedResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstUnbindInOutByCarryIdResponse unbindInOutByCarryId(JstUnbindInOutByCarryIdRequest request) {
-        return execute("/open/webapi/wmsapi/wave/unbindinoutbycarryid", request, JstUnbindInOutByCarryIdResponse.class);
+        JstUnbindInOutByCarryIdResponse response = execute("/open/webapi/wmsapi/wave/unbindinoutbycarryid", request, JstUnbindInOutByCarryIdResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstReturnSeedResponse returnSeed(JstReturnSeedRequest request) {
-        return execute("/open/jushuitan/seed/return", request, JstReturnSeedResponse.class);
+        JstReturnSeedResponse response = execute("/open/jushuitan/seed/return", request, JstReturnSeedResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstUnbindWaveCarryIdResponse unbindWaveCarryId(JstUnbindWaveCarryIdRequest request) {
-        return execute("/open/webapi/wmsapi/wave/unbindwavecarryid", request, JstUnbindWaveCarryIdResponse.class);
+        JstUnbindWaveCarryIdResponse response = execute("/open/webapi/wmsapi/wave/unbindwavecarryid", request, JstUnbindWaveCarryIdResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstBindBinIdCarryIdResponse bindBinIdCarryId(JstBindBinIdCarryIdRequest request) {
-        return execute("/open/jushuitan/binid/carryid/bind", request, JstBindBinIdCarryIdResponse.class);
+        JstBindBinIdCarryIdResponse response = execute("/open/jushuitan/binid/carryid/bind", request, JstBindBinIdCarryIdResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,6 +103,10 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
      */
     @Override
     public JstCheckCarryIdResponse checkCarryId(JstCheckCarryIdRequest request) {
-        return execute("/open/jushuitan/carryid/check", request, JstCheckCarryIdResponse.class);
+        JstCheckCarryIdResponse response = execute("/open/jushuitan/carryid/check", request, JstCheckCarryIdResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

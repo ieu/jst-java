@@ -11,7 +11,7 @@ public class JstBindBinIdCarryIdToWaveResponse {
     /**
      * 返回编码
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 返回信息

@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstGetFastDeliveryOrderCountResponse {
 
-    private Number code;
+    private Integer code;
 
     /**
      * 符合要求订单数

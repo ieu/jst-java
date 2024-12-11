@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 public class JstTokenResponse {
-    private int code;
+    private Integer code;
     private String msg;
     private JstToken data;
 }

@@ -2,6 +2,8 @@ package io.github.ieu.jst.logistics;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 物流API
@@ -17,7 +19,11 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUploadExpressRegisterResponse uploadExpressRegister(java.util.List<JstUploadExpressRegisterRequest> request) {
-        return execute("/open/express/register/upload", request, JstUploadExpressRegisterResponse.class);
+        JstUploadExpressRegisterResponse response = execute("/open/express/register/upload", request, JstUploadExpressRegisterResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUploadOrderWeightSendResponse uploadOrderWeightSend(java.util.List<JstUploadOrderWeightSendRequest> request) {
-        return execute("/open/orders/weight/send/upload", request, JstUploadOrderWeightSendResponse.class);
+        JstUploadOrderWeightSendResponse response = execute("/open/orders/weight/send/upload", request, JstUploadOrderWeightSendResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,6 +43,10 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQueryLogisticResponse queryLogistic(JstQueryLogisticRequest request) {
-        return execute("/open/logistic/query", request, JstQueryLogisticResponse.class);
+        JstQueryLogisticResponse response = execute("/open/logistic/query", request, JstQueryLogisticResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

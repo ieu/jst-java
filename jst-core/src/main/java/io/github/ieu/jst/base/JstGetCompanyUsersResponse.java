@@ -3,7 +3,7 @@ package io.github.ieu.jst.base;
 @lombok.Data
 public class JstGetCompanyUsersResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

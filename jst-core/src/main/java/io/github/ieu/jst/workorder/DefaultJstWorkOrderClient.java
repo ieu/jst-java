@@ -2,6 +2,8 @@ package io.github.ieu.jst.workorder;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 聚工单开放API
@@ -17,6 +19,10 @@ public class DefaultJstWorkOrderClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUpdateWorkOrderResponse updateWorkOrder(JstUpdateWorkOrderRequest request) {
-        return execute("/open/api/gd/open/workorder/updateworkorder", request, JstUpdateWorkOrderResponse.class);
+        JstUpdateWorkOrderResponse response = execute("/open/api/gd/open/workorder/updateworkorder", request, JstUpdateWorkOrderResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

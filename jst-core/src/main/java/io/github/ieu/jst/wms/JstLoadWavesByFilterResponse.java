@@ -8,7 +8,7 @@ public class JstLoadWavesByFilterResponse {
     /**
      * 返回码
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 提示信息

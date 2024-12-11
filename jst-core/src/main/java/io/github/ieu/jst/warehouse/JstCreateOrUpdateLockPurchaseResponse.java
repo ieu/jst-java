@@ -9,7 +9,7 @@ public class JstCreateOrUpdateLockPurchaseResponse {
     /**
      * 0表示正常
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 错误提示文案

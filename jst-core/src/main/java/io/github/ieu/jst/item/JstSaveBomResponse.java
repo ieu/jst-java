@@ -3,7 +3,7 @@ package io.github.ieu.jst.item;
 @lombok.Data
 public class JstSaveBomResponse {
 
-    private Number code;
+    private Integer code;
 
     private Boolean data;
 

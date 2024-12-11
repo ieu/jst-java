@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstConfirmSingleOrderCheckoutResponse {
 
-    private Number code;
+    private Integer code;
 
     /**
      * 提示信息

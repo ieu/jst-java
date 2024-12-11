@@ -3,7 +3,7 @@ package io.github.ieu.jst.order;
 @lombok.Data
 public class JstGetQuestionOrderQuestionsResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

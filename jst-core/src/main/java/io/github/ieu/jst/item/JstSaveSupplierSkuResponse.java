@@ -3,7 +3,7 @@ package io.github.ieu.jst.item;
 @lombok.Data
 public class JstSaveSupplierSkuResponse {
 
-    private String code;
+    private Integer code;
 
     private String msg;
 

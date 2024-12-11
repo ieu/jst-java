@@ -11,7 +11,7 @@ public class JstCheckCarryIdResponse {
     /**
      * 返回码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否执行成功

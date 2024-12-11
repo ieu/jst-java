@@ -5,7 +5,7 @@ public class JstQueryPurchaseInDetailsResponse {
 
     private String msg;
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

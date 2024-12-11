@@ -3,7 +3,7 @@ package io.github.ieu.jst.workorder;
 @lombok.Data
 public class JstUpdateWorkOrderResponse {
 
-    private Number code;
+    private Integer code;
 
     private String requestId;
 

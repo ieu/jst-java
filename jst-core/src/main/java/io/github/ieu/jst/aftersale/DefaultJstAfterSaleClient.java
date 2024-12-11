@@ -2,6 +2,8 @@ package io.github.ieu.jst.aftersale;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 售后API
@@ -17,7 +19,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQuerySingleRefundResponse querySingleRefund(JstQuerySingleRefundRequest request) {
-        return execute("/open/refund/single/query", request, JstQuerySingleRefundResponse.class);
+        JstQuerySingleRefundResponse response = execute("/open/refund/single/query", request, JstQuerySingleRefundResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQueryAfterSaleReceivedResponse queryAfterSaleReceived(JstQueryAfterSaleReceivedRequest request) {
-        return execute("/open/aftersale/received/query", request, JstQueryAfterSaleReceivedResponse.class);
+        JstQueryAfterSaleReceivedResponse response = execute("/open/aftersale/received/query", request, JstQueryAfterSaleReceivedResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUploadAfterSaleResponse uploadAfterSale(java.util.List<JstUploadAfterSaleRequest> request) {
-        return execute("/open/aftersale/upload", request, JstUploadAfterSaleResponse.class);
+        JstUploadAfterSaleResponse response = execute("/open/aftersale/upload", request, JstUploadAfterSaleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUploadNoInfoAfterSaleResponse uploadNoInfoAfterSale(JstUploadNoInfoAfterSaleRequest request) {
-        return execute("/open/aftersale/noinfo/upload", request, JstUploadNoInfoAfterSaleResponse.class);
+        JstUploadNoInfoAfterSaleResponse response = execute("/open/aftersale/noinfo/upload", request, JstUploadNoInfoAfterSaleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstConfirmAfterSaleGoodsResponse confirmAfterSaleGoods(java.util.List<JstConfirmAfterSaleGoodsRequest> request) {
-        return execute("/open/webapi/aftersaleapi/confirmgoods", request, JstConfirmAfterSaleGoodsResponse.class);
+        JstConfirmAfterSaleGoodsResponse response = execute("/open/webapi/aftersaleapi/confirmgoods", request, JstConfirmAfterSaleGoodsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUnconfirmAfterSaleResponse unconfirmAfterSale(JstUnconfirmAfterSaleRequest request) {
-        return execute("/open/webapi/aftersaleapi/open/unconfirm", request, JstUnconfirmAfterSaleResponse.class);
+        JstUnconfirmAfterSaleResponse response = execute("/open/webapi/aftersaleapi/open/unconfirm", request, JstUnconfirmAfterSaleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstConfirmAfterSaleResponse confirmAfterSale(JstConfirmAfterSaleRequest request) {
-        return execute("/open/webapi/aftersaleapi/open/confirm", request, JstConfirmAfterSaleResponse.class);
+        JstConfirmAfterSaleResponse response = execute("/open/webapi/aftersaleapi/open/confirm", request, JstConfirmAfterSaleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstConfirmGoodsBySkusnsResponse confirmGoodsBySkusns(java.util.List<JstConfirmGoodsBySkusnsRequest> request) {
-        return execute("/open/webapi/aftersaleapi/confirmgoodsbyskusns", request, JstConfirmGoodsBySkusnsResponse.class);
+        JstConfirmGoodsBySkusnsResponse response = execute("/open/webapi/aftersaleapi/confirmgoodsbyskusns", request, JstConfirmGoodsBySkusnsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,6 +115,10 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstPayQueryAsModifiedAfterSaleResponse payQueryAsModifiedAfterSale(JstPayQueryAsModifiedAfterSaleRequest request) {
-        return execute("/open/webapi/aftersaleapi/pay/payqueryasmodified", request, JstPayQueryAsModifiedAfterSaleResponse.class);
+        JstPayQueryAsModifiedAfterSaleResponse response = execute("/open/webapi/aftersaleapi/pay/payqueryasmodified", request, JstPayQueryAsModifiedAfterSaleResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

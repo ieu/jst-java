@@ -4,6 +4,11 @@ package io.github.ieu.jst.seed;
 public class JstGetJushuitanWaveResponse {
 
     /**
+     * 错误码
+     */
+    private Integer code;
+
+    /**
      * true代表成功
      */
     private Boolean issuccess;

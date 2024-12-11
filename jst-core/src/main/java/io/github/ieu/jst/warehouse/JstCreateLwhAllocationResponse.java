@@ -6,7 +6,7 @@ public class JstCreateLwhAllocationResponse {
     /**
      * 接口请求是否成功，0表示成功
      */
-    private Number code;
+    private Integer code;
 
     private Data data;
 

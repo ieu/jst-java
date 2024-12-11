@@ -3,7 +3,7 @@ package io.github.ieu.jst.crossborder;
 @lombok.Data
 public class JstGetCbRefundsResponse {
 
-    private Number code;
+    private Integer code;
 
     private Pagination data;
 

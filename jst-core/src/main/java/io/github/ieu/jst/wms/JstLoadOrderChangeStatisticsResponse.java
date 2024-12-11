@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstLoadOrderChangeStatisticsResponse {
 
-    private String code;
+    private Integer code;
 
     private String act;
 

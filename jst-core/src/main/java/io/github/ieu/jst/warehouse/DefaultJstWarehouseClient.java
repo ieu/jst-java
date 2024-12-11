@@ -2,6 +2,8 @@ package io.github.ieu.jst.warehouse;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 虚拟仓API
@@ -17,7 +19,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetLwhAllocationListResponse getLwhAllocationList(JstGetLwhAllocationListRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/getlwhallocationlist", request, JstGetLwhAllocationListResponse.class);
+        JstGetLwhAllocationListResponse response = execute("/open/webapi/itemapi/lockwarehouse/getlwhallocationlist", request, JstGetLwhAllocationListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetLwhOperationListResponse getLwhOperationList(JstGetLwhOperationListRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/getlwhoperationlist", request, JstGetLwhOperationListResponse.class);
+        JstGetLwhOperationListResponse response = execute("/open/webapi/itemapi/lockwarehouse/getlwhoperationlist", request, JstGetLwhOperationListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstCreateLwhAllocationResponse createLwhAllocation(JstCreateLwhAllocationRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/lwhallocationcreate", request, JstCreateLwhAllocationResponse.class);
+        JstCreateLwhAllocationResponse response = execute("/open/webapi/itemapi/lockwarehouse/lwhallocationcreate", request, JstCreateLwhAllocationResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstCreateLwhOperationResponse createLwhOperation(JstCreateLwhOperationRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/lwhoperationcreate", request, JstCreateLwhOperationResponse.class);
+        JstCreateLwhOperationResponse response = execute("/open/webapi/itemapi/lockwarehouse/lwhoperationcreate", request, JstCreateLwhOperationResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetWarehouseListResponse getWarehouseList(JstGetWarehouseListRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/getwarehouselist", request, JstGetWarehouseListResponse.class);
+        JstGetWarehouseListResponse response = execute("/open/webapi/itemapi/lockwarehouse/getwarehouselist", request, JstGetWarehouseListResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetVirtualStockResponse getVirtualStock(JstGetVirtualStockRequest request) {
-        return execute("/open/webapi/itemapi/iteminventory/getvirtualstock", request, JstGetVirtualStockResponse.class);
+        JstGetVirtualStockResponse response = execute("/open/webapi/itemapi/iteminventory/getvirtualstock", request, JstGetVirtualStockResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstCreateOrUpdateLockPurchaseResponse createOrUpdateLockPurchase(JstCreateOrUpdateLockPurchaseRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/lockpurchase/createorupdatepurchase", request, JstCreateOrUpdateLockPurchaseResponse.class);
+        JstCreateOrUpdateLockPurchaseResponse response = execute("/open/webapi/itemapi/lockwarehouse/lockpurchase/createorupdatepurchase", request, JstCreateOrUpdateLockPurchaseResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,6 +103,10 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetPageLockPurchasesResponse getPageLockPurchases(JstGetPageLockPurchasesRequest request) {
-        return execute("/open/webapi/itemapi/lockwarehouse/lockpurchase/getpagelockpurchases", request, JstGetPageLockPurchasesResponse.class);
+        JstGetPageLockPurchasesResponse response = execute("/open/webapi/itemapi/lockwarehouse/lockpurchase/getpagelockpurchases", request, JstGetPageLockPurchasesResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

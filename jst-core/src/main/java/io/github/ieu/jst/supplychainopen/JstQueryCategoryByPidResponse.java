@@ -3,7 +3,7 @@ package io.github.ieu.jst.supplychainopen;
 @lombok.Data
 public class JstQueryCategoryByPidResponse {
 
-    private Number code;
+    private Integer code;
 
     private String msg;
 

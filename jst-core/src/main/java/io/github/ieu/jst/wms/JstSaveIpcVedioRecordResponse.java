@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstSaveIpcVedioRecordResponse {
 
-    private Number code;
+    private Integer code;
 
     private String data;
 

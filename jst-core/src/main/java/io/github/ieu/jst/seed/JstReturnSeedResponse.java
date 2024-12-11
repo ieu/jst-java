@@ -6,7 +6,7 @@ public class JstReturnSeedResponse {
     /**
      * 返回码 0 表示成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否调用成功

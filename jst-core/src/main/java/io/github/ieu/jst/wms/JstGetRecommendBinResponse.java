@@ -11,7 +11,7 @@ public class JstGetRecommendBinResponse {
     /**
      * 错误码
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 是否执行成功

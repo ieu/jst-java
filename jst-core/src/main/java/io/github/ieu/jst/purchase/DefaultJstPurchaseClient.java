@@ -2,6 +2,8 @@ package io.github.ieu.jst.purchase;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 采购API
@@ -17,7 +19,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryPurchaseResponse queryPurchase(JstQueryPurchaseRequest request) {
-        return execute("/open/purchase/query", request, JstQueryPurchaseResponse.class);
+        JstQueryPurchaseResponse response = execute("/open/purchase/query", request, JstQueryPurchaseResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadPurchaseResponse uploadPurchase(JstUploadPurchaseRequest request) {
-        return execute("/open/jushuitan/purchase/upload", request, JstUploadPurchaseResponse.class);
+        JstUploadPurchaseResponse response = execute("/open/jushuitan/purchase/upload", request, JstUploadPurchaseResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadSupplierResponse uploadSupplier(java.util.List<JstUploadSupplierRequest> request) {
-        return execute("/open/supplier/upload", request, JstUploadSupplierResponse.class);
+        JstUploadSupplierResponse response = execute("/open/supplier/upload", request, JstUploadSupplierResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQuerySupplierResponse querySupplier(JstQuerySupplierRequest request) {
-        return execute("/open/supplier/query", request, JstQuerySupplierResponse.class);
+        JstQuerySupplierResponse response = execute("/open/supplier/query", request, JstQuerySupplierResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryManufactureResponse queryManufacture(JstQueryManufactureRequest request) {
-        return execute("/open/jushuitan/manufacture/query", request, JstQueryManufactureResponse.class);
+        JstQueryManufactureResponse response = execute("/open/jushuitan/manufacture/query", request, JstQueryManufactureResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadManufactureResponse uploadManufacture(JstUploadManufactureRequest request) {
-        return execute("/open/jushuitan/manufacture/upload", request, JstUploadManufactureResponse.class);
+        JstUploadManufactureResponse response = execute("/open/jushuitan/manufacture/upload", request, JstUploadManufactureResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadPurchaseLabelResponse uploadPurchaseLabel(JstUploadPurchaseLabelRequest request) {
-        return execute("/open/jushuitan/purchaselabel/upload", request, JstUploadPurchaseLabelResponse.class);
+        JstUploadPurchaseLabelResponse response = execute("/open/jushuitan/purchaselabel/upload", request, JstUploadPurchaseLabelResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstUploadAppointmentInResponse uploadAppointmentIn(JstUploadAppointmentInRequest request) {
-        return execute("/open/jushuitan/appointmentin/upload", request, JstUploadAppointmentInResponse.class);
+        JstUploadAppointmentInResponse response = execute("/open/jushuitan/appointmentin/upload", request, JstUploadAppointmentInResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,7 +115,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstQueryPurchaseBookingResponse queryPurchaseBooking(JstQueryPurchaseBookingRequest request) {
-        return execute("/open/jushuitan/purchasebooking/query", request, JstQueryPurchaseBookingResponse.class);
+        JstQueryPurchaseBookingResponse response = execute("/open/jushuitan/purchasebooking/query", request, JstQueryPurchaseBookingResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -89,7 +127,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstChangePurchaseStatusResponse changePurchaseStatus(JstChangePurchaseStatusRequest request) {
-        return execute("/open/jushuitan/purchase/change/status", request, JstChangePurchaseStatusResponse.class);
+        JstChangePurchaseStatusResponse response = execute("/open/jushuitan/purchase/change/status", request, JstChangePurchaseStatusResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -97,7 +139,11 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstCancelPurchaseResponse cancelPurchase(JstCancelPurchaseRequest request) {
-        return execute("/open/webapi/wmsapi/purchase/cancel", request, JstCancelPurchaseResponse.class);
+        JstCancelPurchaseResponse response = execute("/open/webapi/wmsapi/purchase/cancel", request, JstCancelPurchaseResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -105,6 +151,10 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
      */
     @Override
     public JstEditPurchaseResponse editPurchase(JstEditPurchaseRequest request) {
-        return execute("/open/webapi/wmsapi/openpurchase/editpurchase", request, JstEditPurchaseResponse.class);
+        JstEditPurchaseResponse response = execute("/open/webapi/wmsapi/openpurchase/editpurchase", request, JstEditPurchaseResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

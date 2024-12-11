@@ -2,6 +2,8 @@ package io.github.ieu.jst.wms;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * WMS API
@@ -17,7 +19,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQuickSaleArrivalResponse quickSaleArrival(JstQuickSaleArrivalRequest request) {
-        return execute("/open/jushuitan/quicksale/arrival", request, JstQuickSaleArrivalResponse.class);
+        JstQuickSaleArrivalResponse response = execute("/open/jushuitan/quicksale/arrival", request, JstQuickSaleArrivalResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstFindSkuBinResponse findSkuBin(JstFindSkuBinRequest request) {
-        return execute("/open/webapi/wmsapi/openskubinquery/findskubin", request, JstFindSkuBinResponse.class);
+        JstFindSkuBinResponse response = execute("/open/webapi/wmsapi/openskubinquery/findskubin", request, JstFindSkuBinResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstConfirmSingleOrderCheckoutResponse confirmSingleOrderCheckout(JstConfirmSingleOrderCheckoutRequest request) {
-        return execute("/open/webapi/wmsapi/checkoutopen/singleorderconfirms", request, JstConfirmSingleOrderCheckoutResponse.class);
+        JstConfirmSingleOrderCheckoutResponse response = execute("/open/webapi/wmsapi/checkoutopen/singleorderconfirms", request, JstConfirmSingleOrderCheckoutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMessage()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstGetRecommendBinResponse getRecommendBin(JstGetRecommendBinRequest request) {
-        return execute("/open/jushuitan/recommend/bin/get", request, JstGetRecommendBinResponse.class);
+        JstGetRecommendBinResponse response = execute("/open/jushuitan/recommend/bin/get", request, JstGetRecommendBinResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstGetFastDeliveryOrderCountResponse getFastDeliveryOrderCount(JstGetFastDeliveryOrderCountRequest request) {
-        return execute("/open/webapi/wmsapi/checkout/getfastdeliveryordercount", request, JstGetFastDeliveryOrderCountResponse.class);
+        JstGetFastDeliveryOrderCountResponse response = execute("/open/webapi/wmsapi/checkout/getfastdeliveryordercount", request, JstGetFastDeliveryOrderCountResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstAddShippingPackResponse addShippingPack(JstAddShippingPackRequest request) {
-        return execute("/open/webapi/wmsapi/shippingpack/addshippingpack", request, JstAddShippingPackResponse.class);
+        JstAddShippingPackResponse response = execute("/open/webapi/wmsapi/shippingpack/addshippingpack", request, JstAddShippingPackResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQueryInOutItemSkusnsResponse queryInOutItemSkusns(JstQueryInOutItemSkusnsRequest request) {
-        return execute("/open/webapi/wmsapi/skusn/queryinoutitemskusns", request, JstQueryInOutItemSkusnsResponse.class);
+        JstQueryInOutItemSkusnsResponse response = execute("/open/webapi/wmsapi/skusn/queryinoutitemskusns", request, JstQueryInOutItemSkusnsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstSaveIpcVedioRecordResponse saveIpcVedioRecord(JstSaveIpcVedioRecordRequest request) {
-        return execute("/open/webapi/wmsapi/packageentries/saveipcvediorecord", request, JstSaveIpcVedioRecordResponse.class);
+        JstSaveIpcVedioRecordResponse response = execute("/open/webapi/wmsapi/packageentries/saveipcvediorecord", request, JstSaveIpcVedioRecordResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,7 +115,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstUploadWaveStatusResponse uploadWaveStatus(JstUploadWaveStatusRequest request) {
-        return execute("/open/jushuitan/wavestatus/upload", request, JstUploadWaveStatusResponse.class);
+        JstUploadWaveStatusResponse response = execute("/open/jushuitan/wavestatus/upload", request, JstUploadWaveStatusResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -89,7 +127,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstConfirmSingleOrderResponse confirmSingleOrder(JstConfirmSingleOrderRequest request) {
-        return execute("/open/jushuitan/order/single/confirm", request, JstConfirmSingleOrderResponse.class);
+        JstConfirmSingleOrderResponse response = execute("/open/jushuitan/order/single/confirm", request, JstConfirmSingleOrderResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -97,7 +139,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstGetWorkLogResponse getWorkLog(JstGetWorkLogRequest request) {
-        return execute("/open/webapi/wmsapi/worklog/getworklog", request, JstGetWorkLogResponse.class);
+        JstGetWorkLogResponse response = execute("/open/webapi/wmsapi/worklog/getworklog", request, JstGetWorkLogResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -105,7 +151,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstLoadWavesByFilterResponse loadWavesByFilter(JstLoadWavesByFilterRequest request) {
-        return execute("/open/webapi/wmsapi/wavequery/loadwavesbyfilter", request, JstLoadWavesByFilterResponse.class);
+        JstLoadWavesByFilterResponse response = execute("/open/webapi/wmsapi/wavequery/loadwavesbyfilter", request, JstLoadWavesByFilterResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -113,7 +163,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstAppendWorkloadResponse appendWorkload(JstAppendWorkloadRequest request) {
-        return execute("/open/webapi/wmsapi/worklog/workloadappend", request, JstAppendWorkloadResponse.class);
+        JstAppendWorkloadResponse response = execute("/open/webapi/wmsapi/worklog/workloadappend", request, JstAppendWorkloadResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -121,7 +175,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQueryPickWaveResponse queryPickWave(JstQueryPickWaveRequest request) {
-        return execute("/open/jushuitan/pickwave/query", request, JstQueryPickWaveResponse.class);
+        JstQueryPickWaveResponse response = execute("/open/jushuitan/pickwave/query", request, JstQueryPickWaveResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -129,7 +187,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQueryPreReduceWaveResponse queryPreReduceWave(JstQueryPreReduceWaveRequest request) {
-        return execute("/open/jushuitan/prereducewave/query", request, JstQueryPreReduceWaveResponse.class);
+        JstQueryPreReduceWaveResponse response = execute("/open/jushuitan/prereducewave/query", request, JstQueryPreReduceWaveResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -137,7 +199,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstGetWaitPickReduceStockResponse getWaitPickReduceStock(JstGetWaitPickReduceStockRequest request) {
-        return execute("/open/jushuitan/reducestock/waitpick/get", request, JstGetWaitPickReduceStockResponse.class);
+        JstGetWaitPickReduceStockResponse response = execute("/open/jushuitan/reducestock/waitpick/get", request, JstGetWaitPickReduceStockResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -145,7 +211,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstAssignAgvWaveResponse assignAgvWave(JstAssignAgvWaveRequest request) {
-        return execute("/open/jushuitan/agv/wave/assign", request, JstAssignAgvWaveResponse.class);
+        JstAssignAgvWaveResponse response = execute("/open/jushuitan/agv/wave/assign", request, JstAssignAgvWaveResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -153,7 +223,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstLoadSkusnResponse loadSkusn(JstLoadSkusnRequest request) {
-        return execute("/open/jushuitan/skusn/load", request, JstLoadSkusnResponse.class);
+        JstLoadSkusnResponse response = execute("/open/jushuitan/skusn/load", request, JstLoadSkusnResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -161,7 +235,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQueryInOutWaterResponse queryInOutWater(JstQueryInOutWaterRequest request) {
-        return execute("/open/jushuitan/inout/water/query", request, JstQueryInOutWaterResponse.class);
+        JstQueryInOutWaterResponse response = execute("/open/jushuitan/inout/water/query", request, JstQueryInOutWaterResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -169,7 +247,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstLoadOrderChangeStatisticsResponse loadOrderChangeStatistics(JstLoadOrderChangeStatisticsRequest request) {
-        return execute("/open/webapi/wmsapi/openp2dskusn/loadorderchangestatistics", request, JstLoadOrderChangeStatisticsResponse.class);
+        JstLoadOrderChangeStatisticsResponse response = execute("/open/webapi/wmsapi/openp2dskusn/loadorderchangestatistics", request, JstLoadOrderChangeStatisticsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -177,7 +259,11 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstQuerySkusnResponse querySkusn(JstQuerySkusnRequest request) {
-        return execute("/open/jushuitan/skusn/query", request, JstQuerySkusnResponse.class);
+        JstQuerySkusnResponse response = execute("/open/jushuitan/skusn/query", request, JstQuerySkusnResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -185,6 +271,10 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
      */
     @Override
     public JstCreateSkusnResponse createSkusn(JstCreateSkusnRequest request) {
-        return execute("/open/webapi/wmsapi/openp2dskusn/createskusn", request, JstCreateSkusnResponse.class);
+        JstCreateSkusnResponse response = execute("/open/webapi/wmsapi/openp2dskusn/createskusn", request, JstCreateSkusnResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

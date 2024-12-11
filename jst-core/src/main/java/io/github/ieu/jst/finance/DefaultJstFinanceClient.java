@@ -2,6 +2,8 @@ package io.github.ieu.jst.finance;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 财务API
@@ -17,7 +19,11 @@ public class DefaultJstFinanceClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstQueryShengsuanPaymentResponse queryShengsuanPayment(JstQueryShengsuanPaymentRequest request) {
-        return execute("/open/jushuitan/shengsuan/payment/query", request, JstQueryShengsuanPaymentResponse.class);
+        JstQueryShengsuanPaymentResponse response = execute("/open/jushuitan/shengsuan/payment/query", request, JstQueryShengsuanPaymentResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,6 +31,10 @@ public class DefaultJstFinanceClient extends AbstractJstBizClient implements Jst
      */
     @Override
     public JstQueryShengsuanPayableResponse queryShengsuanPayable(JstQueryShengsuanPayableRequest request) {
-        return execute("/open/jushuitan/shengsuan/payable/query", request, JstQueryShengsuanPayableResponse.class);
+        JstQueryShengsuanPayableResponse response = execute("/open/jushuitan/shengsuan/payable/query", request, JstQueryShengsuanPayableResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

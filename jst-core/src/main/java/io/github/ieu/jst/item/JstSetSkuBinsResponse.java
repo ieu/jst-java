@@ -3,7 +3,7 @@ package io.github.ieu.jst.item;
 @lombok.Data
 public class JstSetSkuBinsResponse {
 
-    private Number code;
+    private Integer code;
 
     /**
      * 返回结果

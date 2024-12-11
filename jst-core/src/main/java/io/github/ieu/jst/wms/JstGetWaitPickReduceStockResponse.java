@@ -8,7 +8,7 @@ public class JstGetWaitPickReduceStockResponse {
     /**
      * 状态码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否成功

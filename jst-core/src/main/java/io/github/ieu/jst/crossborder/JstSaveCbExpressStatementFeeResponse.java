@@ -3,7 +3,7 @@ package io.github.ieu.jst.crossborder;
 @lombok.Data
 public class JstSaveCbExpressStatementFeeResponse {
 
-    private Number code;
+    private Integer code;
 
     /**
      * 返回结果

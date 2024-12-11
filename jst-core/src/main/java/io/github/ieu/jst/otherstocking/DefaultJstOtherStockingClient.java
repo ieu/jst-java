@@ -2,6 +2,8 @@ package io.github.ieu.jst.otherstocking;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 其它出入库API
@@ -17,7 +19,11 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
      */
     @Override
     public JstQueryOtherInOutResponse queryOtherInOut(JstQueryOtherInOutRequest request) {
-        return execute("/open/other/inout/query", request, JstQueryOtherInOutResponse.class);
+        JstQueryOtherInOutResponse response = execute("/open/other/inout/query", request, JstQueryOtherInOutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
      */
     @Override
     public JstUploadOtherInOutResponse uploadOtherInOut(JstUploadOtherInOutRequest request) {
-        return execute("/open/jushuitan/otherinout/upload", request, JstUploadOtherInOutResponse.class);
+        JstUploadOtherInOutResponse response = execute("/open/jushuitan/otherinout/upload", request, JstUploadOtherInOutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,6 +43,10 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
      */
     @Override
     public JstCancelOtherInOutResponse cancelOtherInOut(JstCancelOtherInOutRequest request) {
-        return execute("/open/jushuitan/otherinout/cancel", request, JstCancelOtherInOutResponse.class);
+        JstCancelOtherInOutResponse response = execute("/open/jushuitan/otherinout/cancel", request, JstCancelOtherInOutResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

@@ -2,6 +2,8 @@ package io.github.ieu.jst.shengsuan;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 胜算API
@@ -17,7 +19,11 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetOpenAlipayBillRecordsResponse getOpenAlipayBillRecords(JstGetOpenAlipayBillRecordsRequest request) {
-        return execute("/open/webapi/pfopen/pfopenalifee/getopenalipaybillrecords", request, JstGetOpenAlipayBillRecordsResponse.class);
+        JstGetOpenAlipayBillRecordsResponse response = execute("/open/webapi/pfopen/pfopenalifee/getopenalipaybillrecords", request, JstGetOpenAlipayBillRecordsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetOpenAlipayPromotionFeeResponse getOpenAlipayPromotionFee(JstGetOpenAlipayPromotionFeeRequest request) {
-        return execute("/open/webapi/pfopen/pfopenalifee/getopenalipaypromotionfee", request, JstGetOpenAlipayPromotionFeeResponse.class);
+        JstGetOpenAlipayPromotionFeeResponse response = execute("/open/webapi/pfopen/pfopenalifee/getopenalipaypromotionfee", request, JstGetOpenAlipayPromotionFeeResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetOpenPfPromotionShopItemResponse getOpenPfPromotionShopItem(JstGetOpenPfPromotionShopItemRequest request) {
-        return execute("/open/webapi/pfopen/pfopenalifee/getopenpfpromotionshopitem", request, JstGetOpenPfPromotionShopItemResponse.class);
+        JstGetOpenPfPromotionShopItemResponse response = execute("/open/webapi/pfopen/pfopenalifee/getopenpfpromotionshopitem", request, JstGetOpenPfPromotionShopItemResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,6 +55,10 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstGetOpenFeeFlowingResponse getOpenFeeFlowing(JstGetOpenFeeFlowingRequest request) {
-        return execute("/open/webapi/pfopen/pfopenorderfee/getopenfeeflowing", request, JstGetOpenFeeFlowingResponse.class);
+        JstGetOpenFeeFlowingResponse response = execute("/open/webapi/pfopen/pfopenorderfee/getopenfeeflowing", request, JstGetOpenFeeFlowingResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

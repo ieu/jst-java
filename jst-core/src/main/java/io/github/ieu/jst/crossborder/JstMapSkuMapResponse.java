@@ -3,7 +3,7 @@ package io.github.ieu.jst.crossborder;
 @lombok.Data
 public class JstMapSkuMapResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 
@@ -16,7 +16,7 @@ public class JstMapSkuMapResponse {
     @lombok.Data
     public static class Data {
 
-        private Number code;
+        private Integer code;
 
         private String msg;
 

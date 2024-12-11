@@ -11,7 +11,7 @@ public class JstBindBinIdCarryIdResponse {
     /**
      * 错误码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否执行成功

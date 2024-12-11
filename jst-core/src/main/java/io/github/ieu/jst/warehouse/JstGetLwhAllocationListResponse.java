@@ -6,7 +6,7 @@ public class JstGetLwhAllocationListResponse {
     /**
      * 状态码，0代表成功
      */
-    private Number code;
+    private Integer code;
 
     private Data data;
 

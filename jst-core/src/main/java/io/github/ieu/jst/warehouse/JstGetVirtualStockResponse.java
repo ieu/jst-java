@@ -3,6 +3,16 @@ package io.github.ieu.jst.warehouse;
 @lombok.Data
 public class JstGetVirtualStockResponse {
 
+    /**
+     * 错误码
+     */
+    private Integer code;
+
+    /**
+     * 错误描述
+     */
+    private String msg;
+
     private Number pageIndex;
 
     private Number pageSize;

@@ -3,7 +3,7 @@ package io.github.ieu.jst.seed;
 @lombok.Data
 public class JstCallbackSeedResponse {
 
-    private String code;
+    private Integer code;
 
     private Boolean issuccess;
 

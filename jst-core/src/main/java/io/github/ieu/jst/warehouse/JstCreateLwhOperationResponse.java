@@ -3,7 +3,7 @@ package io.github.ieu.jst.warehouse;
 @lombok.Data
 public class JstCreateLwhOperationResponse {
 
-    private Number code;
+    private Integer code;
 
     private Data data;
 

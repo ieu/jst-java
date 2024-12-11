@@ -3,7 +3,7 @@ package io.github.ieu.jst.wms;
 @lombok.Data
 public class JstQueryInOutItemSkusnsResponse {
 
-    private Number code;
+    private Integer code;
 
     private java.util.List<Data> data;
 

@@ -6,7 +6,7 @@ public class JstConfirmSingleOrderResponse {
     /**
      * 非0失败
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 错误描述

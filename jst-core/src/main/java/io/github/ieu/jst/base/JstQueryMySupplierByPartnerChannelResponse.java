@@ -3,7 +3,7 @@ package io.github.ieu.jst.base;
 @lombok.Data
 public class JstQueryMySupplierByPartnerChannelResponse {
 
-    private Number code;
+    private Integer code;
 
     private String msg;
 

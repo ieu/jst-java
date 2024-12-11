@@ -8,7 +8,7 @@ public class JstLoadAllocateFeeResponse {
     /**
      * 0表示成功
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 返回信息

@@ -3,7 +3,7 @@ package io.github.ieu.jst.crossborder;
 @lombok.Data
 public class JstGetCbLogisticsTrackDetailResponse {
 
-    private Number code;
+    private Integer code;
 
     private java.util.List<Data> data;
 

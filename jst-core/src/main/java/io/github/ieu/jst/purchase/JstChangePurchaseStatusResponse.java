@@ -6,7 +6,7 @@ public class JstChangePurchaseStatusResponse {
     /**
      * 0 代表成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否成功
@@ -29,7 +29,7 @@ public class JstChangePurchaseStatusResponse {
         /**
          * 0 代表成功
          */
-        private String code;
+        private Integer code;
 
         /**
          * 是否成功

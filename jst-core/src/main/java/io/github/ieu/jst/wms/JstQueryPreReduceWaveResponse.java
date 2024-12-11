@@ -8,7 +8,7 @@ public class JstQueryPreReduceWaveResponse {
     /**
      * 0代码成功
      */
-    private String code;
+    private Integer code;
 
     /**
      * 是否成功描述

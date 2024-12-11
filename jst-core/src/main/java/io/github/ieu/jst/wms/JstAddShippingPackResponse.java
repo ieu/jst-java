@@ -6,7 +6,7 @@ public class JstAddShippingPackResponse {
     /**
      * 状态码，无异常=0
      */
-    private Number code;
+    private Integer code;
 
     /**
      * 接口数据

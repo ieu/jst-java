@@ -2,6 +2,8 @@ package io.github.ieu.jst.inventory;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 库存API
@@ -17,7 +19,11 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQueryInventoryResponse queryInventory(JstQueryInventoryRequest request) {
-        return execute("/open/inventory/query", request, JstQueryInventoryResponse.class);
+        JstQueryInventoryResponse response = execute("/open/inventory/query", request, JstQueryInventoryResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQueryInventoryCountResponse queryInventoryCount(JstQueryInventoryCountRequest request) {
-        return execute("/open/inventory/count/query", request, JstQueryInventoryCountResponse.class);
+        JstQueryInventoryCountResponse response = execute("/open/inventory/count/query", request, JstQueryInventoryCountResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstQueryPackResponse queryPack(JstQueryPackRequest request) {
-        return execute("/open/pack/query", request, JstQueryPackResponse.class);
+        JstQueryPackResponse response = execute("/open/pack/query", request, JstQueryPackResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstUploadInventoryV2Response uploadInventoryV2(JstUploadInventoryV2Request request) {
-        return execute("/open/jushuitan/inventoryv2/upload", request, JstUploadInventoryV2Response.class);
+        JstUploadInventoryV2Response response = execute("/open/jushuitan/inventoryv2/upload", request, JstUploadInventoryV2Response.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,6 +67,10 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
      */
     @Override
     public JstBatchUpdateWmsVirtualQtysResponse batchUpdateWmsVirtualQtys(JstBatchUpdateWmsVirtualQtysRequest request) {
-        return execute("/open/webapi/itemapi/iteminventory/batchupdatewmsvirtualqtys", request, JstBatchUpdateWmsVirtualQtysResponse.class);
+        JstBatchUpdateWmsVirtualQtysResponse response = execute("/open/webapi/itemapi/iteminventory/batchupdatewmsvirtualqtys", request, JstBatchUpdateWmsVirtualQtysResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

@@ -4,6 +4,16 @@ package io.github.ieu.jst.finance;
 public class JstQueryShengsuanPayableResponse {
 
     /**
+     * 错误码
+     */
+    private Integer code;
+
+    /**
+     * 错误描述
+     */
+    private String msg;
+
+    /**
      * 第几页
      */
     private Number pageIndex;

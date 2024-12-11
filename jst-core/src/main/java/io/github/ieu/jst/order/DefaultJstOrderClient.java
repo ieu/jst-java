@@ -2,6 +2,8 @@ package io.github.ieu.jst.order;
 
 import io.github.ieu.jst.AbstractJstBizClient;
 import io.github.ieu.jst.JstConfiguration;
+import io.github.ieu.jst.JstErrorCode;
+import io.github.ieu.jst.JstServerException;
 
 /**
  * 订单API
@@ -17,7 +19,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstSaveOrderRemarkResponse saveOrderRemark(JstSaveOrderRemarkRequest request) {
-        return execute("/open/webapi/orderapi/modifyorder/saveremark", request, JstSaveOrderRemarkResponse.class);
+        JstSaveOrderRemarkResponse response = execute("/open/webapi/orderapi/modifyorder/saveremark", request, JstSaveOrderRemarkResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -25,7 +31,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstUploadModifyWmsOrderResponse uploadModifyWmsOrder(java.util.List<JstUploadModifyWmsOrderRequest> request) {
-        return execute("/open/orders/modifywms/upload", request, JstUploadModifyWmsOrderResponse.class);
+        JstUploadModifyWmsOrderResponse response = execute("/open/orders/modifywms/upload", request, JstUploadModifyWmsOrderResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -33,7 +43,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstGetQuestionOrderQuestionsResponse getQuestionOrderQuestions(JstGetQuestionOrderQuestionsRequest request) {
-        return execute("/open/webapi/orderapi/questionorder/questions", request, JstGetQuestionOrderQuestionsResponse.class);
+        JstGetQuestionOrderQuestionsResponse response = execute("/open/webapi/orderapi/questionorder/questions", request, JstGetQuestionOrderQuestionsResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -41,7 +55,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstUploadOrdersResponse uploadOrders(java.util.List<JstUploadOrdersRequest> request) {
-        return execute("/open/jushuitan/orders/upload", request, JstUploadOrdersResponse.class);
+        JstUploadOrdersResponse response = execute("/open/jushuitan/orders/upload", request, JstUploadOrdersResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -49,7 +67,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstSplitDrpOrderResponse splitDrpOrder(JstSplitDrpOrderRequest request) {
-        return execute("/open/jushuitan/drporder/split", request, JstSplitDrpOrderResponse.class);
+        JstSplitDrpOrderResponse response = execute("/open/jushuitan/drporder/split", request, JstSplitDrpOrderResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -57,7 +79,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstUploadOrderRemarkResponse uploadOrderRemark(JstUploadOrderRemarkRequest request) {
-        return execute("/open/jushuitan/order/remark/upload", request, JstUploadOrderRemarkResponse.class);
+        JstUploadOrderRemarkResponse response = execute("/open/jushuitan/order/remark/upload", request, JstUploadOrderRemarkResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -65,7 +91,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstSetOrderNodeBySoidResponse setOrderNodeBySoid(JstSetOrderNodeBySoidRequest request) {
-        return execute("/open/order/node/soid/set", request, JstSetOrderNodeBySoidResponse.class);
+        JstSetOrderNodeBySoidResponse response = execute("/open/order/node/soid/set", request, JstSetOrderNodeBySoidResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -73,7 +103,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstUploadOrderLabelResponse uploadOrderLabel(JstUploadOrderLabelRequest request) {
-        return execute("/open/jushuitan/order/label/upload", request, JstUploadOrderLabelResponse.class);
+        JstUploadOrderLabelResponse response = execute("/open/jushuitan/order/label/upload", request, JstUploadOrderLabelResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -81,7 +115,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstUploadOrderSentResponse uploadOrderSent(JstUploadOrderSentRequest request) {
-        return execute("/open/order/sent/upload", request, JstUploadOrderSentResponse.class);
+        JstUploadOrderSentResponse response = execute("/open/order/sent/upload", request, JstUploadOrderSentResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -89,7 +127,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstQuerySingleOrderResponse querySingleOrder(JstQuerySingleOrderRequest request) {
-        return execute("/open/orders/single/query", request, JstQuerySingleOrderResponse.class);
+        JstQuerySingleOrderResponse response = execute("/open/orders/single/query", request, JstQuerySingleOrderResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -97,7 +139,11 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstQueryOrderActionResponse queryOrderAction(JstQueryOrderActionRequest request) {
-        return execute("/open/order/action/query", request, JstQueryOrderActionResponse.class);
+        JstQueryOrderActionResponse response = execute("/open/order/action/query", request, JstQueryOrderActionResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 
     /**
@@ -105,6 +151,10 @@ public class DefaultJstOrderClient extends AbstractJstBizClient implements JstOr
      */
     @Override
     public JstCancelOrderByOidResponse cancelOrderByOid(JstCancelOrderByOidRequest request) {
-        return execute("/open/jushuitan/orderbyoid/cancel", request, JstCancelOrderByOidResponse.class);
+        JstCancelOrderByOidResponse response = execute("/open/jushuitan/orderbyoid/cancel", request, JstCancelOrderByOidResponse.class);
+        if (!JstErrorCode.SUCCESS.is(response.getCode())) {
+            throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
+        }
+        return response;
     }
 }

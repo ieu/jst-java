@@ -5,7 +5,7 @@ public class JstGetWorkLogResponse {
 
     private String msg;
 
-    private String code;
+    private Integer code;
 
     private String requestId;
 

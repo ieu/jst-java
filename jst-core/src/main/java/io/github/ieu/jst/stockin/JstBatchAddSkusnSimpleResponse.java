@@ -3,7 +3,7 @@ package io.github.ieu.jst.stockin;
 @lombok.Data
 public class JstBatchAddSkusnSimpleResponse {
 
-    private Number code;
+    private Integer code;
 
     private Boolean data;
 
