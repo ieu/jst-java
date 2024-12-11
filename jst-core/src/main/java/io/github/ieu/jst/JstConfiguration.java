@@ -80,8 +80,8 @@ public class JstConfiguration {
             configuration.setTokenStore(tokenStore);
 
             JstJsonSerializer jsonSerializer = this.jsonSerializer;
-            if (Builder.this.jsonSerializer == null) {
-                Builder.this.jsonSerializer = Jackson2JstJsonSerializerFactory.create();
+            if (jsonSerializer == null) {
+                jsonSerializer = Jackson2JstJsonSerializerFactory.create();
             }
             configuration.setJsonSerializer(jsonSerializer);
 
