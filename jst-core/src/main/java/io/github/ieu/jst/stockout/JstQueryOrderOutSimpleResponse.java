@@ -359,13 +359,35 @@ public class JstQueryOrderOutSimpleResponse {
             /**
              * 跨境订单财务数据
              */
-            private CbFinances cbFinances;
+            private CbFinance cbFinance;
 
             /**
              * 跨境订单财务数据
              */
             @lombok.Data
-            public static class CbFinances {
+            public static class CbFinance {
+
+                private Integer oId;
+
+                private Double rebateFee;
+
+                private Double productTax;
+
+                private Double shippingTax;
+
+                private Double otherIncome;
+
+                private Double voucherFromSeller;
+
+                private Double platformCommission;
+
+                private Double transitionFee;
+
+                private Double transactionFee;
+
+                private Double opaqueBaggingFee;
+
+                private Double otherExpense;
             }
 
             @lombok.Data
