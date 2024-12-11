@@ -6,6 +6,7 @@
 
 ```java
 JstConfiguration configuration = JstConfiguration.builder()
+        .endpoint("https://openapi.jushuitan.com")
         .credential("Your App Key", "Your App Secret")
         .build();
 JstClient client = new DefaultJstClient(configuration);
@@ -24,8 +25,8 @@ JstQueryShopsResponse response = baseClient.queryShops(request);
 jst:
   endpoint: https://openapi.jushuitan.com
   credential:
-    partner-id: Your App Key
-    partner-key: Your App Secret
+    app-key: Your App Key
+    app-secret: Your App Secret
 ```
 
 2. 注入 `JstClient`：
@@ -628,7 +629,7 @@ JstClient jstClient;
         <td>JstClient.shengsuan().getOpenFeeFlowing()</td>
     </tr>
     <tr>
-        <td rowspan="9">胜算API</td>
+        <td rowspan="9">供应链对外开放API</td>
         <td>/open/api/goods/inneropen/category/querycategorybypid</td>
         <td>通用资料根据父类目ID查询子类目</td>
         <td>JstClient.supplyChainOpen().queryCategoryByPid()</td>
