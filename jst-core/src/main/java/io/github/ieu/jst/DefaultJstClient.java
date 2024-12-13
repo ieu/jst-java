@@ -4,6 +4,8 @@ import io.github.ieu.jst.aftersale.DefaultJstAfterSaleClient;
 import io.github.ieu.jst.aftersale.JstAfterSaleClient;
 import io.github.ieu.jst.allocate.DefaultJstAllocateClient;
 import io.github.ieu.jst.allocate.JstAllocateClient;
+import io.github.ieu.jst.auth.DefaultJstAuthClient;
+import io.github.ieu.jst.auth.JstAuthClient;
 import io.github.ieu.jst.base.DefaultJstBaseClient;
 import io.github.ieu.jst.base.JstBaseClient;
 import io.github.ieu.jst.crossborder.DefaultJstCrossBorderClient;
@@ -210,6 +212,14 @@ public class DefaultJstClient implements JstClient {
         return (JstWmsClient) clientCache.computeIfAbsent(
                 JstWmsClient.class,
                 k -> new DefaultJstWmsClient(configuration)
+        );
+    }
+
+    @Override
+    public JstAuthClient auth() {
+        return (JstAuthClient) clientCache.computeIfAbsent(
+                JstAuthClient.class,
+                k -> new DefaultJstAuthClient(configuration)
         );
     }
 }

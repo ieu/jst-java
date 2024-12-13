@@ -2,6 +2,7 @@ package io.github.ieu.jst;
 
 import io.github.ieu.jst.aftersale.JstAfterSaleClient;
 import io.github.ieu.jst.allocate.JstAllocateClient;
+import io.github.ieu.jst.auth.JstAuthClient;
 import io.github.ieu.jst.base.JstBaseClient;
 import io.github.ieu.jst.crossborder.JstCrossBorderClient;
 import io.github.ieu.jst.finance.JstFinanceClient;
@@ -121,4 +122,9 @@ public interface JstClient {
      * WMS API
      */
     JstWmsClient wms();
+
+    /**
+     * 授权API
+     */
+    JstAuthClient auth();
 }

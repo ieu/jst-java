@@ -4,6 +4,8 @@ import io.github.ieu.jst.aftersale.DefaultJstAfterSaleClient;
 import io.github.ieu.jst.aftersale.JstAfterSaleClient;
 import io.github.ieu.jst.allocate.DefaultJstAllocateClient;
 import io.github.ieu.jst.allocate.JstAllocateClient;
+import io.github.ieu.jst.auth.DefaultJstAuthClient;
+import io.github.ieu.jst.auth.JstAuthClient;
 import io.github.ieu.jst.auth.JstTokenStore;
 import io.github.ieu.jst.base.DefaultJstBaseClient;
 import io.github.ieu.jst.base.JstBaseClient;
@@ -217,5 +219,12 @@ class DefaultJstClientTest {
         assertInstanceOf(JstWmsClient.class, client.wms());
         assertInstanceOf(DefaultJstWmsClient.class, client.wms());
         assertSame(client.wms(), client.wms());
+    }
+
+    @Test
+    void auth_shouldReturnSameInstance() {
+        assertInstanceOf(JstAuthClient.class, client.auth());
+        assertInstanceOf(DefaultJstAuthClient.class, client.auth());
+        assertSame(client.auth(), client.auth());
     }
 }
