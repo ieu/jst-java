@@ -1,8 +1,6 @@
 非官方[聚水潭开放平台](https://openweb.jushuitan.com/index) SDK
 
-## 使用方式
-
-### 示例
+## 使用方法
 
 ```java
 JstConfiguration configuration = JstConfiguration.builder()
@@ -17,9 +15,9 @@ JstQueryShopsRequest request = JstQueryShopsRequest.builder()
 JstQueryShopsResponse response = baseClient.queryShops(request);
 ```
 
-### Spring Boot 集成
+## Spring Boot 集成
 
-1. 配置 `application.yml`：
+YAML 配置 `JstClient`：
 
 ```yaml
 jst:
@@ -29,11 +27,22 @@ jst:
     app-secret: Your App Secret
 ```
 
-2. 注入 `JstClient`：
+JavaConfig 配置 `JstClient`：
 
 ```java
+@Bean
+public JstConfiguration jstConfiguration() {
+    return JstConfiguration.builder()
+            .endpoint("https://openapi.jushuitan.com")
+            .credential("Your App Key", "Your App Secret")
+            .build();
+}
+```
 
-@Inject
+注入 `JstClient`：
+
+```java
+@Resource
 JstClient jstClient;
 ```
 
