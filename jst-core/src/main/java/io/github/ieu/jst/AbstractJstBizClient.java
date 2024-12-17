@@ -1,16 +1,18 @@
 package io.github.ieu.jst;
 
 import io.github.ieu.jst.auth.*;
-import io.github.ieu.jst.http.JstHttpClient;
+import io.github.ieu.jst.http.*;
 import lombok.Getter;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.net.URI;
 import java.time.Duration;
 import java.util.Optional;
 
 @Getter
 public abstract class AbstractJstBizClient {
     protected final InternalJstAuthClient authClient = new InternalJstAuthClient();
+    private final URI endpoint;
     private final JstCredential credential;
     private final JstAuthDigest authDigest;
     private final JstBizDigest bizDigest;
@@ -19,6 +21,7 @@ public abstract class AbstractJstBizClient {
     private final JstJsonSerializer jsonSerializer;
 
     protected AbstractJstBizClient(JstConfiguration configuration) {
+        this.endpoint = configuration.getEndpoint();
         this.credential = configuration.getCredential();
         this.authDigest = configuration.getAuthDigest();
         this.bizDigest = configuration.getBizDigest();
@@ -40,7 +43,22 @@ public abstract class AbstractJstBizClient {
 
         bizDigest.sign(request);
 
-        return httpClient.execute(path, request, targetClass);
+        return executeInternal(path, request, targetClass);
+    }
+
+    private <T, U> U executeInternal(String path, T params, Class<U> targetClass) {
+        JstHttpHeaders requestHeaders = new JstHttpHeaders();
+        requestHeaders.setContentType(JstMediaType.APPLICATION_FORM_URLENCODED);
+        DefaultJstRequestEntity<Object> requestEntity = new DefaultJstRequestEntity<>()
+                .setMethod(JstHttpMethod.POST)
+                .setUri(endpoint.resolve(path))
+                .setHeaders(requestHeaders)
+                .setBody(params);
+        JstResponseEntity<U> responseEntity = httpClient.execute(
+                requestEntity,
+                targetClass
+        );
+        return responseEntity.getBody();
     }
 
     private String getAccessToken() {
@@ -76,7 +94,7 @@ public abstract class AbstractJstBizClient {
 
             authDigest.sign(request);
 
-            JstTokenResponse response = httpClient.execute("/openWeb/auth/getInitToken", request, JstTokenResponse.class);
+            JstTokenResponse response = executeInternal("/openWeb/auth/getInitToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
             if (!JstErrorCode.SUCCESS.is(respCode)) {
                 String respMsg = response.getMsg();
@@ -96,7 +114,7 @@ public abstract class AbstractJstBizClient {
 
             authDigest.sign(request);
 
-            JstTokenResponse response = httpClient.execute("/openWeb/auth/refreshToken", request, JstTokenResponse.class);
+            JstTokenResponse response = executeInternal("/openWeb/auth/refreshToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
             if (!JstErrorCode.SUCCESS.is(respCode)) {
                 String respMsg = response.getMsg();
@@ -116,7 +134,7 @@ public abstract class AbstractJstBizClient {
 
             authDigest.sign(request);
 
-            JstTokenResponse response = httpClient.execute("/openWeb/auth/accessToken", request, JstTokenResponse.class);
+            JstTokenResponse response = executeInternal("/openWeb/auth/accessToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
             if (!JstErrorCode.SUCCESS.is(respCode)) {
                 String respMsg = response.getMsg();

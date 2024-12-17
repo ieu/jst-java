@@ -11,8 +11,8 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class DefaultJstHttpClientFactory {
-    public static JstHttpClient create(String endpoint) {
-        DefaultJstHttpClient client = new DefaultJstHttpClient(endpoint);
+    public static JstHttpClient create() {
+        DefaultJstHttpClient client = new DefaultJstHttpClient();
 
         client.setRequestFactory(new OkHttp3JstHttpRequestFactory());
 

@@ -21,4 +21,15 @@ public class JstMediaType {
     public String toString() {
         return String.format("%s/%s", type, subtype);
     }
+
+    public static JstMediaType parse(final String mediaType) {
+        if (mediaType == null) {
+            return null;
+        }
+        String[] parts = mediaType.split("/");
+        if (parts.length != 2) {
+            return null;
+        }
+        return new JstMediaType(parts[0], parts[1]);
+    }
 }

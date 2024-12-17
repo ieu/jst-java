@@ -10,10 +10,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.net.URI;
+
 @Getter
 @Setter
 public class JstConfiguration {
-    private String endpoint;
+    private URI endpoint;
     private JstCredential credential;
     private JstAuthDigest authDigest;
     private JstBizDigest bizDigest;
@@ -23,6 +25,10 @@ public class JstConfiguration {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = URI.create(endpoint);
     }
 
     @Getter
@@ -69,7 +75,7 @@ public class JstConfiguration {
 
             JstHttpClient httpClient = this.httpClient;
             if (httpClient == null) {
-                httpClient = DefaultJstHttpClientFactory.create(endpoint);
+                httpClient = DefaultJstHttpClientFactory.create();
             }
             configuration.setHttpClient(httpClient);
 

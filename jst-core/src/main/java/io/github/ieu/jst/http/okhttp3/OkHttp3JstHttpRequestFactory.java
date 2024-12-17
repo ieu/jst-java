@@ -1,11 +1,9 @@
 package io.github.ieu.jst.http.okhttp3;
 
-import io.github.ieu.jst.http.JstHttpMethod;
 import io.github.ieu.jst.http.JstHttpRequest;
 import io.github.ieu.jst.http.JstHttpRequestFactory;
+import io.github.ieu.jst.http.JstRequestEntity;
 import okhttp3.OkHttpClient;
-
-import java.net.URI;
 
 public class OkHttp3JstHttpRequestFactory implements JstHttpRequestFactory {
     private final OkHttpClient client;
@@ -15,7 +13,11 @@ public class OkHttp3JstHttpRequestFactory implements JstHttpRequestFactory {
     }
 
     @Override
-    public JstHttpRequest create(URI uri, JstHttpMethod method) {
-        return new OkHttp3JstHttpRequest(client, uri, method);
+    public JstHttpRequest create(JstRequestEntity<?> requestEntity) {
+        OkHttp3JstHttpRequest request = new OkHttp3JstHttpRequest(client);
+        request.setUri(requestEntity.getUri());
+        request.setMethod(requestEntity.getMethod());
+        request.setHeaders(requestEntity.getHeaders());
+        return request;
     }
 }

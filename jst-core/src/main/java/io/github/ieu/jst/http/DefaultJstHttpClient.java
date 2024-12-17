@@ -2,28 +2,24 @@ package io.github.ieu.jst.http;
 
 import io.github.ieu.jst.JstClientException;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@NoArgsConstructor
 public class DefaultJstHttpClient implements JstHttpClient {
-    @Getter
-    private final URI endpoint;
-    @Getter
+
     private final List<JstHttpMessageConverter<?>> converters = new ArrayList<>();
-    @Getter
+
     @Setter
     private JstHttpRequestFactory requestFactory;
 
-    public DefaultJstHttpClient(URI endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public DefaultJstHttpClient(String endpoint) {
-        this.endpoint = URI.create(endpoint);
+    public DefaultJstHttpClient(JstHttpRequestFactory requestFactory) {
+        this.requestFactory = requestFactory;
     }
 
     public void addConverter(JstHttpMessageConverter<?> converter) {
@@ -37,21 +33,24 @@ public class DefaultJstHttpClient implements JstHttpClient {
     @SuppressWarnings("unchecked")
     @Override
     @SneakyThrows
-    public <T, U> U execute(String path, T value, Class<U> targetType) {
-        URI uri = endpoint.resolve(path);
+    public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Class<U> targetType) {
+        JstHttpRequest request = requestFactory.create(requestEntity);
 
-        JstHttpRequest request = requestFactory.create(uri, JstHttpMethod.POST);
-        request.setContentType(JstMediaType.APPLICATION_FORM_URLENCODED);
+        T requestBody = requestEntity.getBody();
+        Class<?> requestBodyType = requestBody.getClass();
 
-        Class<?> valueType = value.getClass();
-
-        JstHttpMessageConverter<?> outputMessageConverter = determineOutputConverter(valueType, JstMediaType.APPLICATION_FORM_URLENCODED);
-        ((JstHttpMessageConverter<T>) outputMessageConverter).write(value, request);
+        JstHttpMessageConverter<?> outputMessageConverter = determineOutputConverter(requestBodyType, request.getHeaders().getContentType());
+        ((JstHttpMessageConverter<T>) outputMessageConverter).write(requestBody, request);
 
         JstHttpResponse response = request.execute();
+        int statusCode = response.getStatusCode();
 
-        JstHttpMessageConverter<?> inputMessageConverter = determineInputConverter(valueType, JstMediaType.APPLICATION_JSON);
-        return ((JstHttpMessageConverter<U>) inputMessageConverter).read(targetType, response);
+        JstHttpMessageConverter<?> inputMessageConverter = determineInputConverter(targetType, response.getHeaders().getContentType());
+        U responseBody = ((JstHttpMessageConverter<U>) inputMessageConverter).read(targetType, response);
+
+        return new DefaultJstResponseEntity<U>()
+                .setStatusCode(statusCode)
+                .setBody(responseBody);
     }
 
     private JstHttpMessageConverter<?> determineInputConverter(Class<?> clazz, JstMediaType contentType) {
