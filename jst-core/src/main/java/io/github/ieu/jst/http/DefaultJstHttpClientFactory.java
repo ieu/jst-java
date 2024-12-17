@@ -7,11 +7,11 @@ import io.github.ieu.jst.http.converter.JstBizRequestJstHttpMessageConverter;
 import io.github.ieu.jst.http.converter.JstRefreshTokenRequestJstHttpMessageConverter;
 import io.github.ieu.jst.http.okhttp3.OkHttp3JstHttpRequestFactory;
 import io.github.ieu.jst.jackson2.DefaultObjectMapperFactory;
-import lombok.experimental.UtilityClass;
 
-@UtilityClass
-public class DefaultJstHttpClientFactory {
-    public static JstHttpClient create() {
+public class DefaultJstHttpClientFactory implements JstHttpClientFactory {
+
+    @Override
+    public JstHttpClient create() {
         DefaultJstHttpClient client = new DefaultJstHttpClient();
 
         client.setRequestFactory(new OkHttp3JstHttpRequestFactory());

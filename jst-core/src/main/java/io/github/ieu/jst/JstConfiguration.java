@@ -3,9 +3,12 @@ package io.github.ieu.jst;
 import io.github.ieu.jst.auth.DefaultJstAuthDigest;
 import io.github.ieu.jst.auth.JstAuthDigest;
 import io.github.ieu.jst.auth.JstTokenStore;
-import io.github.ieu.jst.auth.caffeine.CaffeineJstTokenStore;
+import io.github.ieu.jst.auth.JstTokenStoreFactory;
+import io.github.ieu.jst.auth.caffeine.CaffeineJstTokenStoreFactory;
 import io.github.ieu.jst.http.DefaultJstHttpClientFactory;
 import io.github.ieu.jst.http.JstHttpClient;
+import io.github.ieu.jst.http.JstHttpClientFactory;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -13,7 +16,7 @@ import lombok.experimental.Accessors;
 import java.net.URI;
 
 @Getter
-@Setter
+@Setter(AccessLevel.PRIVATE)
 public class JstConfiguration {
     private URI endpoint;
     private JstCredential credential;
@@ -39,12 +42,24 @@ public class JstConfiguration {
         private JstCredential credential;
         private JstAuthDigest authDigest;
         private JstBizDigest bizDigest;
-        private JstHttpClient httpClient;
-        private JstTokenStore tokenStore;
-        private JstJsonSerializer jsonSerializer;
+        private JstHttpClientFactory httpClientFactory;
+        private JstTokenStoreFactory tokenStoreFactory;
+        private JstJsonSerializerFactory jsonSerializerFactory;
 
         public Builder credential(String appKey, String appSecret) {
             return this.credential(new JstCredential(appKey, appSecret));
+        }
+
+        public Builder httpClient(JstHttpClient httpClient) {
+            return httpClientFactory(() -> httpClient);
+        }
+
+        public Builder tokenStore(JstTokenStore tokenStore) {
+            return tokenStoreFactory(() -> tokenStore);
+        }
+
+        public Builder jsonSerializer(JstJsonSerializer jsonSerializer) {
+            return jsonSerializerFactory(() -> jsonSerializer);
         }
 
         public JstConfiguration build() {
@@ -73,23 +88,23 @@ public class JstConfiguration {
             }
             configuration.setBizDigest(bizDigest);
 
-            JstHttpClient httpClient = this.httpClient;
-            if (httpClient == null) {
-                httpClient = DefaultJstHttpClientFactory.create();
+            JstHttpClientFactory httpClientFactory = this.httpClientFactory;
+            if (httpClientFactory == null) {
+                httpClientFactory = new DefaultJstHttpClientFactory();
             }
-            configuration.setHttpClient(httpClient);
+            configuration.setHttpClient(httpClientFactory.create());
 
-            JstTokenStore tokenStore = this.tokenStore;
-            if (tokenStore == null) {
-                tokenStore = new CaffeineJstTokenStore();
+            JstTokenStoreFactory tokenStoreFactory = this.tokenStoreFactory;
+            if (tokenStoreFactory == null) {
+                tokenStoreFactory = new CaffeineJstTokenStoreFactory();
             }
-            configuration.setTokenStore(tokenStore);
+            configuration.setTokenStore(tokenStoreFactory.create());
 
-            JstJsonSerializer jsonSerializer = this.jsonSerializer;
-            if (jsonSerializer == null) {
-                jsonSerializer = Jackson2JstJsonSerializerFactory.create();
+            JstJsonSerializerFactory jsonSerializerFactory = this.jsonSerializerFactory;
+            if (jsonSerializerFactory == null) {
+                jsonSerializerFactory = new Jackson2JstJsonSerializerFactory();
             }
-            configuration.setJsonSerializer(jsonSerializer);
+            configuration.setJsonSerializer(jsonSerializerFactory.create());
 
             return configuration;
         }
