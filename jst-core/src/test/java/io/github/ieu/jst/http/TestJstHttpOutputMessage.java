@@ -1,7 +1,5 @@
-package io.github.ieu.jst;
+package io.github.ieu.jst.http;
 
-import io.github.ieu.jst.http.JstHttpHeaders;
-import io.github.ieu.jst.http.JstHttpOutputMessage;
 import lombok.Getter;
 import lombok.Setter;
 

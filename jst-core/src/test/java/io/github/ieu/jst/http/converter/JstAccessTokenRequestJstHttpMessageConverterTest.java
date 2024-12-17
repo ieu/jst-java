@@ -1,6 +1,6 @@
 package io.github.ieu.jst.http.converter;
 
-import io.github.ieu.jst.TestJstHttpOutputMessage;
+import io.github.ieu.jst.http.TestJstHttpOutputMessage;
 import io.github.ieu.jst.auth.JstAccessTokenRequest;
 import io.github.ieu.jst.http.JstMediaType;
 import lombok.SneakyThrows;

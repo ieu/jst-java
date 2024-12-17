@@ -1,7 +1,7 @@
 package io.github.ieu.jst.http.converter;
 
 import io.github.ieu.jst.JstBizRequest;
-import io.github.ieu.jst.TestJstHttpOutputMessage;
+import io.github.ieu.jst.http.TestJstHttpOutputMessage;
 import io.github.ieu.jst.http.JstMediaType;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
