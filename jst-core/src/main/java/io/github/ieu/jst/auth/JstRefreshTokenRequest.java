@@ -1,11 +1,13 @@
 package io.github.ieu.jst.auth;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * @see <a href="https://openweb.jushuitan.com/doc?docId=23#834cbeb011154aad979f93873395dbb5">更新access_token、refresh_token</a>
  */
 @Data
+@Accessors(chain = true)
 public class JstRefreshTokenRequest {
     /**
      * 开发者应用Key
