@@ -1,7 +1,5 @@
 package io.github.ieu.jst;
 
-import io.github.ieu.jst.auth.DefaultJstAuthDigest;
-import io.github.ieu.jst.auth.JstAuthDigest;
 import io.github.ieu.jst.auth.JstTokenStore;
 import io.github.ieu.jst.auth.JstTokenStoreFactory;
 import io.github.ieu.jst.auth.caffeine.CaffeineJstTokenStoreFactory;
@@ -20,8 +18,7 @@ import java.net.URI;
 public class JstConfiguration {
     private URI endpoint;
     private JstCredential credential;
-    private JstAuthDigest authDigest;
-    private JstBizDigest bizDigest;
+    private JstDigest digest;
     private JstHttpClient httpClient;
     private JstTokenStore tokenStore;
     private JstJsonSerializer jsonSerializer;
@@ -40,8 +37,7 @@ public class JstConfiguration {
     public static class Builder {
         private String endpoint;
         private JstCredential credential;
-        private JstAuthDigest authDigest;
-        private JstBizDigest bizDigest;
+        private JstDigest digest;
         private JstHttpClientFactory httpClientFactory;
         private JstTokenStoreFactory tokenStoreFactory;
         private JstJsonSerializerFactory jsonSerializerFactory;
@@ -76,17 +72,11 @@ public class JstConfiguration {
             }
             configuration.setCredential(credential);
 
-            JstAuthDigest authDigest = this.authDigest;
-            if (authDigest == null) {
-                authDigest = new DefaultJstAuthDigest(credential);
+            JstDigest digest = this.digest;
+            if (digest == null) {
+                digest = new DefaultJstDigest(credential);
             }
-            configuration.setAuthDigest(authDigest);
-
-            JstBizDigest bizDigest = this.bizDigest;
-            if (bizDigest == null) {
-                bizDigest = new DefaultJstBizDigest(credential);
-            }
-            configuration.setBizDigest(bizDigest);
+            configuration.setDigest(digest);
 
             JstHttpClientFactory httpClientFactory = this.httpClientFactory;
             if (httpClientFactory == null) {

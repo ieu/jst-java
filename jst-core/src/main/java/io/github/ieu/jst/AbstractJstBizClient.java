@@ -14,8 +14,7 @@ public abstract class AbstractJstBizClient {
     protected final InternalJstAuthClient authClient = new InternalJstAuthClient();
     private final URI endpoint;
     private final JstCredential credential;
-    private final JstAuthDigest authDigest;
-    private final JstBizDigest bizDigest;
+    private final JstDigest digest;
     private final JstHttpClient httpClient;
     private final JstTokenStore tokenStore;
     private final JstJsonSerializer jsonSerializer;
@@ -23,8 +22,7 @@ public abstract class AbstractJstBizClient {
     protected AbstractJstBizClient(JstConfiguration configuration) {
         this.endpoint = configuration.getEndpoint();
         this.credential = configuration.getCredential();
-        this.authDigest = configuration.getAuthDigest();
-        this.bizDigest = configuration.getBizDigest();
+        this.digest = configuration.getDigest();
         this.httpClient = configuration.getHttpClient();
         this.tokenStore = configuration.getTokenStore();
         this.jsonSerializer = configuration.getJsonSerializer();
@@ -41,7 +39,7 @@ public abstract class AbstractJstBizClient {
         request.setTimestamp(Long.toString(System.currentTimeMillis() / 1000));
         request.setBiz(biz);
 
-        bizDigest.sign(request);
+        request.setSign(digest.sign(request));
 
         return executeInternal(path, request, targetClass);
     }
@@ -92,7 +90,7 @@ public abstract class AbstractJstBizClient {
             request.setTimestamp(Long.toString(System.currentTimeMillis() / 1000));
             request.setCode(RandomStringUtils.secure().next(6));
 
-            authDigest.sign(request);
+            request.setSign(digest.sign(request));
 
             JstTokenResponse response = executeInternal("/openWeb/auth/getInitToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
@@ -112,7 +110,7 @@ public abstract class AbstractJstBizClient {
             request.setTimestamp(Long.toString(System.currentTimeMillis() / 1000));
             request.setRefreshToken(refreshToken);
 
-            authDigest.sign(request);
+            request.setSign(digest.sign(request));
 
             JstTokenResponse response = executeInternal("/openWeb/auth/refreshToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
@@ -132,7 +130,7 @@ public abstract class AbstractJstBizClient {
             request.setTimestamp(Long.toString(System.currentTimeMillis() / 1000));
             request.setCode(code);
 
-            authDigest.sign(request);
+            request.setSign(digest.sign(request));
 
             JstTokenResponse response = executeInternal("/openWeb/auth/accessToken", request, JstTokenResponse.class);
             int respCode = response.getCode();
