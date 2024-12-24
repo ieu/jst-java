@@ -46,4 +46,12 @@ public class OkHttp3JstHttpResponse implements JstHttpResponse {
         }
         return body.source().inputStream();
     }
+
+    @Override
+    public void close() throws IOException {
+        ResponseBody body = response.body();
+        if (body != null) {
+            body.close();
+        }
+    }
 }

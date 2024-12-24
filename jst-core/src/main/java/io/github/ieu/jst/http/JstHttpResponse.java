@@ -1,6 +1,8 @@
 package io.github.ieu.jst.http;
 
-public interface JstHttpResponse extends JstHttpInputMessage {
+import java.io.Closeable;
+
+public interface JstHttpResponse extends JstHttpInputMessage, Closeable {
 
     int getStatusCode();
 }

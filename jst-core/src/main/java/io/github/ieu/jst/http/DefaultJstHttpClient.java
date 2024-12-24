@@ -34,23 +34,30 @@ public class DefaultJstHttpClient implements JstHttpClient {
     @Override
     @SneakyThrows
     public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Class<U> targetType) {
-        JstHttpRequest request = requestFactory.create(requestEntity);
+        JstHttpResponse response = null;
+        try {
+            JstHttpRequest request = requestFactory.create(requestEntity);
 
-        T requestBody = requestEntity.getBody();
-        Class<?> requestBodyType = requestBody.getClass();
+            T requestBody = requestEntity.getBody();
+            Class<?> requestBodyType = requestBody.getClass();
 
-        JstHttpMessageConverter<?> outputMessageConverter = determineOutputConverter(requestBodyType, request.getHeaders().getContentType());
-        ((JstHttpMessageConverter<T>) outputMessageConverter).write(requestBody, request);
+            JstHttpMessageConverter<?> outputMessageConverter = determineOutputConverter(requestBodyType, request.getHeaders().getContentType());
+            ((JstHttpMessageConverter<T>) outputMessageConverter).write(requestBody, request);
 
-        JstHttpResponse response = request.execute();
-        int statusCode = response.getStatusCode();
+            response = request.execute();
+            int statusCode = response.getStatusCode();
 
-        JstHttpMessageConverter<?> inputMessageConverter = determineInputConverter(targetType, response.getHeaders().getContentType());
-        U responseBody = ((JstHttpMessageConverter<U>) inputMessageConverter).read(targetType, response);
+            JstHttpMessageConverter<?> inputMessageConverter = determineInputConverter(targetType, response.getHeaders().getContentType());
+            U responseBody = ((JstHttpMessageConverter<U>) inputMessageConverter).read(targetType, response);
 
-        return new DefaultJstResponseEntity<U>()
-                .setStatusCode(statusCode)
-                .setBody(responseBody);
+            return new DefaultJstResponseEntity<U>()
+                    .setStatusCode(statusCode)
+                    .setBody(responseBody);
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+        }
     }
 
     private JstHttpMessageConverter<?> determineInputConverter(Class<?> clazz, JstMediaType contentType) {

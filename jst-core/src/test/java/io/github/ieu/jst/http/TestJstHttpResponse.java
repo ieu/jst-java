@@ -1,6 +1,7 @@
 package io.github.ieu.jst.http;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
@@ -26,5 +27,10 @@ public class TestJstHttpResponse implements JstHttpResponse {
         JstHttpHeaders headers = new JstHttpHeaders();
         headers.setContentType(JstMediaType.APPLICATION_JSON);
         return headers;
+    }
+
+    @Override
+    public void close() throws IOException {
+
     }
 }
