@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DefaultJstHttpClient implements JstHttpClient {
 
-    private final List<JstHttpMessageConverter<?>> converters = new ArrayList<>();
+    private final List<JstHttpMessageConverter<?>> httpMessageConverters = new ArrayList<>();
 
     @Setter
     private JstHttpRequestFactory requestFactory;
@@ -22,12 +22,12 @@ public class DefaultJstHttpClient implements JstHttpClient {
         this.requestFactory = requestFactory;
     }
 
-    public void addConverter(JstHttpMessageConverter<?> converter) {
-        this.converters.add(converter);
+    public void addHttpMessageConverter(JstHttpMessageConverter<?> converter) {
+        this.httpMessageConverters.add(converter);
     }
 
-    public void addConverter(List<? extends JstHttpMessageConverter<?>> converters) {
-        this.converters.addAll(converters);
+    public void addHttpMessageConverter(List<? extends JstHttpMessageConverter<?>> converters) {
+        this.httpMessageConverters.addAll(converters);
     }
 
     @SuppressWarnings("unchecked")
@@ -61,7 +61,7 @@ public class DefaultJstHttpClient implements JstHttpClient {
     }
 
     private JstHttpMessageConverter<?> determineInputConverter(Class<?> clazz, JstMediaType contentType) {
-        for (JstHttpMessageConverter<?> converter : converters) {
+        for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
             if (converter.canRead(clazz, contentType)) {
                 return converter;
             }
@@ -71,7 +71,7 @@ public class DefaultJstHttpClient implements JstHttpClient {
     }
 
     private JstHttpMessageConverter<?> determineOutputConverter(Class<?> clazz, JstMediaType contentType) {
-        for (JstHttpMessageConverter<?> converter : converters) {
+        for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
             if (converter.canWrite(clazz, contentType)) {
                 return converter;
             }

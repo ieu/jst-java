@@ -20,8 +20,8 @@ public class TestJstHttpClientFactory implements JstHttpClientFactory {
         client.setRequestFactory(requestFactory);
 
         ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
-        client.addConverter(new Jackson2JsonJstHttpMessageConverter<>(objectMapper));
-        client.addConverter(new SimpleUrlEncodedFormJstHttpMessageConverter<>());
+        client.addHttpMessageConverter(new Jackson2JsonJstHttpMessageConverter<>(objectMapper));
+        client.addHttpMessageConverter(new SimpleUrlEncodedFormJstHttpMessageConverter<>());
 
         return client;
     }
