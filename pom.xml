@@ -23,6 +23,8 @@
         <junit-jupiter.version>5.11.3</junit-jupiter.version>
         <caffeine.version>2.9.3</caffeine.version>
         <assertj.version>3.26.3</assertj.version>
+        <jedis.version>5.2.0</jedis.version>
+        <testcontainers.version>1.20.4</testcontainers.version>
     </properties>
 
     <modules>
@@ -32,6 +34,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -82,6 +92,12 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
             </dependency>
 
             <dependency>
