@@ -17,7 +17,7 @@ public class JstLoadSkusnResponse {
         /**
          * 是否有下一页
          */
-        private Boolean hasnext;
+        private Boolean hasNext;
 
         /**
          * 商品集合
@@ -27,7 +27,7 @@ public class JstLoadSkusnResponse {
         /**
          * 当前页最大id
          */
-        private Number maxid;
+        private Number maxId;
 
         @lombok.Data
         public static class Item {
@@ -35,12 +35,12 @@ public class JstLoadSkusnResponse {
             /**
              * 唯一码(快销采购标签)
              */
-            private String skusn;
+            private String skuSn;
 
             /**
              * 货源类型：0未比较；1采购；2拣货；3仓内待检
              */
-            private String sourcetype;
+            private String sourceType;
 
             /**
              * 赠品数据
@@ -50,12 +50,12 @@ public class JstLoadSkusnResponse {
             /**
              * 到货时间：有到货时有值，未到货则为空
              */
-            private String arrivaldate;
+            private String arrivalDate;
 
             /**
              * 发货时间：发货订单有值 取发货订单的发货时间，发货订单无值时 未发货为空
              */
-            private String senddate;
+            private String sendDate;
 
             /**
              * 播种区：A、B、C、D
@@ -65,42 +65,42 @@ public class JstLoadSkusnResponse {
             /**
              * 播种柜号：多件柜号如3-1
              */
-            private String areabin;
+            private String areaBin;
 
             /**
              * 订单类型（单，多）
              */
-            private String pkey;
+            private String pKey;
 
             /**
              * 已到货数：（包含本件）
              */
-            private String arrivenum;
+            private String arriveNum;
 
             /**
              * 物流公司
              */
-            private String logisticscompany;
+            private String logisticsCompany;
 
             /**
              * 初次采购日期
              */
-            private String minpurchasedate;
+            private String minPurchaseDate;
 
             /**
              * 是否已到货
              */
-            private String isarrive;
+            private String isArrive;
 
             /**
              * 是否作废
              */
-            private String iscanceled;
+            private String isCanceled;
 
             /**
              * 商品编码
              */
-            private String skuid;
+            private String skuId;
 
             /**
              * 数量
@@ -110,12 +110,12 @@ public class JstLoadSkusnResponse {
             /**
              * 内部订单号
              */
-            private Number fromoid;
+            private Number fromOId;
 
             /**
              * 内部订单明细号
              */
-            private Number fromoiid;
+            private Number fromOiId;
 
             @lombok.Data
             public static class Gift {
@@ -123,7 +123,7 @@ public class JstLoadSkusnResponse {
                 /**
                  * 商品编码
                  */
-                private String skuid;
+                private String skuId;
 
                 /**
                  * 数量

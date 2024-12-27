@@ -10,7 +10,9 @@ import io.github.ieu.jst.finance.JstQueryShengsuanPayableResponse;
 import io.github.ieu.jst.finance.JstQueryShengsuanPaymentResponse;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPayableResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPaymentResponseMixIn;
+import io.github.ieu.jst.jackson2.mixin.wms.JstLoadSkusnResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstQuickSaleArrivalResponseMixIn;
+import io.github.ieu.jst.wms.JstLoadSkusnResponse;
 import io.github.ieu.jst.wms.JstQuickSaleArrivalResponse;
 import lombok.experimental.UtilityClass;
 
@@ -33,6 +35,9 @@ public class DefaultObjectMapperFactory {
         simpleModule.setMixInAnnotation(JstQueryShengsuanPaymentResponse.Pagination.Data.Item.class, JstQueryShengsuanPaymentResponseMixIn.Pagination.Data.Item.class);
         simpleModule.setMixInAnnotation(JstQuickSaleArrivalResponse.class, JstQuickSaleArrivalResponseMixIn.class);
         simpleModule.setMixInAnnotation(JstQuickSaleArrivalResponse.Data.class, JstQuickSaleArrivalResponseMixIn.Data.class);
+        simpleModule.setMixInAnnotation(JstLoadSkusnResponse.class, JstLoadSkusnResponseMixIn.class);
+        simpleModule.setMixInAnnotation(JstLoadSkusnResponse.Pagination.class, JstLoadSkusnResponseMixIn.Pagination.class);
+        simpleModule.setMixInAnnotation(JstLoadSkusnResponse.Pagination.Item.class, JstLoadSkusnResponseMixIn.Pagination.Item.class);
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(simpleModule);
