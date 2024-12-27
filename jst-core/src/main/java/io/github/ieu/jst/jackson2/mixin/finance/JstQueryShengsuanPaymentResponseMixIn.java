@@ -1,13 +1,13 @@
-package io.github.ieu.jst.jackson2.mixin;
+package io.github.ieu.jst.jackson2.mixin.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import io.github.ieu.jst.finance.JstQueryShengsuanPayableResponse;
+import io.github.ieu.jst.finance.JstQueryShengsuanPaymentResponse;
 
 import java.util.List;
 
-public interface JstQueryShengsuanPayableResponseMixIn {
+public interface JstQueryShengsuanPaymentResponseMixIn {
 
     interface Pagination {
 
@@ -18,15 +18,7 @@ public interface JstQueryShengsuanPayableResponseMixIn {
             Number getTs();
 
             @JsonProperty("items")
-            List<JstQueryShengsuanPayableResponse.Pagination.Data.Item> getItems();
-
-            @JsonProperty("free_items")
-            List<JstQueryShengsuanPayableResponse.Pagination.Data.FreeItem> getFreeItems();
-
-            @JsonNaming(PropertyNamingStrategies.UpperCamelCaseStrategy.class)
-            interface FreeItem {
-
-            }
+            List<JstQueryShengsuanPaymentResponse.Pagination.Data.Item> getItems();
 
             @JsonNaming(PropertyNamingStrategies.UpperCamelCaseStrategy.class)
             interface Item {

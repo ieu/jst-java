@@ -1,4 +1,4 @@
-package io.github.ieu.jst.jackson2.mixin;
+package io.github.ieu.jst.jackson2.mixin.finance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.ieu.jst.finance.JstQueryShengsuanPayableResponse;
