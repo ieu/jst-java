@@ -4,23 +4,6 @@ package io.github.ieu.jst.finance;
 public class JstQueryShengsuanPaymentResponse {
 
     /**
-     * 第几页
-     */
-    private Integer pageIndex;
-
-    /**
-     * 每页多少条
-     */
-    private Integer pageSize;
-
-    /**
-     * 是否有下一页
-     */
-    private Boolean hasNext;
-
-    private java.util.List<Data> datas;
-
-    /**
      * 错误码
      */
     private Integer code;
@@ -35,186 +18,209 @@ public class JstQueryShengsuanPaymentResponse {
      */
     private String msg;
 
+    private Pagination data;
+
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
-         * 付款编号
+         * 第几页
          */
-        private String payid;
+        private Integer pageIndex;
 
         /**
-         * 公司编号
+         * 每页多少条
          */
-        private String coid;
+        private Integer pageSize;
 
         /**
-         * 单据日期
+         * 是否有下一页
          */
-        private String paydate;
+        private Boolean hasNext;
 
-        /**
-         * 状态
-         */
-        private String status;
-
-        /**
-         * 收款银行账号
-         */
-        private String payaccountnumber;
-
-        /**
-         * 收款单位开户行
-         */
-        private String payprobank;
-
-        /**
-         * 往来单位编号
-         */
-        private String sellerid;
-
-        /**
-         * 往来单位名称
-         */
-        private String seller;
-
-        /**
-         * 应付金额
-         */
-        private String payamount;
-
-        /**
-         * 实付金额
-         */
-        private String amount;
-
-        /**
-         * 扣款金额
-         */
-        private String lessamount;
-
-        /**
-         * 付款类型
-         */
-        private String payway;
-
-        /**
-         * 备注
-         */
-        private String remark;
-
-        /**
-         * 创建时间
-         */
-        private String created;
-
-        /**
-         * 创建人编号
-         */
-        private String creator;
-
-        /**
-         * 最后修改时间
-         */
-        private String modified;
-
-        /**
-         * 最后修改人编号
-         */
-        private String modifier;
-
-        /**
-         * 创建人名称
-         */
-        private String creatorname;
-
-        /**
-         * 最后修改人名称
-         */
-        private String modifiername;
-
-        /**
-         * 采购单号
-         */
-        private String poid;
-
-        /**
-         * 付款账号
-         */
-        private String account;
-
-        /**
-         * 是否支付
-         */
-        private String ispaid;
-
-        /**
-         * 打款时间
-         */
-        private String paiddate;
-
-        /**
-         * 标记|多标签
-         */
-        private String labs;
-
-        /**
-         * 往来单位类型
-         */
-        private String sellertype;
-
-        /**
-         * 收款账户名称
-         */
-        private String payaccountname;
-
-        /**
-         * 时间ts
-         */
-        private String ts;
-
-        /**
-         * 明细
-         */
-        private java.util.List<Item> items;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class Item {
-
-            /**
-             * 付款明细编号
-             */
-            private Integer autoid;
+        public static class Data {
 
             /**
              * 付款编号
              */
-            private Integer payid;
+            private Integer payId;
 
             /**
              * 公司编号
              */
-            private Integer coid;
+            private Integer coId;
 
             /**
-             * 来源单号（应付单号，费用单号和预付款单号等）
+             * 单据日期
              */
-            private Integer ioid;
+            private String payDate;
 
             /**
-             * 本次金额
+             * 状态
              */
-            private Integer amount;
+            private String status;
 
             /**
-             * 类型
+             * 收款银行账号
              */
-            private String type;
+            private String payAccountNumber;
 
             /**
-             * 付款编号
+             * 收款单位开户行
              */
-            private Integer poid;
+            private String payProBank;
+
+            /**
+             * 往来单位编号
+             */
+            private Integer sellerId;
+
+            /**
+             * 往来单位名称
+             */
+            private String seller;
+
+            /**
+             * 应付金额
+             */
+            private Double payAmount;
+
+            /**
+             * 实付金额
+             */
+            private Double amount;
+
+            /**
+             * 扣款金额
+             */
+            private Double lessAmount;
+
+            /**
+             * 付款类型
+             */
+            private String payway;
+
+            /**
+             * 备注
+             */
+            private String remark;
+
+            /**
+             * 创建时间
+             */
+            private String created;
+
+            /**
+             * 创建人编号
+             */
+            private Integer creator;
+
+            /**
+             * 最后修改时间
+             */
+            private String modified;
+
+            /**
+             * 最后修改人编号
+             */
+            private Integer modifier;
+
+            /**
+             * 创建人名称
+             */
+            private String creatorName;
+
+            /**
+             * 最后修改人名称
+             */
+            private String modifierName;
+
+            /**
+             * 采购单号
+             */
+            private Integer poId;
+
+            /**
+             * 付款账号
+             */
+            private String account;
+
+            /**
+             * 是否支付
+             */
+            private String ispaid;
+
+            /**
+             * 打款时间
+             */
+            private String paidDate;
+
+            /**
+             * 标记|多标签
+             */
+            private String labs;
+
+            /**
+             * 往来单位类型
+             */
+            private String sellerType;
+
+            /**
+             * 收款账户名称
+             */
+            private String payAccountName;
+
+            /**
+             * 时间ts
+             */
+            private Number ts;
+
+            /**
+             * 明细
+             */
+            private java.util.List<Item> items;
+
+            @lombok.Data
+            public static class Item {
+
+                /**
+                 * 付款明细编号
+                 */
+                private Integer autoid;
+
+                /**
+                 * 付款编号
+                 */
+                private Integer payId;
+
+                /**
+                 * 公司编号
+                 */
+                private Integer coId;
+
+                /**
+                 * 来源单号（应付单号，费用单号和预付款单号等）
+                 */
+                private Integer ioId;
+
+                /**
+                 * 本次金额
+                 */
+                private Double amount;
+
+                /**
+                 * 类型
+                 */
+                private String type;
+
+                /**
+                 * 付款编号
+                 */
+                private Integer poId;
+            }
         }
     }
 }
