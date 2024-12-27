@@ -13,201 +13,143 @@ public class JstQueryShengsuanPayableResponse {
      */
     private String msg;
 
-    /**
-     * 第几页
-     */
-    private Number pageIndex;
-
-    /**
-     * 多少条
-     */
-    private Number pageSize;
-
-    /**
-     * 是否有下一页
-     */
-    private Boolean hasNext;
-
-    /**
-     * 数据集合
-     */
-    private java.util.List<Data> datas;
+    private Pagination data;
 
     @lombok.Data
-    public static class Data {
+    public static class Pagination {
 
         /**
-         * 应付单号
+         * 第几页
          */
-        private Number pinvid;
+        private Number pageIndex;
 
         /**
-         * 公司编号
+         * 多少条
          */
-        private Number coid;
+        private Number pageSize;
 
         /**
-         * 开票类型
+         * 是否有下一页
          */
-        private String invtype;
+        private Boolean hasNext;
 
         /**
-         * 发票类型
+         * 数据集合
          */
-        private String type;
-
-        /**
-         * 状态
-         */
-        private String status;
-
-        /**
-         * 支付金额
-         */
-        private Number paidamount;
-
-        /**
-         * 供应商编号
-         */
-        private String sellerid;
-
-        /**
-         * 创建时间
-         */
-        private String created;
-
-        /**
-         * 创建人编号
-         */
-        private Number creator;
-
-        /**
-         * 最后更新时间
-         */
-        private String modified;
-
-        /**
-         * 最后更新人编号
-         */
-        private Number modifier;
-
-        /**
-         * 创建人名称
-         */
-        private String creatorname;
-
-        /**
-         * 最后修改人名称
-         */
-        private String modifiername;
-
-        /**
-         * 原始单号
-         */
-        private Number srcpinvid;
-
-        /**
-         * 税率
-         */
-        private Number taxrate;
-
-        /**
-         * 单据类型
-         */
-        private String payabletype;
-
-        /**
-         * 单据日期
-         */
-        private String payabledate;
-
-        /**
-         * 发票日期
-         */
-        private String pinvdate;
-
-        /**
-         * 发票代码
-         */
-        private String pinvcode;
-
-        /**
-         * 发票号码
-         */
-        private String pinvnumber;
-
-        /**
-         * 其他金额
-         */
-        private Number otheramount;
-
-        /**
-         * 应付总额
-         */
-        private Number invamount;
-
-        /**
-         * 备注
-         */
-        private String remark;
-
-        /**
-         * 结算状态
-         */
-        private String paymentstatus;
-
-        /**
-         * 总额
-         */
-        private Number totalinvoiceamount;
-
-        /**
-         * 记录成本
-         */
-        private String isadjustcost;
-
-        /**
-         * 入库单号
-         */
-        private Number ioid;
-
-        /**
-         * 时间ts
-         */
-        private Number ts;
-
-        /**
-         * 供应商
-         */
-        private String suppliername;
-
-        /**
-         * 应付明细
-         */
-        private java.util.List<Item> items;
-
-        /**
-         * 费用明细
-         */
-        private java.util.List<FreeItem> freeItems;
+        private java.util.List<Data> datas;
 
         @lombok.Data
-        public static class FreeItem {
-
-            /**
-             * 应付费用单号
-             */
-            private Number payid;
+        public static class Data {
 
             /**
              * 应付单号
              */
-            private Number pinvid;
+            private Number pinvId;
 
             /**
-             * 费用金额
+             * 公司编号
              */
-            private Number amount;
+            private Number coId;
+
+            /**
+             * 开票类型
+             */
+            private String invType;
+
+            /**
+             * 发票类型
+             */
+            private String type;
+
+            /**
+             * 状态
+             */
+            private String status;
+
+            /**
+             * 支付金额
+             */
+            private Number paidAmount;
+
+            /**
+             * 供应商编号
+             */
+            private String sellerId;
+
+            /**
+             * 创建时间
+             */
+            private String created;
+
+            /**
+             * 创建人编号
+             */
+            private Number creator;
+
+            /**
+             * 最后更新时间
+             */
+            private String modified;
+
+            /**
+             * 最后更新人编号
+             */
+            private Number modifier;
+
+            /**
+             * 创建人名称
+             */
+            private String creatorName;
+
+            /**
+             * 最后修改人名称
+             */
+            private String modifierName;
+
+            /**
+             * 原始单号
+             */
+            private Number srcPinvId;
+
+            /**
+             * 税率
+             */
+            private String taxRate;
+
+            /**
+             * 单据类型
+             */
+            private String payableType;
+
+            /**
+             * 单据日期
+             */
+            private String payableDate;
+
+            /**
+             * 发票日期
+             */
+            private String pinvDate;
+
+            /**
+             * 发票代码
+             */
+            private String pinvCode;
+
+            /**
+             * 发票号码
+             */
+            private String pinvNumber;
+
+            /**
+             * 其他金额
+             */
+            private Number otherAmount;
+
+            /**
+             * 应付总额
+             */
+            private Number invAmount;
 
             /**
              * 备注
@@ -215,73 +157,137 @@ public class JstQueryShengsuanPayableResponse {
             private String remark;
 
             /**
-             * 费用名称
+             * 结算状态
              */
-            private String seller;
-        }
-
-        @lombok.Data
-        public static class Item {
+            private String paymentStatus;
 
             /**
-             * 应付明细单号
+             * 总额
              */
-            private Number ipinvid;
+            private Number totalInvoiceAmount;
 
             /**
-             * 应付单号
+             * 记录成本
              */
-            private Number pinvid;
-
-            /**
-             * 公司编号
-             */
-            private Number coid;
-
-            /**
-             * 采购单号
-             */
-            private Number oid;
+            private String isAdjustCost;
 
             /**
              * 入库单号
              */
-            private Number ioid;
+            private Number ioId;
 
             /**
-             * 入仓明细ID
+             * 时间ts
              */
-            private Number ioiid;
+            private Number ts;
 
             /**
-             * 商品编码
+             * 供应商
              */
-            private String skuid;
+            private String supplierName;
 
             /**
-             * 核销数量
+             * 应付明细
              */
-            private Number qty;
+            private java.util.List<Item> items;
 
             /**
-             * 核销金额(含税)
+             * 费用明细
              */
-            private Number amount;
+            private java.util.List<FreeItem> freeItems;
 
-            /**
-             * 应付数量
-             */
-            private Number invqty;
+            @lombok.Data
+            public static class FreeItem {
 
-            /**
-             * 应付金额（含税）
-             */
-            private Number invamount;
+                /**
+                 * 应付费用单号
+                 */
+                private Number payId;
 
-            /**
-             * 调整金额(含税)
-             */
-            private Number adjustamount;
+                /**
+                 * 应付单号
+                 */
+                private Number pinvId;
+
+                /**
+                 * 费用金额
+                 */
+                private Number amount;
+
+                /**
+                 * 备注
+                 */
+                private String remark;
+
+                /**
+                 * 费用名称
+                 */
+                private String seller;
+            }
+
+            @lombok.Data
+            public static class Item {
+
+                /**
+                 * 应付明细单号
+                 */
+                private Number ipinvId;
+
+                /**
+                 * 应付单号
+                 */
+                private Number pinvId;
+
+                /**
+                 * 公司编号
+                 */
+                private Number coId;
+
+                /**
+                 * 采购单号
+                 */
+                private Number oId;
+
+                /**
+                 * 入库单号
+                 */
+                private Number ioId;
+
+                /**
+                 * 入仓明细ID
+                 */
+                private String ioiId;
+
+                /**
+                 * 商品编码
+                 */
+                private String skuId;
+
+                /**
+                 * 核销数量
+                 */
+                private Number qty;
+
+                /**
+                 * 核销金额(含税)
+                 */
+                private Number amount;
+
+                /**
+                 * 应付数量
+                 */
+                private Number invQty;
+
+                /**
+                 * 应付金额（含税）
+                 */
+                private Number invAmount;
+
+                /**
+                 * 调整金额(含税)
+                 */
+                private Number adjustAmount;
+            }
         }
     }
 }

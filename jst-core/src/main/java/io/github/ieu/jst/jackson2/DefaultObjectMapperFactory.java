@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import io.github.ieu.jst.finance.JstQueryShengsuanPayableResponse;
+import io.github.ieu.jst.jackson2.mixin.JstQueryShengsuanPayableResponseMixIn;
 import lombok.experimental.UtilityClass;
 
 import java.time.ZonedDateTime;
@@ -16,6 +18,11 @@ public class DefaultObjectMapperFactory {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        simpleModule.setMixInAnnotation(JstQueryShengsuanPayableResponse.class, JstQueryShengsuanPayableResponseMixIn.class);
+        simpleModule.setMixInAnnotation(JstQueryShengsuanPayableResponse.Pagination.class, JstQueryShengsuanPayableResponseMixIn.Pagination.class);
+        simpleModule.setMixInAnnotation(JstQueryShengsuanPayableResponse.Pagination.Data.class, JstQueryShengsuanPayableResponseMixIn.Pagination.Data.class);
+        simpleModule.setMixInAnnotation(JstQueryShengsuanPayableResponse.Pagination.Data.FreeItem.class, JstQueryShengsuanPayableResponseMixIn.Pagination.Data.FreeItem.class);
+        simpleModule.setMixInAnnotation(JstQueryShengsuanPayableResponse.Pagination.Data.Item.class, JstQueryShengsuanPayableResponseMixIn.Pagination.Data.Item.class);
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(simpleModule);
