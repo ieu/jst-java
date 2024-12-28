@@ -16,7 +16,7 @@ public class JstUpdateGoodsResponse {
     /**
      * 请求ID
      */
-    private String requestid;
+    private String requestId;
 
     /**
      * 商品ID
