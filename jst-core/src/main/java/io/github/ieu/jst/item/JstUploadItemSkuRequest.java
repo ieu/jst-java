@@ -235,22 +235,22 @@ public class JstUploadItemSkuRequest {
         /**
          * 保质期禁收天数
          */
-        private Integer rejectlifecycle;
+        private Integer rejectLifecycle;
 
         /**
          * 保质期禁售天数
          */
-        private Integer lockuplifecycle;
+        private Integer lockupLifecycle;
 
         /**
          * 保质期临期预警天数
          */
-        private Integer adventlifecycle;
+        private Integer adventLifecycle;
 
         /**
          * <div><a href="https://cdn.erp321.cn/jst-fed/75a54905-ff50-4f12-93d5-58235926f000_2524_1229.png" target="_blank">按款显示时商品列表里的属性</a></div>传值时商品类目需存在；字段名称及字段值都可自定义，可更新
          */
-        private java.util.Map<String, Object> categorypropertys;
+        private java.util.Map<String, Object> CategoryPropertys;
 
         /**
          * 移除标签
