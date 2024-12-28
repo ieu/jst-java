@@ -294,7 +294,7 @@ public class JstQueryOrderOutSimpleResponse {
             /**
              * 子母单的子单信息
              */
-            private java.util.List<ClusterInfo> clusterinfos;
+            private java.util.List<ClusterInfo> clusterInfos;
 
             /**
              * <div><a href="https://cdn.erp321.cn/jst-fed/6e7a0bbb-124e-457f-9b31-b9286c42d8ea_1558_310.png"target="_blank">生产批次集合</a></div>获取该节点系统中相关业务项需配置（对应erp基础设置开启生产批次管理 如果是分仓数据 分仓也需要开启）

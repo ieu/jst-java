@@ -107,10 +107,10 @@ public class JstQueryOrderOutSimpleRequest {
     /**
      * 出库单主表自定义查询字段
      */
-    private java.util.List<String> inoutflds;
+    private java.util.List<String> inoutFlds;
 
     /**
      * 出库单明细自定义查询字段
      */
-    private java.util.List<String> inoutitemflds;
+    private java.util.List<String> inoutItemFlds;
 }
