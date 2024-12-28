@@ -77,7 +77,7 @@ public class JstUploadCombineSkuRequest {
          */
         private String enabled;
 
-        private java.util.List<Child> childlist;
+        private java.util.List<Child> childList;
 
         /**
          * 是否追加标签；true追加，false全覆盖
