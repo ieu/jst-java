@@ -378,17 +378,17 @@ public class JstUploadOrdersRequest {
         /**
          * 专票人姓名
          */
-        private String username;
+        private String userName;
 
         /**
          * 专票人电话
          */
-        private String userphone;
+        private String userPhone;
 
         /**
          * 专票人地址
          */
-        private String useraddress;
+        private String userAddress;
     }
 
     /**

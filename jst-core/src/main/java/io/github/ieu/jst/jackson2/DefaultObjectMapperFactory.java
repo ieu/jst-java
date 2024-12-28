@@ -13,6 +13,7 @@ import io.github.ieu.jst.jackson2.mixin.crossborder.JstCreateFirstCbTripRequestM
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPayableResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPaymentResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.logistics.JstUploadExpressRegisterRequestMixIn;
+import io.github.ieu.jst.jackson2.mixin.order.JstUploadOrdersRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryManufactureRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryPurchaseResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstBindBinIdCarryIdRequestMixIn;
@@ -26,6 +27,7 @@ import io.github.ieu.jst.jackson2.mixin.warehouse.JstCreateLwhOperationRequestMi
 import io.github.ieu.jst.jackson2.mixin.wms.JstLoadSkusnResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstQuickSaleArrivalResponseMixIn;
 import io.github.ieu.jst.logistics.JstUploadExpressRegisterRequest;
+import io.github.ieu.jst.order.JstUploadOrdersRequest;
 import io.github.ieu.jst.purchase.JstQueryManufactureRequest;
 import io.github.ieu.jst.purchase.JstQueryPurchaseResponse;
 import io.github.ieu.jst.seed.JstBindBinIdCarryIdRequest;
@@ -48,6 +50,13 @@ public class DefaultObjectMapperFactory {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.class, JstUploadOrdersRequestMixIn.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.OrderExt.class, JstUploadOrdersRequestMixIn.OrderExt.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.OrderExt.ExtData.class, JstUploadOrdersRequestMixIn.OrderExt.ExtData.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.FinanceData.class, JstUploadOrdersRequestMixIn.FinanceData.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.Invoice.class, JstUploadOrdersRequestMixIn.Invoice.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.Card.class, JstUploadOrdersRequestMixIn.Card.class);
+        simpleModule.setMixInAnnotation(JstUploadOrdersRequest.Item.class, JstUploadOrdersRequestMixIn.Item.class);
         simpleModule.setMixInAnnotation(JstUploadExpressRegisterRequest.class, JstUploadExpressRegisterRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.class, JstQueryPurchaseResponseMixIn.class);
         simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.class, JstQueryPurchaseResponseMixIn.Pagination.class);
