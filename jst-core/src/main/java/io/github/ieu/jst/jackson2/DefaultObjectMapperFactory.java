@@ -12,6 +12,7 @@ import io.github.ieu.jst.finance.JstQueryShengsuanPaymentResponse;
 import io.github.ieu.jst.jackson2.mixin.crossborder.JstCreateFirstCbTripRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPayableResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPaymentResponseMixIn;
+import io.github.ieu.jst.jackson2.mixin.logistics.JstUploadExpressRegisterRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryManufactureRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryPurchaseResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstBindBinIdCarryIdRequestMixIn;
@@ -24,6 +25,7 @@ import io.github.ieu.jst.jackson2.mixin.supplychainopen.JstQueryGoodsDetailRespo
 import io.github.ieu.jst.jackson2.mixin.warehouse.JstCreateLwhOperationRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstLoadSkusnResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstQuickSaleArrivalResponseMixIn;
+import io.github.ieu.jst.logistics.JstUploadExpressRegisterRequest;
 import io.github.ieu.jst.purchase.JstQueryManufactureRequest;
 import io.github.ieu.jst.purchase.JstQueryPurchaseResponse;
 import io.github.ieu.jst.seed.JstBindBinIdCarryIdRequest;
@@ -46,6 +48,7 @@ public class DefaultObjectMapperFactory {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        simpleModule.setMixInAnnotation(JstUploadExpressRegisterRequest.class, JstUploadExpressRegisterRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.class, JstQueryPurchaseResponseMixIn.class);
         simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.class, JstQueryPurchaseResponseMixIn.Pagination.class);
         simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.Data.class, JstQueryPurchaseResponseMixIn.Pagination.Data.class);

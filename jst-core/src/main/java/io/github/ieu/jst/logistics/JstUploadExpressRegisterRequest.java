@@ -20,5 +20,5 @@ public class JstUploadExpressRegisterRequest {
     /**
      * 仓库备注
      */
-    private String warehouseremark;
+    private String warehouseRemark;
 }
