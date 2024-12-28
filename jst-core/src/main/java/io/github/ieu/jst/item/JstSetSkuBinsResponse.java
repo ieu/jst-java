@@ -12,7 +12,7 @@ public class JstSetSkuBinsResponse {
 
     private String msg;
 
-    private String requestid;
+    private String requestId;
 
     @lombok.Data
     public static class Data {
