@@ -52,7 +52,7 @@ public class JstCreateFirstCbTripRequest {
     /**
      * 预计到货时间
      */
-    private String estimateinstockDate;
+    private String estimateInstockDate;
 
     /**
      * 箱数
