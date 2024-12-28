@@ -42,5 +42,5 @@ public class JstQueryManufactureRequest {
     /**
      * 状态:Creating:草拟,WaitConfirm:待审核,Confirmed:已确认,Finished:完成,Cancelled:作废，和开始时间，结束时间不能同时为空
      */
-    private java.util.List<String> statuslist;
+    private java.util.List<String> statusList;
 }

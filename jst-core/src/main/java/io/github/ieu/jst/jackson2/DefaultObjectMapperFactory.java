@@ -12,6 +12,7 @@ import io.github.ieu.jst.finance.JstQueryShengsuanPaymentResponse;
 import io.github.ieu.jst.jackson2.mixin.crossborder.JstCreateFirstCbTripRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPayableResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPaymentResponseMixIn;
+import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryManufactureRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstBindBinIdCarryIdRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstGetJushuitanWaveResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.stockin.JstCreatePurchaseInBatchRequestMixIn;
@@ -22,6 +23,7 @@ import io.github.ieu.jst.jackson2.mixin.supplychainopen.JstQueryGoodsDetailRespo
 import io.github.ieu.jst.jackson2.mixin.warehouse.JstCreateLwhOperationRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstLoadSkusnResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstQuickSaleArrivalResponseMixIn;
+import io.github.ieu.jst.purchase.JstQueryManufactureRequest;
 import io.github.ieu.jst.seed.JstBindBinIdCarryIdRequest;
 import io.github.ieu.jst.seed.JstGetJushuitanWaveResponse;
 import io.github.ieu.jst.stockin.JstCreatePurchaseInBatchRequest;
@@ -42,6 +44,7 @@ public class DefaultObjectMapperFactory {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        simpleModule.setMixInAnnotation(JstQueryManufactureRequest.class, JstQueryManufactureRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstCreatePurchaseInBatchRequest.class, JstCreatePurchaseInBatchRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstCreatePurchaseInBatchRequest.Item.class, JstCreatePurchaseInBatchRequestMixIn.Item.class);
         simpleModule.setMixInAnnotation(JstCreatePurchaseInBatchRequest.Item.SkuSn.class, JstCreatePurchaseInBatchRequestMixIn.Item.SkuSn.class);
