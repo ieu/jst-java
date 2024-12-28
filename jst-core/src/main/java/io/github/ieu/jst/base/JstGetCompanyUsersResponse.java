@@ -9,7 +9,7 @@ public class JstGetCompanyUsersResponse {
 
     private String msg;
 
-    private String requestid;
+    private String requestId;
 
     @lombok.Data
     public static class Pagination {
@@ -90,7 +90,7 @@ public class JstGetCompanyUsersResponse {
             /**
              * 角色id列表
              */
-            private String roleids;
+            private String roleIds;
 
             /**
              * 密码修改时间
@@ -105,7 +105,7 @@ public class JstGetCompanyUsersResponse {
             /**
              * 工号
              */
-            private String empid;
+            private String empId;
 
             /**
              * 创建人

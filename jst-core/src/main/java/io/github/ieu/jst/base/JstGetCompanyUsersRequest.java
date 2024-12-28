@@ -32,7 +32,7 @@ public class JstGetCompanyUsersRequest {
     /**
      * 查询的登录账号
      */
-    private String loginid;
+    private String loginId;
 
     /**
      * 创建开始时间
