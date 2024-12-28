@@ -13,6 +13,7 @@ import io.github.ieu.jst.jackson2.mixin.crossborder.JstCreateFirstCbTripRequestM
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPayableResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.finance.JstQueryShengsuanPaymentResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryManufactureRequestMixIn;
+import io.github.ieu.jst.jackson2.mixin.purchase.JstQueryPurchaseResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstBindBinIdCarryIdRequestMixIn;
 import io.github.ieu.jst.jackson2.mixin.seed.JstGetJushuitanWaveResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.stockin.JstCreatePurchaseInBatchRequestMixIn;
@@ -24,6 +25,7 @@ import io.github.ieu.jst.jackson2.mixin.warehouse.JstCreateLwhOperationRequestMi
 import io.github.ieu.jst.jackson2.mixin.wms.JstLoadSkusnResponseMixIn;
 import io.github.ieu.jst.jackson2.mixin.wms.JstQuickSaleArrivalResponseMixIn;
 import io.github.ieu.jst.purchase.JstQueryManufactureRequest;
+import io.github.ieu.jst.purchase.JstQueryPurchaseResponse;
 import io.github.ieu.jst.seed.JstBindBinIdCarryIdRequest;
 import io.github.ieu.jst.seed.JstGetJushuitanWaveResponse;
 import io.github.ieu.jst.stockin.JstCreatePurchaseInBatchRequest;
@@ -44,6 +46,10 @@ public class DefaultObjectMapperFactory {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.class, JstQueryPurchaseResponseMixIn.class);
+        simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.class, JstQueryPurchaseResponseMixIn.Pagination.class);
+        simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.Data.class, JstQueryPurchaseResponseMixIn.Pagination.Data.class);
+        simpleModule.setMixInAnnotation(JstQueryPurchaseResponse.Pagination.Data.Item.class, JstQueryPurchaseResponseMixIn.Pagination.Data.Item.class);
         simpleModule.setMixInAnnotation(JstQueryManufactureRequest.class, JstQueryManufactureRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstCreatePurchaseInBatchRequest.class, JstCreatePurchaseInBatchRequestMixIn.class);
         simpleModule.setMixInAnnotation(JstCreatePurchaseInBatchRequest.Item.class, JstCreatePurchaseInBatchRequestMixIn.Item.class);

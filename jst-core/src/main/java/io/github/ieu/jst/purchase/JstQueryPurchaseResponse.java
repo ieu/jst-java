@@ -237,7 +237,7 @@ public class JstQueryPurchaseResponse {
                 /**
                  * 已入库数
                  */
-                private Number inqty;
+                private Number inQty;
 
                 /**
                  * 退货数
