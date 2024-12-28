@@ -34,7 +34,7 @@ public class JstCreateLwhOperationRequest {
     /**
      * 是否超锁，examine = true 的时候这个入参才有效（true：允许超锁，false：不允许超锁）不传为默认值 false
      */
-    private Boolean isignoreCheckStock;
+    private Boolean isIgnoreCheckStock;
 
     @lombok.Data
     public static class Item {
