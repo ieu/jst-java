@@ -55,7 +55,7 @@ public class JstBindBinIdCarryIdRequest {
                 /**
                  * 外部锁定虚拟仓ID
                  */
-                private Number outerLockWhid;
+                private Number outerLockWhId;
 
                 /**
                  * 虚拟仓库存是否锁定标记
