@@ -27,7 +27,7 @@ public class JstQueryGoodsDetailResponse {
         /**
          * 商品ID
          */
-        private String itemSpuid;
+        private String itemSpuId;
 
         /**
          * 商品名称
@@ -119,12 +119,12 @@ public class JstQueryGoodsDetailResponse {
             /**
              * 商品ID
              */
-            private String itemSpuid;
+            private String itemSpuId;
 
             /**
              * 第一个规格值名称 比如:黑色
              */
-            private String firstSpecValuenName;
+            private String firstSpecValueNName;
 
             /**
              * 第二个规格值名称 比如:大号

@@ -7,5 +7,5 @@ public class JstQueryGoodsDetailRequest {
     /**
      * 商品ID
      */
-    private String itemSpuid;
+    private String itemSpuId;
 }
