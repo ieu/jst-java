@@ -251,17 +251,17 @@ public class JstCreatePurchaseInBatchRequest {
                 /**
                  * 其它成本1
                  */
-                private Number otherCostprice1;
+                private Number otherCostPrice1;
 
                 /**
                  * 其它成本2
                  */
-                private Number otherCostprice2;
+                private Number otherCostPrice2;
 
                 /**
                  * 其它成本3
                  */
-                private Number otherCostprice3;
+                private Number otherCostPrice3;
 
                 /**
                  * 其它加工费1
