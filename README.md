@@ -17,7 +17,7 @@ JstQueryShopsResponse response = baseClient.queryShops(request);
 
 ## Spring Boot 集成
 
-YAML 配置 `JstClient`：
+配置 `JstClient`：
 
 ```yaml
 jst:
@@ -27,15 +27,19 @@ jst:
     app-secret: Your App Secret
 ```
 
-JavaConfig 配置 `JstClient`：
+自定义 `JstClient`：
 
 ```java
 @Bean
-public JstConfiguration jstConfiguration() {
-    return JstConfiguration.builder()
-            .endpoint("https://openapi.jushuitan.com")
-            .credential("Your App Key", "Your App Secret")
-            .build();
+public JstConfigurationBuilderCustomizer customizer() {
+    return builder -> {
+        builder.httpClientFactory(
+                new DefaultJstHttpClientFactory()
+                        .httpRequestFactory(
+                                new OkHttp3JstHttpRequestFactory()
+                        )
+        );
+    };
 }
 ```
 
