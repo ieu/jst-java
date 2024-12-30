@@ -13,7 +13,8 @@ class JstQueryShengsuanPayableResponseMixInTest {
     @Test
     @SneakyThrows
     void shouldApplyMixInWhenRead() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         JstQueryShengsuanPayableResponse response = objectMapper.readValue(
                 "{\"msg\":\"执行成功\",\"code\":0,\"data\":{\"datas\":[{\"TotalInvoiceAmount\":0,\"Modified\":\"2022-06-02 14:00:43\",\"InvAmount\":4934837.55,\"Creator\":20286,\"OtherAmount\":200,\"PinvCode\":null,\"Created\":\"2022-06-02 14:00:42\",\"PinvDate\":\"0001-01-01 08:00:00\",\"Remark\":\"【清算-批量应付生成】\",\"TaxRate\":\"0.00\",\"SellerId\":\"32135\",\"Modifier\":20286,\"SrcPinvId\":0,\"IsAdjustCost\":null,\"PaymentStatus\":\"0\",\"Status\":\"Confirmed\",\"PinvId\":4739,\"PayableDate\":\"2022-06-02 00:00:00\",\"IoId\":0,\"PaymentDate\":\"0001-01-01 08:00:00\",\"CoId\":12252,\"ModifierName\":\"open_test\",\"PayableType\":\"采购应付\",\"InvType\":\"1\",\"PinvNumber\":null,\"PaidAmount\":0,\"free_items\":[{\"PinvId\":4739,\"PayId\":11478,\"CoId\":12252,\"Amount\":200,\"Seller\":\"\",\"Remark\":\"\"}],\"Type\":null,\"SupplierName\":null,\"items\":[{\"PinvId\":4739,\"IoId\":5825697,\"InvQty\":10,\"IpinvId\":10163,\"IoiId\":\"11172311\",\"CoId\":12252,\"Qty\":10,\"Amount\":20000,\"InvAmount\":20000,\"OId\":129420,\"SkuId\":\"rkj001\",\"AdjustAmount\":0}],\"CreatorName\":\"open_test\",\"TS\":1744800394}],\"page_index\":1,\"has_next\":false,\"page_size\":50}}",
                 JstQueryShengsuanPayableResponse.class

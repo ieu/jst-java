@@ -12,6 +12,8 @@ import io.github.ieu.jst.crossborder.DefaultJstCrossBorderClient;
 import io.github.ieu.jst.crossborder.JstCrossBorderClient;
 import io.github.ieu.jst.finance.DefaultJstFinanceClient;
 import io.github.ieu.jst.finance.JstFinanceClient;
+import io.github.ieu.jst.general.DefaultJstGeneralClient;
+import io.github.ieu.jst.general.JstGeneralClient;
 import io.github.ieu.jst.inventory.DefaultJstInventoryClient;
 import io.github.ieu.jst.inventory.JstInventoryClient;
 import io.github.ieu.jst.item.DefaultJstItemClient;
@@ -220,6 +222,14 @@ public class DefaultJstClient implements JstClient {
         return (JstAuthClient) clientCache.computeIfAbsent(
                 JstAuthClient.class,
                 k -> new DefaultJstAuthClient(configuration)
+        );
+    }
+
+    @Override
+    public JstGeneralClient general() {
+        return (JstGeneralClient) clientCache.computeIfAbsent(
+                JstGeneralClient.class,
+                k -> new DefaultJstGeneralClient(configuration)
         );
     }
 }

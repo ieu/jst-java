@@ -1,4 +1,14 @@
 package io.github.ieu.jst.http;
 
-public interface JstHttpMessageConverter<T> extends JstHttpInputMessageConverter<T>, JstHttpOutputMessageConverter<T> {
+import java.io.IOException;
+
+public interface JstHttpMessageConverter<T> {
+
+    boolean canRead(Class<?> clazz, JstMediaType contentType);
+
+    T read(Class<?> clazz, JstHttpInputMessage message) throws IOException;
+
+    boolean canWrite(Class<?> clazz, JstMediaType contentType);
+
+    void write(T value, JstHttpOutputMessage message) throws IOException;
 }

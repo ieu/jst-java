@@ -15,7 +15,8 @@ class Jackson2JsonJstHttpMessageConverterTest {
 
     @Test
     void canRead_shouldReturnTrueWhenJstTokenResponsePassedIn() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         Jackson2JsonJstHttpMessageConverter<JstTokenResponse> converter = new Jackson2JsonJstHttpMessageConverter<>(objectMapper);
         assertTrue(converter.canRead(JstTokenResponse.class, JstMediaType.APPLICATION_JSON));
     }
@@ -23,7 +24,8 @@ class Jackson2JsonJstHttpMessageConverterTest {
     @Test
     @SneakyThrows
     void read_shouldReturnJstTokenResponseObjectWhenGetInitTokenResponseGiven() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         Jackson2JsonJstHttpMessageConverter<JstTokenResponse> converter = new Jackson2JsonJstHttpMessageConverter<>(objectMapper);
         JstTokenResponse response = converter.read(
                 JstTokenResponse.class,
@@ -43,7 +45,8 @@ class Jackson2JsonJstHttpMessageConverterTest {
     @Test
     @SneakyThrows
     void read_shouldReturnJstTokenResponseObjectWhenRefreshTokenResponseGiven() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         Jackson2JsonJstHttpMessageConverter<JstTokenResponse> converter = new Jackson2JsonJstHttpMessageConverter<>(objectMapper);
         JstTokenResponse response = converter.read(
                 JstTokenResponse.class,

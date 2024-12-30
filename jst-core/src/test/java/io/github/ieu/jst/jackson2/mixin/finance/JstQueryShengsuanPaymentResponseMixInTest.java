@@ -13,7 +13,8 @@ class JstQueryShengsuanPaymentResponseMixInTest {
     @Test
     @SneakyThrows
     void shouldApplyMixInWhenRead() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         JstQueryShengsuanPaymentResponse response = objectMapper.readValue(
                 "{\"msg\":\"执行成功\",\"code\":0,\"data\":{\"datas\":[{\"Account\":\"\",\"Labs\":null,\"PayAccountName\":\"账户名称\",\"Modified\":\"2022-06-02 17:57:15\",\"PayAccountNumber\":\"银行账号\",\"Creator\":20286,\"Ispaid\":\"True\",\"SellerType\":\"供应商\",\"Remark\":\"【清算-应付生成付款】\",\"Created\":\"2022-06-02 00:00:00\",\"PaidDate\":\"2022-06-02 00:00:00\",\"PayDate\":\"2022-06-02 00:00:00\",\"PayId\":11480,\"SellerId\":53802,\"Modifier\":20286,\"Status\":\"Confirmed\",\"PayAmount\":0,\"CoId\":12252,\"PayProBank\":\"开户银行\",\"Amount\":2475,\"ModifierName\":\"open_test\",\"LessAmount\":0,\"Payway\":\"应付付款\",\"Seller\":\"测试112233\",\"PoId\":0,\"items\":[{\"Type\":\"应付付款\",\"IoId\":4741,\"PayId\":11480,\"CoId\":12252,\"Amount\":2475,\"Autoid\":5547,\"PoId\":0}],\"CreatorName\":\"open_test\",\"TS\":1829392274}],\"page_index\":1,\"has_next\":false,\"page_size\":50}}",
                 JstQueryShengsuanPaymentResponse.class

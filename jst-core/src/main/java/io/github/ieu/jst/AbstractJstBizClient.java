@@ -2,9 +2,11 @@ package io.github.ieu.jst;
 
 import io.github.ieu.jst.auth.*;
 import io.github.ieu.jst.http.*;
+import io.github.ieu.jst.type.TypeReference;
 import lombok.Getter;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.time.Duration;
 import java.util.Optional;
@@ -28,7 +30,11 @@ public abstract class AbstractJstBizClient {
         this.jsonSerializer = configuration.getJsonSerializer();
     }
 
-    protected <T, U> U execute(String path, T params, Class<U> targetClass) {
+    protected <T, U> U execute(String path, T params, TypeReference<U> typeReference) {
+        return execute(path, params, typeReference.getType());
+    }
+
+    protected <T, U> U execute(String path, T params, Type targetType) {
         String appKey = credential.getAppKey();
         String accessToken = getAccessToken();
         String biz = jsonSerializer.serialize(params);
@@ -41,10 +47,10 @@ public abstract class AbstractJstBizClient {
 
         request.setSign(digest.sign(request));
 
-        return executeInternal(path, request, targetClass);
+        return executeInternal(path, request, targetType);
     }
 
-    private <T, U> U executeInternal(String path, T params, Class<U> targetClass) {
+    private <T, U> U executeInternal(String path, T params, Type targetType) {
         JstHttpHeaders requestHeaders = new JstHttpHeaders();
         requestHeaders.setContentType(JstMediaType.APPLICATION_FORM_URLENCODED);
         DefaultJstRequestEntity<Object> requestEntity = new DefaultJstRequestEntity<>()
@@ -54,7 +60,7 @@ public abstract class AbstractJstBizClient {
                 .setBody(params);
         JstResponseEntity<U> responseEntity = httpClient.execute(
                 requestEntity,
-                targetClass
+                targetType
         );
         return responseEntity.getBody();
     }

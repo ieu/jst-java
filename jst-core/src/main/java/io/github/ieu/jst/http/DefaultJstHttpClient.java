@@ -1,11 +1,15 @@
 package io.github.ieu.jst.http;
 
 import io.github.ieu.jst.JstClientException;
+import io.github.ieu.jst.type.TypeFactory;
+import io.github.ieu.jst.type.TypeReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,25 +34,20 @@ public class DefaultJstHttpClient implements JstHttpClient {
         this.httpMessageConverters.addAll(converters);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     @SneakyThrows
-    public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Class<U> targetType) {
+    public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Type targetType) {
         JstHttpResponse response = null;
         try {
             JstHttpRequest request = requestFactory.create(requestEntity);
 
             T requestBody = requestEntity.getBody();
-            Class<?> requestBodyType = requestBody.getClass();
-
-            JstHttpMessageConverter<?> outputMessageConverter = determineOutputConverter(requestBodyType, request.getHeaders().getContentType());
-            ((JstHttpMessageConverter<T>) outputMessageConverter).write(requestBody, request);
+            writeRequest(request, requestBody);
 
             response = request.execute();
             int statusCode = response.getStatusCode();
 
-            JstHttpMessageConverter<?> inputMessageConverter = determineInputConverter(targetType, response.getHeaders().getContentType());
-            U responseBody = ((JstHttpMessageConverter<U>) inputMessageConverter).read(targetType, response);
+            U responseBody = readResponse(response, targetType);
 
             return new DefaultJstResponseEntity<U>()
                     .setStatusCode(statusCode)
@@ -60,23 +59,40 @@ public class DefaultJstHttpClient implements JstHttpClient {
         }
     }
 
-    private JstHttpMessageConverter<?> determineInputConverter(Class<?> clazz, JstMediaType contentType) {
-        for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
-            if (converter.canRead(clazz, contentType)) {
-                return converter;
-            }
-        }
-
-        throw new JstClientException(String.format("No HttpMessageConverter for %s", clazz.getName()));
+    @Override
+    public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, TypeReference<U> typeReference) {
+        return execute(requestEntity, typeReference.getType());
     }
 
-    private JstHttpMessageConverter<?> determineOutputConverter(Class<?> clazz, JstMediaType contentType) {
+    @SuppressWarnings("unchecked")
+    private <T> void writeRequest(JstHttpRequest request, T requestBody) throws IOException {
+        Class<?> requestBodyType = requestBody.getClass();
+        JstMediaType contentType = request.getHeaders().getContentType();
         for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
-            if (converter.canWrite(clazz, contentType)) {
-                return converter;
+            if (converter.canWrite(requestBodyType, contentType)) {
+                ((JstHttpMessageConverter<T>) converter).write(requestBody, request);
+                return;
             }
         }
 
-        throw new JstClientException(String.format("No HttpMessageConverter for %s", clazz.getName()));
+        throw new JstClientException(String.format("No HttpMessageConverter for %s", requestBodyType.getName()));
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T> T readResponse(JstHttpResponse response, Type targetType) throws IOException {
+        JstMediaType contentType = response.getHeaders().getContentType();
+        for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
+            if (converter instanceof JstGenericHttpMessageConverter<?>) {
+                if (((JstGenericHttpMessageConverter<?>) converter).canRead(targetType, contentType)) {
+                    return (T) ((JstGenericHttpMessageConverter<?>) converter).read(targetType, response);
+                }
+            } else {
+                if (converter.canRead(TypeFactory.rawClass(targetType), contentType)) {
+                    return (T) converter.read(TypeFactory.rawClass(targetType), response);
+                }
+            }
+        }
+
+        throw new JstClientException(String.format("No HttpMessageConverter for %s", targetType));
     }
 }

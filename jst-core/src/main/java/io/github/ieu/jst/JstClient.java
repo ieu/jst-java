@@ -6,6 +6,7 @@ import io.github.ieu.jst.auth.JstAuthClient;
 import io.github.ieu.jst.base.JstBaseClient;
 import io.github.ieu.jst.crossborder.JstCrossBorderClient;
 import io.github.ieu.jst.finance.JstFinanceClient;
+import io.github.ieu.jst.general.JstGeneralClient;
 import io.github.ieu.jst.inventory.JstInventoryClient;
 import io.github.ieu.jst.item.JstItemClient;
 import io.github.ieu.jst.logistics.JstLogisticsClient;
@@ -127,4 +128,9 @@ public interface JstClient {
      * 授权API
      */
     JstAuthClient auth();
+
+    /**
+     * 通用API
+     */
+    JstGeneralClient general();
 }

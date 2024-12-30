@@ -48,13 +48,27 @@ import io.github.ieu.jst.supplychainopen.JstQueryGoodsDetailResponse;
 import io.github.ieu.jst.warehouse.JstCreateLwhOperationRequest;
 import io.github.ieu.jst.wms.JstLoadSkusnResponse;
 import io.github.ieu.jst.wms.JstQuickSaleArrivalResponse;
-import lombok.experimental.UtilityClass;
 
 import java.time.ZonedDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
-@UtilityClass
-public class DefaultObjectMapperFactory {
-    public static ObjectMapper create() {
+public class DefaultObjectMapperFactory implements ObjectMapperFactory {
+
+    private final Map<Class<?>, Class<?>> mixInAnnotations = new HashMap<>();
+
+    public DefaultObjectMapperFactory mixInAnnotation(Class<?> targetType, Class<?> mixinClass) {
+        mixInAnnotations.put(targetType, mixinClass);
+        return this;
+    }
+
+    public DefaultObjectMapperFactory mixInAnnotations(Map<? extends Class<?>, ? extends Class<?>> mixInAnnotations) {
+        this.mixInAnnotations.putAll(mixInAnnotations);
+        return this;
+    }
+
+    @Override
+    public ObjectMapper create() {
         SimpleModule simpleModule = new SimpleModule();
         simpleModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer());
         simpleModule.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
@@ -124,6 +138,10 @@ public class DefaultObjectMapperFactory {
         simpleModule.setMixInAnnotation(JstLoadSkusnResponse.class, JstLoadSkusnResponseMixIn.class);
         simpleModule.setMixInAnnotation(JstLoadSkusnResponse.Pagination.class, JstLoadSkusnResponseMixIn.Pagination.class);
         simpleModule.setMixInAnnotation(JstLoadSkusnResponse.Pagination.Item.class, JstLoadSkusnResponseMixIn.Pagination.Item.class);
+
+        if (!mixInAnnotations.isEmpty()) {
+            mixInAnnotations.forEach(simpleModule::setMixInAnnotation);
+        }
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(simpleModule);

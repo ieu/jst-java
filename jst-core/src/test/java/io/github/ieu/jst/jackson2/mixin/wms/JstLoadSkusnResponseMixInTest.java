@@ -13,7 +13,8 @@ class JstLoadSkusnResponseMixInTest {
     @Test
     @SneakyThrows
     void shouldApplyMixInWhenRead() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         JstLoadSkusnResponse response = objectMapper.readValue(
                 "{\"msg\":\"执行成功\",\"code\":0,\"data\":{\"MaxId\":0,\"Items\":[{\"AreaBin\":\"AreaBin\",\"SourceType\":\"SourceType\",\"ArriveNum\":\"ArriveNum\",\"IsArrive\":\"IsArrive\",\"PKey\":\"PKey\",\"FromOId\":0,\"IsCanceled\":\"IsCanceled\",\"Area\":\"Area\",\"Qty\":0,\"FromOiId\":0,\"MinPurchaseDate\":\"MinPurchaseDate\",\"SkuSn\":\"SkuSn\",\"LogisticsCompany\":\"LogisticsCompany\",\"SkuId\":\"SkuId\"}],\"HasNext\":true},\"issuccess\":\"\"}",
                 JstLoadSkusnResponse.class

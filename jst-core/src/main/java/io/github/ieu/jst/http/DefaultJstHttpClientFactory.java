@@ -5,6 +5,7 @@ import io.github.ieu.jst.http.converter.Jackson2JsonJstHttpMessageConverter;
 import io.github.ieu.jst.http.converter.SimpleUrlEncodedFormJstHttpMessageConverter;
 import io.github.ieu.jst.http.httpurlconnection.HttpURLConnectionJstHttpRequestFactory;
 import io.github.ieu.jst.jackson2.DefaultObjectMapperFactory;
+import io.github.ieu.jst.jackson2.ObjectMapperFactory;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -20,7 +21,15 @@ public class DefaultJstHttpClientFactory implements JstHttpClientFactory {
     @Setter
     private JstHttpRequestFactory httpRequestFactory;
 
+    @Setter
+    private ObjectMapperFactory objectMapperFactory;
+
     private final List<JstHttpMessageConverter<?>> httpMessageConverters = new ArrayList<>();
+
+    public DefaultJstHttpClientFactory objectMapper(ObjectMapper objectMapper) {
+        this.objectMapperFactory = () -> objectMapper;
+        return this;
+    }
 
     public DefaultJstHttpClientFactory httpMessageConverter(JstHttpMessageConverter<?> httpMessageConverter) {
         this.httpMessageConverters.add(httpMessageConverter);
@@ -39,7 +48,11 @@ public class DefaultJstHttpClientFactory implements JstHttpClientFactory {
 
         List<JstHttpMessageConverter<?>> httpMessageConverters = this.httpMessageConverters;
         if (httpMessageConverters.isEmpty()) {
-            ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+            ObjectMapperFactory objectMapperFactory = this.objectMapperFactory;
+            if (objectMapperFactory == null) {
+                objectMapperFactory = new DefaultObjectMapperFactory();
+            }
+            ObjectMapper objectMapper = objectMapperFactory.create();
             httpMessageConverters = Arrays.asList(
                     new Jackson2JsonJstHttpMessageConverter<>(objectMapper),
                     new SimpleUrlEncodedFormJstHttpMessageConverter<>()

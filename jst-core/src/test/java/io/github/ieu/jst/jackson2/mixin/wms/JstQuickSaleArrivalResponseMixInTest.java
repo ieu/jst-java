@@ -13,7 +13,8 @@ class JstQuickSaleArrivalResponseMixInTest {
     @Test
     @SneakyThrows
     void shouldApplyMixInWhenRead() {
-        ObjectMapper objectMapper = DefaultObjectMapperFactory.create();
+        DefaultObjectMapperFactory objectMapperFactory = new DefaultObjectMapperFactory();
+        ObjectMapper objectMapper = objectMapperFactory.create();
         JstQuickSaleArrivalResponse response = objectMapper.readValue(
                 "{\"data\":{\"Status\":0,\"Area\":\"A\",\"AreaBin\":\"8-1\",\"PKey\":\"多\",\"ArriveNum\":3,\"UnArriveNum\":0,\"LogisticsCompany\":\"德邦快递\",\"MinPurchaseDate\":null,\"IsArrive\":false},\"code\":0,\"issuccess\":true,\"msg\":\"执行成功\"}",
                 JstQuickSaleArrivalResponse.class
