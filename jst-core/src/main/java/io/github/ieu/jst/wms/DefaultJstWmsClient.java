@@ -27,6 +27,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=436">快销到货</a>
+     */
+    @Override
+    public JstQuickSaleArrivalSpec quickSaleArrival() {
+        return new JstQuickSaleArrivalSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=450">根据箱号查询箱内商品推荐仓位</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=450">根据箱号查询箱内商品推荐仓位</a>
+     */
+    @Override
+    public JstFindSkuBinSpec findSkuBin() {
+        return new JstFindSkuBinSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=593">发货-强制审核单件商品缺货订单</a>
+     */
+    @Override
+    public JstConfirmSingleOrderCheckoutSpec confirmSingleOrderCheckout() {
+        return new JstConfirmSingleOrderCheckoutSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=386">获取推荐仓位</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=386">获取推荐仓位</a>
+     */
+    @Override
+    public JstGetRecommendBinSpec getRecommendBin() {
+        return new JstGetRecommendBinSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=925">查询极速发货订单数</a>
+     */
+    @Override
+    public JstGetFastDeliveryOrderCountSpec getFastDeliveryOrderCount() {
+        return new JstGetFastDeliveryOrderCountSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=986">发货装箱</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=986">发货装箱</a>
+     */
+    @Override
+    public JstAddShippingPackSpec addShippingPack() {
+        return new JstAddShippingPackSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=996">唯一码进出流水查询</a>
+     */
+    @Override
+    public JstQueryInOutItemSkusnsSpec queryInOutItemSkusns() {
+        return new JstQueryInOutItemSkusnsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=1030">打包机保存视频记录</a>
      */
     @Override
@@ -108,6 +164,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=1030">打包机保存视频记录</a>
+     */
+    @Override
+    public JstSaveIpcVedioRecordSpec saveIpcVedioRecord() {
+        return new JstSaveIpcVedioRecordSpec(this);
     }
 
     /**
@@ -123,6 +187,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=180">更新批次拣货状态</a>
+     */
+    @Override
+    public JstUploadWaveStatusSpec uploadWaveStatus() {
+        return new JstUploadWaveStatusSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=73">强制审核单件商品缺货订单并入库</a>
      */
     @Override
@@ -132,6 +204,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=73">强制审核单件商品缺货订单并入库</a>
+     */
+    @Override
+    public JstConfirmSingleOrderSpec confirmSingleOrder() {
+        return new JstConfirmSingleOrderSpec(this);
     }
 
     /**
@@ -147,6 +227,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=76">查询WMS工作日志</a>
+     */
+    @Override
+    public JstGetWorkLogSpec getWorkLog() {
+        return new JstGetWorkLogSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=112">拣货批次管理查询</a>
      */
     @Override
@@ -156,6 +244,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=112">拣货批次管理查询</a>
+     */
+    @Override
+    public JstLoadWavesByFilterSpec loadWavesByFilter() {
+        return new JstLoadWavesByFilterSpec(this);
     }
 
     /**
@@ -171,6 +267,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=154">工作量补入</a>
+     */
+    @Override
+    public JstAppendWorkloadSpec appendWorkload() {
+        return new JstAppendWorkloadSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=159">机器人获取批次</a>
      */
     @Override
@@ -180,6 +284,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=159">机器人获取批次</a>
+     */
+    @Override
+    public JstQueryPickWaveSpec queryPickWave() {
+        return new JstQueryPickWaveSpec(this);
     }
 
     /**
@@ -195,6 +307,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=160">批次预占重算</a>
+     */
+    @Override
+    public JstQueryPreReduceWaveSpec queryPreReduceWave() {
+        return new JstQueryPreReduceWaveSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=161">获取正在等待拣货的预占信息</a>
      */
     @Override
@@ -204,6 +324,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=161">获取正在等待拣货的预占信息</a>
+     */
+    @Override
+    public JstGetWaitPickReduceStockSpec getWaitPickReduceStock() {
+        return new JstGetWaitPickReduceStockSpec(this);
     }
 
     /**
@@ -219,6 +347,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=172">指定机器人批次</a>
+     */
+    @Override
+    public JstAssignAgvWaveSpec assignAgvWave() {
+        return new JstAssignAgvWaveSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=173">查询快销唯一码信息</a>
      */
     @Override
@@ -228,6 +364,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=173">查询快销唯一码信息</a>
+     */
+    @Override
+    public JstLoadSkusnSpec loadSkusn() {
+        return new JstLoadSkusnSpec(this);
     }
 
     /**
@@ -243,6 +387,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=54">进出仓流水</a>
+     */
+    @Override
+    public JstQueryInOutWaterSpec queryInOutWater() {
+        return new JstQueryInOutWaterSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=212">快销-获取订单替换商品分析</a>
      */
     @Override
@@ -252,6 +404,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=212">快销-获取订单替换商品分析</a>
+     */
+    @Override
+    public JstLoadOrderChangeStatisticsSpec loadOrderChangeStatistics() {
+        return new JstLoadOrderChangeStatisticsSpec(this);
     }
 
     /**
@@ -267,6 +427,14 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=252">跟踪信息查询</a>
+     */
+    @Override
+    public JstQuerySkusnSpec querySkusn() {
+        return new JstQuerySkusnSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=322">生成快销标签</a>
      */
     @Override
@@ -276,5 +444,13 @@ public class DefaultJstWmsClient extends AbstractJstBizClient implements JstWmsC
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=22&docId=322">生成快销标签</a>
+     */
+    @Override
+    public JstCreateSkusnSpec createSkusn() {
+        return new JstCreateSkusnSpec(this);
     }
 }

@@ -6,9 +6,13 @@ import java.util.Map;
 
 public interface JstGeneralClient {
 
-    <T, R> R execute(String path, T request, Class<R> responseType);
+    <T, R> R request(String path, T params, Class<R> responseType);
 
-    <T, R> R execute(String path, T request, TypeReference<R> typeReference);
+    <T, R> R request(String path, T params, TypeReference<R> typeReference);
 
-    Map<String, Object> execute(String path, Map<String, Object> request);
+    <T> JstTypedRequestSpec<T> request(Class<T> paramType);
+
+    Map<String, Object> request(String path, Map<String, Object> params);
+
+    JstMappedRequestSpec request();
 }

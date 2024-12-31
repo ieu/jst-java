@@ -25,4 +25,12 @@ public class DefaultJstWorkOrderClient extends AbstractJstBizClient implements J
         }
         return response;
     }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=46&docId=1011">商家更新工单数据</a>
+     */
+    @Override
+    public JstUpdateWorkOrderSpec updateWorkOrder() {
+        return new JstUpdateWorkOrderSpec(this);
+    }
 }

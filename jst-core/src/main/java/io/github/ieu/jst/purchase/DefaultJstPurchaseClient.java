@@ -27,6 +27,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=26">采购单查询</a>
+     */
+    @Override
+    public JstQueryPurchaseSpec queryPurchase() {
+        return new JstQueryPurchaseSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=27">采购单上传</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=27">采购单上传</a>
+     */
+    @Override
+    public JstUploadPurchaseSpec uploadPurchase() {
+        return new JstUploadPurchaseSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=28">供应商上传</a>
+     */
+    @Override
+    public JstUploadSupplierSpec uploadSupplier() {
+        return new JstUploadSupplierSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=29">供应商查询</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=29">供应商查询</a>
+     */
+    @Override
+    public JstQuerySupplierSpec querySupplier() {
+        return new JstQuerySupplierSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=52">加工单查询</a>
+     */
+    @Override
+    public JstQueryManufactureSpec queryManufacture() {
+        return new JstQueryManufactureSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=55">加工单上传</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=55">加工单上传</a>
+     */
+    @Override
+    public JstUploadManufactureSpec uploadManufacture() {
+        return new JstUploadManufactureSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=63">采购单加工单标签（新增/移除）</a>
+     */
+    @Override
+    public JstUploadPurchaseLabelSpec uploadPurchaseLabel() {
+        return new JstUploadPurchaseLabelSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=92">预约入库上传</a>
      */
     @Override
@@ -108,6 +164,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=92">预约入库上传</a>
+     */
+    @Override
+    public JstUploadAppointmentInSpec uploadAppointmentIn() {
+        return new JstUploadAppointmentInSpec(this);
     }
 
     /**
@@ -123,6 +187,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=156">预约入库查询列表</a>
+     */
+    @Override
+    public JstQueryPurchaseBookingSpec queryPurchaseBooking() {
+        return new JstQueryPurchaseBookingSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=193">变更采购单状态</a>
      */
     @Override
@@ -132,6 +204,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=193">变更采购单状态</a>
+     */
+    @Override
+    public JstChangePurchaseStatusSpec changePurchaseStatus() {
+        return new JstChangePurchaseStatusSpec(this);
     }
 
     /**
@@ -147,6 +227,14 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=452">采购单/加工单/预约入库单作废</a>
+     */
+    @Override
+    public JstCancelPurchaseSpec cancelPurchase() {
+        return new JstCancelPurchaseSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=698">修改采购单</a>
      */
     @Override
@@ -156,5 +244,13 @@ public class DefaultJstPurchaseClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=6&docId=698">修改采购单</a>
+     */
+    @Override
+    public JstEditPurchaseSpec editPurchase() {
+        return new JstEditPurchaseSpec(this);
     }
 }

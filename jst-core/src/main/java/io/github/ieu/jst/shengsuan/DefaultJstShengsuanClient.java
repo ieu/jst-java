@@ -27,6 +27,14 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=973">获取胜算平台原始账单</a>
+     */
+    @Override
+    public JstGetOpenAlipayBillRecordsSpec getOpenAlipayBillRecords() {
+        return new JstGetOpenAlipayBillRecordsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=972">获取胜算店铺级推广费</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=972">获取胜算店铺级推广费</a>
+     */
+    @Override
+    public JstGetOpenAlipayPromotionFeeSpec getOpenAlipayPromotionFee() {
+        return new JstGetOpenAlipayPromotionFeeSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=971">获取胜算链接级推广费数据</a>
+     */
+    @Override
+    public JstGetOpenPfPromotionShopItemSpec getOpenPfPromotionShopItem() {
+        return new JstGetOpenPfPromotionShopItemSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=970">获取胜算日常记账数据</a>
      */
     @Override
@@ -60,5 +84,13 @@ public class DefaultJstShengsuanClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=970">获取胜算日常记账数据</a>
+     */
+    @Override
+    public JstGetOpenFeeFlowingSpec getOpenFeeFlowing() {
+        return new JstGetOpenFeeFlowingSpec(this);
     }
 }

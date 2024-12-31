@@ -27,6 +27,14 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=10&docId=42">其它出入库查询</a>
+     */
+    @Override
+    public JstQueryOtherInOutSpec queryOtherInOut() {
+        return new JstQueryOtherInOutSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=10&docId=43">新建其它出入库</a>
      */
     @Override
@@ -39,6 +47,14 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=10&docId=43">新建其它出入库</a>
+     */
+    @Override
+    public JstUploadOtherInOutSpec uploadOtherInOut() {
+        return new JstUploadOtherInOutSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=10&docId=223">其它出入库状态变更</a>
      */
     @Override
@@ -48,5 +64,13 @@ public class DefaultJstOtherStockingClient extends AbstractJstBizClient implemen
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=10&docId=223">其它出入库状态变更</a>
+     */
+    @Override
+    public JstCancelOtherInOutSpec cancelOtherInOut() {
+        return new JstCancelOtherInOutSpec(this);
     }
 }

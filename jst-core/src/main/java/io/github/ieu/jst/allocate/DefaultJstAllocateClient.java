@@ -27,6 +27,14 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=47">调拨单查询</a>
+     */
+    @Override
+    public JstQueryAllocateSpec queryAllocate() {
+        return new JstQueryAllocateSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=48">库存调拨上传（跨仓调拨）</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=48">库存调拨上传（跨仓调拨）</a>
+     */
+    @Override
+    public JstUploadKcAllocateSpec uploadKcAllocate() {
+        return new JstUploadKcAllocateSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=49">库存调拨上传（仓内调拨）</a>
+     */
+    @Override
+    public JstUploadInAllocateSpec uploadInAllocate() {
+        return new JstUploadInAllocateSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=64">调拨单确认</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=64">调拨单确认</a>
+     */
+    @Override
+    public JstConfirmAllocateSpec confirmAllocate() {
+        return new JstConfirmAllocateSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=266">调拨单取消</a>
+     */
+    @Override
+    public JstCancelAllocateV2Spec cancelAllocateV2() {
+        return new JstCancelAllocateV2Spec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=357">创建调拨差异单</a>
      */
     @Override
@@ -84,5 +124,13 @@ public class DefaultJstAllocateClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=12&docId=357">创建调拨差异单</a>
+     */
+    @Override
+    public JstCreateDiffAllocateSpec createDiffAllocate() {
+        return new JstCreateDiffAllocateSpec(this);
     }
 }

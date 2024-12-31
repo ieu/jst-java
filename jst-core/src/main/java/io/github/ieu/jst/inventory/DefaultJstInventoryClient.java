@@ -27,6 +27,14 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=15">商品库存查询</a>
+     */
+    @Override
+    public JstQueryInventorySpec queryInventory() {
+        return new JstQueryInventorySpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=16">库存盘点查询</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=16">库存盘点查询</a>
+     */
+    @Override
+    public JstQueryInventoryCountSpec queryInventoryCount() {
+        return new JstQueryInventoryCountSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=78">箱及仓位库存查询</a>
+     */
+    @Override
+    public JstQueryPackSpec queryPack() {
+        return new JstQueryPackSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=85">新建盘点单-修改库存</a>
      */
     @Override
@@ -63,6 +87,14 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=85">新建盘点单-修改库存</a>
+     */
+    @Override
+    public JstUploadInventoryV2Spec uploadInventoryV2() {
+        return new JstUploadInventoryV2Spec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=631">导入/更新虚拟库存</a>
      */
     @Override
@@ -72,5 +104,13 @@ public class DefaultJstInventoryClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=631">导入/更新虚拟库存</a>
+     */
+    @Override
+    public JstBatchUpdateWmsVirtualQtysSpec batchUpdateWmsVirtualQtys() {
+        return new JstBatchUpdateWmsVirtualQtysSpec(this);
     }
 }

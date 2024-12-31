@@ -11,9 +11,19 @@ public interface JstShengsuanClient {
     JstGetOpenAlipayBillRecordsResponse getOpenAlipayBillRecords(JstGetOpenAlipayBillRecordsRequest request);
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=973">获取胜算平台原始账单</a>
+     */
+    JstGetOpenAlipayBillRecordsSpec getOpenAlipayBillRecords();
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=972">获取胜算店铺级推广费</a>
      */
     JstGetOpenAlipayPromotionFeeResponse getOpenAlipayPromotionFee(JstGetOpenAlipayPromotionFeeRequest request);
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=972">获取胜算店铺级推广费</a>
+     */
+    JstGetOpenAlipayPromotionFeeSpec getOpenAlipayPromotionFee();
 
     /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=971">获取胜算链接级推广费数据</a>
@@ -21,7 +31,17 @@ public interface JstShengsuanClient {
     JstGetOpenPfPromotionShopItemResponse getOpenPfPromotionShopItem(JstGetOpenPfPromotionShopItemRequest request);
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=971">获取胜算链接级推广费数据</a>
+     */
+    JstGetOpenPfPromotionShopItemSpec getOpenPfPromotionShopItem();
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=970">获取胜算日常记账数据</a>
      */
     JstGetOpenFeeFlowingResponse getOpenFeeFlowing(JstGetOpenFeeFlowingRequest request);
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=36&docId=970">获取胜算日常记账数据</a>
+     */
+    JstGetOpenFeeFlowingSpec getOpenFeeFlowing();
 }

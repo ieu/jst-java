@@ -27,6 +27,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=38">退货退款查询</a>
+     */
+    @Override
+    public JstQuerySingleRefundSpec querySingleRefund() {
+        return new JstQuerySingleRefundSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=40">实际收货查询</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=40">实际收货查询</a>
+     */
+    @Override
+    public JstQueryAfterSaleReceivedSpec queryAfterSaleReceived() {
+        return new JstQueryAfterSaleReceivedSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=41">售后上传</a>
+     */
+    @Override
+    public JstUploadAfterSaleSpec uploadAfterSale() {
+        return new JstUploadAfterSaleSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=124">售后上传（无信息件)</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=124">售后上传（无信息件)</a>
+     */
+    @Override
+    public JstUploadNoInfoAfterSaleSpec uploadNoInfoAfterSale() {
+        return new JstUploadNoInfoAfterSaleSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=272">售后-确认收到货物（可分批确认）</a>
+     */
+    @Override
+    public JstConfirmAfterSaleGoodsSpec confirmAfterSaleGoods() {
+        return new JstConfirmAfterSaleGoodsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=579">售后单反确认</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=579">售后单反确认</a>
+     */
+    @Override
+    public JstUnconfirmAfterSaleSpec unconfirmAfterSale() {
+        return new JstUnconfirmAfterSaleSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=581">售后单确认</a>
+     */
+    @Override
+    public JstConfirmAfterSaleSpec confirmAfterSale() {
+        return new JstConfirmAfterSaleSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=743">唯一码批量确认收货</a>
      */
     @Override
@@ -111,6 +167,14 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=743">唯一码批量确认收货</a>
+     */
+    @Override
+    public JstConfirmGoodsBySkusnsSpec confirmGoodsBySkusns() {
+        return new JstConfirmGoodsBySkusnsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=982">退款单查询</a>
      */
     @Override
@@ -120,5 +184,13 @@ public class DefaultJstAfterSaleClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=9&docId=982">退款单查询</a>
+     */
+    @Override
+    public JstPayQueryAsModifiedAfterSaleSpec payQueryAsModifiedAfterSale() {
+        return new JstPayQueryAsModifiedAfterSaleSpec(this);
     }
 }

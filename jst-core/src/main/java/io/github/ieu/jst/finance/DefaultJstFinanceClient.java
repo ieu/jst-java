@@ -27,6 +27,14 @@ public class DefaultJstFinanceClient extends AbstractJstBizClient implements Jst
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=49&docId=153">付款单查询</a>
+     */
+    @Override
+    public JstQueryShengsuanPaymentSpec queryShengsuanPayment() {
+        return new JstQueryShengsuanPaymentSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=49&docId=318">应付单查询</a>
      */
     @Override
@@ -36,5 +44,13 @@ public class DefaultJstFinanceClient extends AbstractJstBizClient implements Jst
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=49&docId=318">应付单查询</a>
+     */
+    @Override
+    public JstQueryShengsuanPayableSpec queryShengsuanPayable() {
+        return new JstQueryShengsuanPayableSpec(this);
     }
 }

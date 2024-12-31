@@ -27,6 +27,14 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=5&docId=23">批量快递登记</a>
+     */
+    @Override
+    public JstUploadExpressRegisterSpec uploadExpressRegister() {
+        return new JstUploadExpressRegisterSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=5&docId=24">称重并发货/快递分拣</a>
      */
     @Override
@@ -39,6 +47,14 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=5&docId=24">称重并发货/快递分拣</a>
+     */
+    @Override
+    public JstUploadOrderWeightSendSpec uploadOrderWeightSend() {
+        return new JstUploadOrderWeightSendSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=5&docId=25">发货信息查询</a>
      */
     @Override
@@ -48,5 +64,13 @@ public class DefaultJstLogisticsClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=5&docId=25">发货信息查询</a>
+     */
+    @Override
+    public JstQueryLogisticSpec queryLogistic() {
+        return new JstQueryLogisticSpec(this);
     }
 }

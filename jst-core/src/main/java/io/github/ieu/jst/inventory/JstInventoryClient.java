@@ -11,9 +11,19 @@ public interface JstInventoryClient {
     JstQueryInventoryResponse queryInventory(JstQueryInventoryRequest request);
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=15">商品库存查询</a>
+     */
+    JstQueryInventorySpec queryInventory();
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=16">库存盘点查询</a>
      */
     JstQueryInventoryCountResponse queryInventoryCount(JstQueryInventoryCountRequest request);
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=16">库存盘点查询</a>
+     */
+    JstQueryInventoryCountSpec queryInventoryCount();
 
     /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=78">箱及仓位库存查询</a>
@@ -21,12 +31,27 @@ public interface JstInventoryClient {
     JstQueryPackResponse queryPack(JstQueryPackRequest request);
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=78">箱及仓位库存查询</a>
+     */
+    JstQueryPackSpec queryPack();
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=85">新建盘点单-修改库存</a>
      */
     JstUploadInventoryV2Response uploadInventoryV2(JstUploadInventoryV2Request request);
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=85">新建盘点单-修改库存</a>
+     */
+    JstUploadInventoryV2Spec uploadInventoryV2();
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=631">导入/更新虚拟库存</a>
      */
     JstBatchUpdateWmsVirtualQtysResponse batchUpdateWmsVirtualQtys(JstBatchUpdateWmsVirtualQtysRequest request);
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=3&docId=631">导入/更新虚拟库存</a>
+     */
+    JstBatchUpdateWmsVirtualQtysSpec batchUpdateWmsVirtualQtys();
 }

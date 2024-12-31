@@ -27,6 +27,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=111">绑定播种车</a>
+     */
+    @Override
+    public JstBindBinIdCarryIdToWaveSpec bindBinIdCarryIdToWave() {
+        return new JstBindBinIdCarryIdToWaveSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=188">获取播种批次信息（支持新版三方仓查询）</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=188">获取播种批次信息（支持新版三方仓查询）</a>
+     */
+    @Override
+    public JstGetJushuitanWaveSpec getJushuitanWave() {
+        return new JstGetJushuitanWaveSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=194">播种回传（出库）</a>
+     */
+    @Override
+    public JstCallbackSeedSpec callbackSeed() {
+        return new JstCallbackSeedSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=232">根据播种车号解绑出库单</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=232">根据播种车号解绑出库单</a>
+     */
+    @Override
+    public JstUnbindInOutByCarryIdSpec unbindInOutByCarryId() {
+        return new JstUnbindInOutByCarryIdSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=456">播种回传（不出库）</a>
+     */
+    @Override
+    public JstReturnSeedSpec returnSeed() {
+        return new JstReturnSeedSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=467">解绑批次拣货车/播种车</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=467">解绑批次拣货车/播种车</a>
+     */
+    @Override
+    public JstUnbindWaveCarryIdSpec unbindWaveCarryId() {
+        return new JstUnbindWaveCarryIdSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=729">绑定播种柜号和播种车</a>
+     */
+    @Override
+    public JstBindBinIdCarryIdSpec bindBinIdCarryId() {
+        return new JstBindBinIdCarryIdSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=730">校验播种车的状态是否可用</a>
      */
     @Override
@@ -108,5 +164,13 @@ public class DefaultJstSeedClient extends AbstractJstBizClient implements JstSee
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=51&docId=730">校验播种车的状态是否可用</a>
+     */
+    @Override
+    public JstCheckCarryIdSpec checkCarryId() {
+        return new JstCheckCarryIdSpec(this);
     }
 }

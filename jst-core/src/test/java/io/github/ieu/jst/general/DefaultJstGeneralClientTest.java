@@ -2,7 +2,6 @@ package io.github.ieu.jst.general;
 
 import io.github.ieu.jst.JstConfiguration;
 import io.github.ieu.jst.auth.TestJstTokenStore;
-import io.github.ieu.jst.base.JstQueryShopsRequest;
 import io.github.ieu.jst.http.TestJstHttpClientFactory;
 import io.github.ieu.jst.http.TestJstHttpRequestFactory;
 import io.github.ieu.jst.type.TypeReference;
@@ -10,8 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DefaultJstGeneralClientTest {
 
+    @SuppressWarnings("unchecked")
     @Test
-    void executeMap_shouldWorkProperly() {
+    void requestMapped_shouldWorkProperly() {
         DefaultJstGeneralClient client = new DefaultJstGeneralClient(
                 JstConfiguration.builder()
                         .endpoint("https://dev-api.jushuitan.com")
@@ -35,9 +35,10 @@ class DefaultJstGeneralClientTest {
                         )
                         .build()
         );
-        Map<String, Object> request = new HashMap<>();
-        request.put("shop_ids", Collections.singletonList(10394533));
-        Map<String, Object> response = client.execute("/open/shops/query", request);
+        Map<String, Object> response = client.request()
+                .path("/open/shops/query")
+                .param("shop_ids", Collections.singletonList(10394533))
+                .response();
         assertNotNull(response);
         assertEquals("执行成功", response.get("msg"));
         assertEquals(0, response.get("code"));
@@ -65,7 +66,7 @@ class DefaultJstGeneralClientTest {
     }
 
     @Test
-    void executeTypeReference_shouldWorkProperly() {
+    void requestTyped_shouldWorkProperly() {
         DefaultJstGeneralClient client = new DefaultJstGeneralClient(
                 JstConfiguration.builder()
                         .endpoint("https://dev-api.jushuitan.com")
@@ -80,10 +81,11 @@ class DefaultJstGeneralClientTest {
                         )
                         .build()
         );
-        JstQueryShopsRequest request = JstQueryShopsRequest.builder()
-                .shopIds(Collections.singletonList(10394533))
-                .build();
-        Response<Pagination<List<Shop>>> response = client.execute("/open/shops/query", request, new TypeReference<Response<Pagination<List<Shop>>>>() {});
+        Response<Pagination<List<Shop>>> response = client.request(Request.class)
+                .path("/open/shops/query")
+                .param(Request::new)
+                .param(Request::addShopId, 10394533)
+                .response(new TypeReference<Response<Pagination<List<Shop>>>>() {});
         assertNotNull(response);
         assertEquals("执行成功", response.getMsg());
         assertEquals(0, response.getCode());
@@ -105,6 +107,21 @@ class DefaultJstGeneralClientTest {
         assertEquals(707, response.getData().getDatas().get(0).getGroupId());
         assertNull(response.getData().getDatas().get(0).getShopUrl());
         assertEquals("", response.getData().getDatas().get(0).getShortName());
+    }
+
+    @Getter
+    @Setter
+    static class Request {
+
+        private Integer pageIndex;
+
+        private Integer pageSize;
+
+        private java.util.List<Integer> shopIds = new ArrayList<>();
+
+        public void addShopId(Integer shopId) {
+            this.shopIds.add(shopId);
+        }
     }
 
     @Getter

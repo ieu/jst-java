@@ -27,6 +27,14 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=1">店铺查询</a>
+     */
+    @Override
+    public JstQueryShopsSpec queryShops() {
+        return new JstQueryShopsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=2">物流公司查询</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=2">物流公司查询</a>
+     */
+    @Override
+    public JstQueryLogisticsCompanySpec queryLogisticsCompany() {
+        return new JstQueryLogisticsCompanySpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=3">仓库查询</a>
+     */
+    @Override
+    public JstQueryWmsPartnerSpec queryWmsPartner() {
+        return new JstQueryWmsPartnerSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=430">供销商查询</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=430">供销商查询</a>
+     */
+    @Override
+    public JstQueryMySupplierByPartnerChannelSpec queryMySupplierByPartnerChannel() {
+        return new JstQueryMySupplierByPartnerChannelSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=611">商家用户信息</a>
+     */
+    @Override
+    public JstGetCompanyUsersSpec getCompanyUsers() {
+        return new JstGetCompanyUsersSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=955">分销商查询</a>
      */
     @Override
@@ -84,5 +124,13 @@ public class DefaultJstBaseClient extends AbstractJstBizClient implements JstBas
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=1&docId=955">分销商查询</a>
+     */
+    @Override
+    public JstQueryMyChannelBySupplierSpec queryMyChannelBySupplier() {
+        return new JstQueryMyChannelBySupplierSpec(this);
     }
 }

@@ -12,16 +12,27 @@ public class DefaultJstGeneralClient extends AbstractJstBizClient implements Jst
         super(configuration);
     }
 
-    public <T, R> R execute(String path, T request, Class<R> responseType) {
-        return super.execute(path, request, responseType);
+    public <T, R> R request(String path, T params, Class<R> responseType) {
+        return super.execute(path, params, responseType);
     }
 
     @Override
-    public <T, R> R execute(String path, T request, TypeReference<R> typeReference) {
-        return super.execute(path, request, typeReference);
+    public <T, R> R request(String path, T params, TypeReference<R> typeReference) {
+        return super.execute(path, params, typeReference);
     }
 
-    public Map<String, Object> execute(String path, Map<String, Object> request) {
-        return super.execute(path, request, new TypeReference<Map<String, Object>>() {});
+    @Override
+    public <T> JstTypedRequestSpec<T> request(Class<T> paramType) {
+        return new JstTypedRequestSpec<>(this);
+    }
+
+    public Map<String, Object> request(String path, Map<String, Object> params) {
+        return super.execute(path, params, new TypeReference<Map<String, Object>>() {
+        });
+    }
+
+    @Override
+    public JstMappedRequestSpec request() {
+        return new JstMappedRequestSpec(this);
     }
 }

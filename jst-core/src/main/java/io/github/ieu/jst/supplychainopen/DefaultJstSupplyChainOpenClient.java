@@ -27,6 +27,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=648">通用资料根据父类目ID查询子类目</a>
+     */
+    @Override
+    public JstQueryCategoryByPidSpec queryCategoryByPid() {
+        return new JstQueryCategoryByPidSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=429">供应商价格及库存商品列表</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=429">供应商价格及库存商品列表</a>
+     */
+    @Override
+    public JstQueryDiserpGoodsDataSpec queryDiserpGoodsData() {
+        return new JstQueryDiserpGoodsDataSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=91">生成商品图片链接</a>
+     */
+    @Override
+    public JstUploadImageToOssSpec uploadImageToOss() {
+        return new JstUploadImageToOssSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=99">批量更新商品分销状态</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=99">批量更新商品分销状态</a>
+     */
+    @Override
+    public JstBatchUpdateDistributionStatusSpec batchUpdateDistributionStatus() {
+        return new JstBatchUpdateDistributionStatusSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=98">更新通用商品资料</a>
+     */
+    @Override
+    public JstUpdateGoodsSpec updateGoods() {
+        return new JstUpdateGoodsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=97">查询通用商品资料列表</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=97">查询通用商品资料列表</a>
+     */
+    @Override
+    public JstQueryGoodsListSpec queryGoodsList() {
+        return new JstQueryGoodsListSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=96">查询通用商品资料详情</a>
+     */
+    @Override
+    public JstQueryGoodsDetailSpec queryGoodsDetail() {
+        return new JstQueryGoodsDetailSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=95">添加通用商品资料</a>
      */
     @Override
@@ -111,6 +167,14 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=95">添加通用商品资料</a>
+     */
+    @Override
+    public JstAddGoodsSpec addGoods() {
+        return new JstAddGoodsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=94">查询OSS授权信息</a>
      */
     @Override
@@ -120,5 +184,13 @@ public class DefaultJstSupplyChainOpenClient extends AbstractJstBizClient implem
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=28&docId=94">查询OSS授权信息</a>
+     */
+    @Override
+    public JstQueryOssSignatureSpec queryOssSignature() {
+        return new JstQueryOssSignatureSpec(this);
     }
 }

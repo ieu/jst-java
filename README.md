@@ -2,17 +2,33 @@
 
 ## 使用方法
 
+初始化：
+
 ```java
 JstConfiguration configuration = JstConfiguration.builder()
         .endpoint("https://openapi.jushuitan.com")
         .credential("Your App Key", "Your App Secret")
         .build();
 JstClient client = new DefaultJstClient(configuration);
+```
+
+方式一：
+
+```java
 JstBaseClient baseClient = client.base();
 JstQueryShopsRequest request = JstQueryShopsRequest.builder()
         .shopIds(Arrays.asList(12343451, 17138865))
         .build();
 JstQueryShopsResponse response = baseClient.queryShops(request);
+```
+
+方式二：
+
+```java
+JstQueryShopsResponse response = client.base()
+        .queryShops()
+        .shopIds(Arrays.asList(12343451, 17138865))
+        .response();
 ```
 
 ## Spring Boot 集成

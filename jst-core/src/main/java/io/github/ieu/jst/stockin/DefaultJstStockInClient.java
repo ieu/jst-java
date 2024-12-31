@@ -27,6 +27,14 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=31">采购入库查询</a>
+     */
+    @Override
+    public JstQueryPurchaseInSpec queryPurchaseIn() {
+        return new JstQueryPurchaseInSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=32">入库单确认</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=32">入库单确认</a>
+     */
+    @Override
+    public JstUploadPurchaseInReceivedSpec uploadPurchaseInReceived() {
+        return new JstUploadPurchaseInReceivedSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=270">生成采购入库单-支持批量</a>
+     */
+    @Override
+    public JstCreatePurchaseInBatchSpec createPurchaseInBatch() {
+        return new JstCreatePurchaseInBatchSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=670">批量录入唯一码</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=670">批量录入唯一码</a>
+     */
+    @Override
+    public JstBatchAddSkusnSimpleSpec batchAddSkusnSimple() {
+        return new JstBatchAddSkusnSimpleSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=671">批量录入箱唯一码</a>
+     */
+    @Override
+    public JstBatchAddPacksnSpec batchAddPacksn() {
+        return new JstBatchAddPacksnSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=901">采购入库查询</a>
      */
     @Override
@@ -84,5 +124,13 @@ public class DefaultJstStockInClient extends AbstractJstBizClient implements Jst
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=7&docId=901">采购入库查询</a>
+     */
+    @Override
+    public JstQueryPurchaseInDetailsSpec queryPurchaseInDetails() {
+        return new JstQueryPurchaseInDetailsSpec(this);
     }
 }

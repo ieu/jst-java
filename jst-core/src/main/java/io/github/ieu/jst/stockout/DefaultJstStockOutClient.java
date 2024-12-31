@@ -27,6 +27,14 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=34">销售出库查询</a>
+     */
+    @Override
+    public JstQueryOrderOutSimpleSpec queryOrderOutSimple() {
+        return new JstQueryOrderOutSimpleSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=35">出库发货</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=35">出库发货</a>
+     */
+    @Override
+    public JstUploadWmsSentOrdersSpec uploadWmsSentOrders() {
+        return new JstUploadWmsSentOrdersSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=36">采购退货查询</a>
+     */
+    @Override
+    public JstQueryPurchaseOutSpec queryPurchaseOut() {
+        return new JstQueryPurchaseOutSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=93">采购退货取消</a>
      */
     @Override
@@ -63,6 +87,14 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=93">采购退货取消</a>
+     */
+    @Override
+    public JstCancelPurchaseOutSpec cancelPurchaseOut() {
+        return new JstCancelPurchaseOutSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=269">生成采购退货单-支持批量</a>
      */
     @Override
@@ -72,5 +104,13 @@ public class DefaultJstStockOutClient extends AbstractJstBizClient implements Js
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=8&docId=269">生成采购退货单-支持批量</a>
+     */
+    @Override
+    public JstCreatePurchaseOutBatchSpec createPurchaseOutBatch() {
+        return new JstCreatePurchaseOutBatchSpec(this);
     }
 }

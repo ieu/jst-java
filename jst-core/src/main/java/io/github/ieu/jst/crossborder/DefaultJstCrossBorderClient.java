@@ -27,6 +27,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=1110">跨境售后单查询</a>
+     */
+    @Override
+    public JstGetCbRefundsSpec getCbRefunds() {
+        return new JstGetCbRefundsSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=1109">跨境订单查询</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=1109">跨境订单查询</a>
+     */
+    @Override
+    public JstGetCbOrdersSpec getCbOrders() {
+        return new JstGetCbOrdersSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=891">创建头程单</a>
+     */
+    @Override
+    public JstCreateFirstCbTripSpec createFirstCbTrip() {
+        return new JstCreateFirstCbTripSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=787">【收费】获取跨境轨迹详情</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=787">【收费】获取跨境轨迹详情</a>
+     */
+    @Override
+    public JstGetCbLogisticsTrackDetailSpec getCbLogisticsTrackDetail() {
+        return new JstGetCbLogisticsTrackDetailSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=502">1688商品映射推送</a>
+     */
+    @Override
+    public JstMapSkuMapSpec mapSkuMap() {
+        return new JstMapSkuMapSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=489">尾程运费回写接口</a>
      */
     @Override
@@ -87,6 +127,14 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=489">尾程运费回写接口</a>
+     */
+    @Override
+    public JstSaveCbExpressStatementFeeSpec saveCbExpressStatementFee() {
+        return new JstSaveCbExpressStatementFeeSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=297">查询调拨单头程费用</a>
      */
     @Override
@@ -96,5 +144,13 @@ public class DefaultJstCrossBorderClient extends AbstractJstBizClient implements
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=44&docId=297">查询调拨单头程费用</a>
+     */
+    @Override
+    public JstLoadAllocateFeeSpec loadAllocateFee() {
+        return new JstLoadAllocateFeeSpec(this);
     }
 }

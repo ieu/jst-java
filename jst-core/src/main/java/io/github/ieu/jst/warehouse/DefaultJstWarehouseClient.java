@@ -27,6 +27,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=340">虚拟仓调拨单据分页接口</a>
+     */
+    @Override
+    public JstGetLwhAllocationListSpec getLwhAllocationList() {
+        return new JstGetLwhAllocationListSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=341">虚拟仓分配归还单据分页接口</a>
      */
     @Override
@@ -36,6 +44,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=341">虚拟仓分配归还单据分页接口</a>
+     */
+    @Override
+    public JstGetLwhOperationListSpec getLwhOperationList() {
+        return new JstGetLwhOperationListSpec(this);
     }
 
     /**
@@ -51,6 +67,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=342">虚拟仓调拨单创建接口</a>
+     */
+    @Override
+    public JstCreateLwhAllocationSpec createLwhAllocation() {
+        return new JstCreateLwhAllocationSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=343">虚拟仓分配/归还单据创建接口</a>
      */
     @Override
@@ -60,6 +84,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=343">虚拟仓分配/归还单据创建接口</a>
+     */
+    @Override
+    public JstCreateLwhOperationSpec createLwhOperation() {
+        return new JstCreateLwhOperationSpec(this);
     }
 
     /**
@@ -75,6 +107,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=490">获取虚拟仓列表</a>
+     */
+    @Override
+    public JstGetWarehouseListSpec getWarehouseList() {
+        return new JstGetWarehouseListSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=625">虚拟仓商品库存查询</a>
      */
     @Override
@@ -84,6 +124,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=625">虚拟仓商品库存查询</a>
+     */
+    @Override
+    public JstGetVirtualStockSpec getVirtualStock() {
+        return new JstGetVirtualStockSpec(this);
     }
 
     /**
@@ -99,6 +147,14 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
     }
 
     /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=799">创建/更新虚拟仓采购申请</a>
+     */
+    @Override
+    public JstCreateOrUpdateLockPurchaseSpec createOrUpdateLockPurchase() {
+        return new JstCreateOrUpdateLockPurchaseSpec(this);
+    }
+
+    /**
      * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=802">查询虚拟仓采购单</a>
      */
     @Override
@@ -108,5 +164,13 @@ public class DefaultJstWarehouseClient extends AbstractJstBizClient implements J
             throw new JstServerException(String.format("%d %s", response.getCode(), response.getMsg()));
         }
         return response;
+    }
+
+    /**
+     * <a href="https://openweb.jushuitan.com/dev-doc?docType=43&docId=802">查询虚拟仓采购单</a>
+     */
+    @Override
+    public JstGetPageLockPurchasesSpec getPageLockPurchases() {
+        return new JstGetPageLockPurchasesSpec(this);
     }
 }
