@@ -7,10 +7,12 @@ import io.github.ieu.jst.http.JstHttpClient;
 import io.github.ieu.jst.http.JstHttpClientFactory;
 import io.github.ieu.jst.http.JstRequestEntity;
 import io.github.ieu.jst.http.JstResponseEntity;
+import io.github.ieu.jst.type.TypeReference;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.time.Duration;
 import java.util.Optional;
@@ -96,7 +98,12 @@ class JstAutoConfigurationTest {
 
             static class TestJstHttpClient implements JstHttpClient {
                 @Override
-                public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Class<U> clazz) {
+                public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, Type targetType) {
+                    throw new UnsupportedOperationException("execute not implemented");
+                }
+
+                @Override
+                public <T, U> JstResponseEntity<U> execute(JstRequestEntity<T> requestEntity, TypeReference<U> typeReference) {
                     throw new UnsupportedOperationException("execute not implemented");
                 }
             }
