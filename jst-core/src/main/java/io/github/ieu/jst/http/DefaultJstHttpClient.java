@@ -66,6 +66,10 @@ public class DefaultJstHttpClient implements JstHttpClient {
 
     @SuppressWarnings("unchecked")
     private <T> void writeRequest(JstHttpRequest request, T requestBody) throws IOException {
+        if (requestBody == null) {
+            return;
+        }
+
         Class<?> requestBodyType = requestBody.getClass();
         JstMediaType contentType = request.getHeaders().getContentType();
         for (JstHttpMessageConverter<?> converter : httpMessageConverters) {
